@@ -13,8 +13,8 @@
  */
 
 get_header(); ?>
-
-	<div id="primary" class="content-area">
+	<div class="whitespace"></div>
+	<div id="primary" class="container">
 		<main id="main" class="site-main" role="main">
 
 			<?php

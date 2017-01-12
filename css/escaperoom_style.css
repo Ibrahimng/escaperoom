@@ -25,7 +25,9 @@ p {
     line-height: 25px;
     font-size: 15px;
 }
-
+.whitespace {
+    height: 60px;
+}
 .padding_top_50{
     padding-top: 50px;
 }
