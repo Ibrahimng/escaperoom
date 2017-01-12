@@ -1,0 +1,21 @@
+@media (max-width: 776px) {
+.explore_location_list .explore_item {
+    margin-bottom: 25px;
+}	
+a.feature_item {
+    margin-bottom: 25px;
+}	
+.service_item {
+    margin-bottom: 60px;
+}
+.feature_video_item {
+    margin-bottom: 25px;
+}
+section#feature_video_section .section_header h4 {
+    padding: 5px !important;
+}
+.pull-right {
+    float: left !important;
+    margin-top: 20px;
+}
+}
