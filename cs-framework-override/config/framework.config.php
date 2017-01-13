@@ -274,34 +274,84 @@ $options[]   = array(
      ),
     ),// End 
 
-  /*--------------- Company Section -----------------------*/
+  /*--------------- Feature Video Section -----------------------*/
   array(
     'type'    => 'heading',
-    'content' => 'Full Width Categorie',
+    'content' => 'Feature Video Section',
   ),
   array(
-    'id'         => 'fullcategories',
-    'type'       => 'textarea',
-    'title'      => 'Categorie',
-    'shortcode' => true,
+    'id'      => 'feature_video_title',
+    'type'    => 'text',
+    'help'    => 'Feature Video Section Title',
+    'title'   => 'Section Title',
+    'attributes' => array(
+      'placeholder' => 'Feature Video Escaperoom'
+    )
+  ),
+   array(
+  'id'         => 'feature_video_subtitle',
+  'type'       => 'textarea',
+  'title'      => 'Section Subtitle',
   ),
   array(
-    'id'         => 'categorie_right',
-    'type'       => 'textarea',
-    'title'      => 'Categorie Right',
-    'shortcode' => true,
-  ),
-  /*--------------- Company Section -----------------------*/
+  'id'              => 'feature_video_item',
+  'type'            => 'group',
+  'title'           => 'Feature Video Items',
+  'button_title'    => 'Add Feature Video Item',
+  'accordion_title' => 'Add New Feature Video Item',
+  'fields'          => array(
+     array(
+    'id'      => 'video_id',
+    'type'    => 'text',
+    'help'    => 'Add  Vimeo Video Id',
+    'title'   => 'Vimeo Video Id',
+    'attributes' => array(
+      'placeholder' => '51589652'
+      )
+     ),
+ ),
+),// End 
+  /*--------------- Testimonial Section -----------------------*/
   array(
     'type'    => 'heading',
-    'content' => 'Footer Top Categorie',
+    'content' => 'Testimonial Section',
   ),
-  array(
-    'id'         => 'categorie_ftop',
-    'type'       => 'textarea',
-    'title'      => 'Categorie',
-    'shortcode' => true,
-  ),
+      array(
+      'id'              => 'testimoials',
+      'type'            => 'group',
+      'title'           => 'Testimonial Items',
+      'button_title'    => 'Add Testimonial Item',
+      'accordion_title' => 'Add New Testimonial Item',
+      'fields'          => array(
+         array(
+        'id'      => 'clinet_name',
+        'type'    => 'text',
+        'help'    => 'Add Testimonial Client Name',
+        'title'   => 'Testimonial Client Name',
+        'attributes' => array(
+          'placeholder' => 'MR. CLAY'
+          )
+         ),
+         array(
+        'id'      => 'client_location',
+        'type'    => 'text',
+        'help'    => 'Add Testimonial Location',
+        'title'   => 'Testimonial Location',
+        'attributes' => array(
+          'placeholder' => 'UNITED STATES'
+          )
+         ),
+       array(
+        'id'         => 'client_text',
+        'type'       => 'textarea',
+        'title'      => 'Testimonial Content',
+        'help'    => 'Add Testimonial Content is here',
+        'attributes' => array(
+          'placeholder' => 'Testimonial Content'
+        )
+        ),
+     ),
+    ),// End 
 ));
 
 

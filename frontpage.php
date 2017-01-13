@@ -237,7 +237,6 @@ get_header(); ?>
                             </div>
                         <?php }
                     }
-                echo '</div>';
             ?>
 
             </div>
@@ -249,27 +248,39 @@ get_header(); ?>
         <div class="container">
             <div class="row">
                 <div class="section_header">
-                   <h1>Feature Video</h1>
-                    <h4>Find studios in your city, or explore unique ones around the world.</h4>
+                    <?php  $feature_video_title = cs_get_option( 'feature_video_title' );
+                        if($feature_video_title):
+                        echo '<h1>'.$feature_video_title.'</h1>';
+                        ?>
+                        <?php else: ?>
+                        <h1>Feature Video</h1>       
+                    <?php  endif; ?>    
+
+                    <?php  $feature_video_subtitle = cs_get_option( 'feature_video_subtitle' );
+                        if($feature_video_subtitle):
+                        echo '<h4>'.$feature_video_subtitle.'</h4>';
+                        ?>
+                        <?php else: ?>
+                         <h4>Find studios in your city, or explore unique ones around the world.</h4>     
+                    <?php  endif; ?>    
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="feature_video_item">
-                        <iframe width="500" height="281" src="https://www.youtube.com/embed/nrJtHemSPW4?feature=oembed" frameborder="0" allowfullscreen=""></iframe>
-
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="feature_video_item">
-                        <iframe src="https://player.vimeo.com/video/51589652" width="500" height="281" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="feature_video_item">
-                        <iframe src="https://player.vimeo.com/video/51589652" width="500" height="281" frameborder="0" title="Timelapse - Lighthouse (Oct 2012)" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                    </div>
-                </div>
+                <?php  
+                $feature_video_items = cs_get_option( 'feature_video_item' );
+                    
+                    if(is_array($feature_video_items)){
+                        foreach($feature_video_items as $feature_video_item) { 
+                             $video_id = $feature_video_item['video_id'];
+                            ?>
+                             <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="feature_video_item">
+                                    <iframe src="https://player.vimeo.com/video/<?php echo $video_id; ?>" width="500" height="281" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                                </div>  
+                            </div>
+                        <?php }
+                    }
+                  ?>
             </div>
         </div>    
     </section> 
@@ -283,29 +294,24 @@ get_header(); ?>
                <div class="col-md-12 col-sm-12 col-xs-12">
                   <!-- Testimonial Slider -->
                   <div class="testimonial_slider">
-                     <!-- Single Testimonial -->
-                     <div class="testimonial_single text-center">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariaturUt enim ad minim veniam. </p>
-                        <h5 class="client_name">MR. CLAY</h5>
-                        <span class="client_location">UNITED STATES</span>
-                     </div>
-                     <!-- /Single Testimonial -->
 
-                     <!-- Single Testimonial -->
-                     <div class="testimonial_single text-center">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariaturUt enim ad minim veniam. </p>
-                        <h5 class="client_name">MR. CLAY</h5>
-                        <span class="client_location">UNITED STATES</span>
-                     </div>
-                     <!-- /Single Testimonial -->
+                <?php  
+                $testimoials = cs_get_option( 'testimoials' );
+                    
+                    if(is_array($testimoials)){
+                        foreach($testimoials as $testimoial) { 
+                             $clinet_name = $testimoial['clinet_name'];
+                             $client_location = $testimoial['client_location'];
+                             $client_text = $testimoial['client_text'];
+                            ?>
+                              <div class="testimonial_single text-center">
+                                <p><?php echo $client_text; ?></p>
+                                <h5 class="client_name"><?php echo $clinet_name; ?></h5>
+                                <span class="client_location"><?php echo $client_location; ?></span>
+                             </div>
+                        <?php }
+                    }
+                  ?>
                   </div>
                   <!-- /Testimonial Slider -->
                </div>
