@@ -157,3 +157,5 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/required_plugins.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+require get_template_directory() . '/inc/custom-taxonomy.php';
+require get_template_directory() . '/inc/dokan-hooks.php';
