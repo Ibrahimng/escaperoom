@@ -113,6 +113,200 @@ $options[]   = array(
   ) // end: General section
 ); // end: General Setting
 
+
+
+// ------------------------------
+// Homepage setting                      -
+// ------------------------------
+$options[]   = array(
+  'name'     => 'homepage_setting',
+  'title'    => 'Homepage Setup',
+  'icon'     => 'fa fa-home',
+  'fields'   => array(
+  /*--------------- Slider -----------------------------*/
+    array(
+      'type'    => 'heading',
+      'content' => 'Banner Section',
+    ),
+    array(
+      'id'              => 'home_slider',
+      'type'            => 'upload',
+      'title'           => 'Slider Banner',
+      'button_title'    => 'Add Slider',
+      'accordion_title' => 'Add New Slider',
+    ),
+    array(
+      'id'      => 'slider_title',
+      'type'    => 'text',
+      'help'    => 'Book Escapper Anywhere',
+      'title'   => 'Slider Title',
+      'attributes' => array(
+        'placeholder' => 'Book Escapper Anywhere'
+      )
+    ),
+     array(
+    'id'         => 'slider_subtitle',
+    'type'       => 'textarea',
+    'title'      => 'Slider Subtitle',
+  ),
+
+
+
+
+  /*--------------- Explore City Section -----------------------*/
+  array(
+    'type'    => 'heading',
+    'content' => 'Explore City Section',
+  ),
+  array(
+    'id'      => 'explore_city_title',
+    'type'    => 'text',
+    'help'    => 'Explore Escaperoom',
+    'title'   => 'Section Title',
+    'attributes' => array(
+      'placeholder' => 'Explore Escaperoom'
+    )
+  ),
+   array(
+  'id'         => 'explore_city_subtitle',
+  'type'       => 'textarea',
+  'title'      => 'Section Subtitle',
+),
+  array(
+    'id'              => 'cat_section',
+    'type'            => 'group',
+    'title'           => 'Categories Section',
+    'button_title'    => 'Add New',
+    'accordion_title' => 'Add New Column',
+    'fields'          => array(
+      array(
+        'id'    => 'categoriecolumn',
+        'type'  => 'textarea',
+        'title' => 'Content',
+        'shortcode' => true,
+      ),
+    ),
+  ),// End
+
+  /*--------------- Features Escaperoom -----------------------*/
+   array(
+    'type'    => 'heading',
+    'content' => 'Features Escaperoom Section',
+  ),
+    array(
+    'id'      => 'fature_escaperoom',
+    'type'    => 'text',
+    'help'    => 'Features Escaperoom',
+    'title'   => 'Section Title',
+    'attributes' => array(
+      'placeholder' => 'Features Escaperoom'
+    )
+  ),
+    array(
+      'id'              => 'ssss',
+      'type'            => 'group',
+      'title'           => 'Slider',
+      'button_title'    => 'Add Slider',
+      'accordion_title' => 'Add New Slider',
+      'fields'          => array(
+        // Slider Images
+        array(
+          'id'    => 'img',
+          'type'  => 'upload',
+          'title' => 'Upload Images',
+        ),
+        array(
+          'id'    => 'url',
+          'type'  => 'text',
+          'title' => 'Url',
+        ),
+    ),
+  ),// End 
+
+  /*--------------- How it work -----------------------*/
+  array(
+    'type'    => 'heading',
+    'content' => 'How it Work Section',
+  ),
+    array(
+    'id'      => 'howitwork',
+    'type'    => 'text',
+    'help'    => 'How It Work',
+    'title'   => 'Section Title',
+    'attributes' => array(
+      'placeholder' => 'How It Work'
+    )
+  ),
+    array(
+      'id'              => 'service_item',
+      'type'            => 'group',
+      'title'           => 'Service Items',
+      'button_title'    => 'Add Servie Item',
+      'accordion_title' => 'Add New Servie Item',
+      'fields'          => array(
+         array(
+        'id'      => 'servie_icon',
+        'type'    => 'text',
+        'help'    => 'Add Service Font Awesome Icon',
+        'title'   => 'Service Icon',
+        'attributes' => array(
+          'placeholder' => 'fa-toggle-on'
+          )
+         ),
+         array(
+        'id'      => 'servie_title',
+        'type'    => 'text',
+        'help'    => 'Add Service Title is here',
+        'title'   => 'Service Title',
+        'attributes' => array(
+          'placeholder' => 'Servie Title'
+          )
+         ),
+       array(
+        'id'         => 'servie_subtitle',
+        'type'       => 'textarea',
+        'title'      => 'Service Subtitle',
+        'help'    => 'Add Service Subtitle is here',
+        'attributes' => array(
+          'placeholder' => 'Servie SubTitle'
+        )
+        ),
+     ),
+    ),// End 
+
+  /*--------------- Company Section -----------------------*/
+  array(
+    'type'    => 'heading',
+    'content' => 'Full Width Categorie',
+  ),
+  array(
+    'id'         => 'fullcategories',
+    'type'       => 'textarea',
+    'title'      => 'Categorie',
+    'shortcode' => true,
+  ),
+  array(
+    'id'         => 'categorie_right',
+    'type'       => 'textarea',
+    'title'      => 'Categorie Right',
+    'shortcode' => true,
+  ),
+  /*--------------- Company Section -----------------------*/
+  array(
+    'type'    => 'heading',
+    'content' => 'Footer Top Categorie',
+  ),
+  array(
+    'id'         => 'categorie_ftop',
+    'type'       => 'textarea',
+    'title'      => 'Categorie',
+    'shortcode' => true,
+  ),
+));
+
+
+
+
 // ------------------------------
 // Google analytics                      -
 // ------------------------------

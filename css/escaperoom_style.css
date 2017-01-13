@@ -748,3 +748,7 @@ Advantage 3d Section
     font-size: 20px;
     color: #DDD;
 }
+/* vendor dashboard style */
+main#main {
+    margin: 20px 0px;
+}

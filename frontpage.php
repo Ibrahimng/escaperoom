@@ -3,15 +3,29 @@
 Template name: FrontPage
 */
 get_header(); ?>
-    <div class="intro-header" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/intro-bg.jpg');">
+  <?php  $slider_banner = cs_get_option( 'home_slider' ); ?>
+    <div class="intro-header" style="background-image: url('<?php if($slider_banner): echo $slider_banner; else: echo get_template_directory_uri(); ?>/img/intro-bg.jpg <?php endif; ?>');">
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Book Studiotime Anywhere</h1>
-                        <h2>Listify helps you find out whats happening in your city, Let's explore.</h2>
+                        <?php  $slider_title = cs_get_option( 'slider_title' );
+                        if($slider_title):
+                        echo '<h1>'.$slider_title.'</h1>';
+                        ?>
+                        <?php else: ?>
+                         <h1>Book Escaperoom Anywhere</h1>       
+                        <?php  endif; ?>
                         
+                        <?php  $slider_subtitle = cs_get_option( 'slider_subtitle' );
+                        if($slider_subtitle):
+                        echo '<h2>'.$slider_subtitle.'<h2>';
+                        ?>
+                        <?php else: ?>
+                          <h2>Listify helps you find out whats happening in your city, Let's explore.</h2>      
+                        <?php  endif; ?>
+                       
                         <form action="">
                             <div class="b_location_form">
                                 <div class="input_location">
@@ -45,9 +59,24 @@ get_header(); ?>
     <section id="explore_location">
         <div class="container">
             <div class="row">
-                <div class="section_header">
-                    <h1>Explore Studios</h1>
-                    <h4>Find studios in your city, or explore unique ones around the world.</h4>
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <div class="section_header">
+                        <?php  $explore_city_title = cs_get_option( 'explore_city_title' );
+                        if($explore_city_title):
+                        echo '<h1>'.$explore_city_title.'</h1>';
+                        ?>
+                        <?php else: ?>
+                        <h1>Explore Escaperoom</h1>       
+                        <?php  endif; ?>
+
+                        <?php  $explore_city_subtitle = cs_get_option( 'explore_city_subtitle' );
+                        if($explore_city_subtitle):
+                        echo '<h4>'.$explore_city_subtitle.'</h4>';
+                        ?>
+                        <?php else: ?>
+                          <h4>Find studios in your city, or explore unique ones around the world.</h4>      
+                        <?php  endif; ?>    
+                    </div>
                 </div>
             </div>
 
@@ -124,7 +153,13 @@ get_header(); ?>
 
             <div class="row">
                  <div class="section_header">
-                    <h1>Featured Studios</h1>           
+                    <?php  $fature_escaperoom = cs_get_option( 'fature_escaperoom' );
+                        if($fature_escaperoom):
+                        echo '<h1>'.$fature_escaperoom.'</h1>';
+                        ?>
+                        <?php else: ?>
+                        <h1>Featured Escaperoom</h1>       
+                    <?php  endif; ?>    
                 </div>
             </div>
 
@@ -170,56 +205,41 @@ get_header(); ?>
         <div class="container">
 
             <div class="row">
-                 <div class="section_header">
-                    <h1>How It's Work</h1>           
+                 <div class="section_header">  
+                    <?php  $howitwork = cs_get_option( 'howitwork' );
+                        if($howitwork):
+                        echo '<h1>'.$howitwork.'</h1>';
+                        ?>
+                        <?php else: ?>
+                        <h1>How It's Work</h1>       
+                    <?php  endif; ?>                   
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-3">
-                    <div class="service_item">
-                        <div class="service_icon"> 
-                            <i class="fa fa-toggle-on"></i>
-                        </div>
-                        <div class="service_icon_content">
-                            <h4>Unlimited layouts</h4>
-                            <p>Adipisicing elit. Vero quod conseqt quibusdam, enim expedita sed quia nesciunt incidunt accusamus<br></p>
-                        </div>
-                    </div>    
-                </div>
-                <div class="col-md-3">
-                    <div class="service_item">
-                        <div class="service_icon"> 
-                            <i class="fa fa-toggle-on"></i>
-                        </div>
-                        <div class="service_icon_content">
-                            <h4>Unlimited layouts</h4>
-                            <p>Adipisicing elit. Vero quod conseqt quibusdam, enim expedita sed quia nesciunt incidunt accusamus<br></p>
-                        </div>
-                    </div>    
-                </div>
-                <div class="col-md-3">
-                    <div class="service_item">
-                        <div class="service_icon"> 
-                            <i class="fa fa-toggle-on"></i>
-                        </div>
-                        <div class="service_icon_content">
-                            <h4>Unlimited layouts</h4>
-                            <p>Adipisicing elit. Vero quod conseqt quibusdam, enim expedita sed quia nesciunt incidunt accusamus<br></p>
-                        </div>
-                    </div>    
-                </div>
-                <div class="col-md-3">
-                    <div class="service_item">
-                        <div class="service_icon"> 
-                            <i class="fa fa-toggle-on"></i>
-                        </div>
-                        <div class="service_icon_content">
-                            <h4>Unlimited layouts</h4>
-                            <p>Adipisicing elit. Vero quod conseqt quibusdam, enim expedita sed quia nesciunt incidunt accusamus<br></p>
-                        </div>
-                    </div>    
-                </div>
+
+            <?php  
+                $service_items = cs_get_option( 'service_item' );
+                    
+                    if(is_array($service_items)){
+                        foreach($service_items as $service_item) { 
+                            ?>
+                            <div class="col-md-3">
+                                <div class="service_item">
+                                    <div class="service_icon"> 
+                                        <i class="fa <?php echo $service_item['servie_icon']; ?>"></i>
+                                    </div>
+                                    <div class="service_icon_content">
+                                        <h4><?php echo $service_item['servie_title']; ?></h4>
+                                        <p><?php echo $service_item['servie_subtitle']; ?></p>
+                                    </div>
+                                </div>    
+                            </div>
+                        <?php }
+                    }
+                echo '</div>';
+            ?>
+
             </div>
 
         </div>

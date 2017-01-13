@@ -110,6 +110,11 @@ function escaperoom_register_required_plugins() {
 			'slug'      	=> 'contact-form-7',
 			'required'  	=> true,
 		),
+		array(
+			'name'      	=> 'Categories Images',
+			'slug'      	=> 'categories-images',
+			'required'  	=> true,
+		),
 	);
 
 	/*
