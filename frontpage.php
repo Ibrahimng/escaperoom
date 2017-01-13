@@ -82,62 +82,58 @@ get_header(); ?>
 
             <div class="row">
                 <div class="explore_location_list">
+                    <?php 
+                    global $esr;
+                    $locations = $esr->getLocationIDs();
+                    foreach ($locations as $k => $v) : 
+                        if($k == 0 ): 
+                    ?>
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <a href="#" class="explore_item">
+                        <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/1.jpg" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getLocationImageURL($v); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
-                                <h2>Los Angeles</h2>
+                                <h2><?php echo $esr->get_location_name($v); ?></h2>
                             </div>
                         </a>
                     </div>
+                <?php elseif ($k == 1 ):  ?>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                        <a href="#" class="explore_item">
+                        <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/2.jpg" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getLocationImageURL($v); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
-                                <h2>Los Angeles</h2>
+                                <h2><?php echo $esr->get_location_name($v); ?></h2>
                             </div>
                         </a>
                     </div>
-                </div>
+              <?php endif; endforeach; ?>
+              </div>
             </div>    
+
             <div class="row">
                 <div class="explore_location_list">
+                    <?php 
+                    $locations = $esr->getLocationIDs();
+                    foreach ($locations as $k => $v) : 
+                        if($k >= 2 && $k <= 4 ) : 
+                    ?>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                        <a href="#" class="explore_item">
+                        <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/2.jpg" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getLocationImageURL($v); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
-                                <h2>Los Angeles</h2>
+                                <h2><?php echo $esr->get_location_name($v); ?></h2>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <a href="#" class="explore_item">
-                            <div class="explore_img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/2.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="explore_title">
-                                <h2>Los Angeles</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <a href="#" class="explore_item">
-                            <div class="explore_img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/2.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="explore_title">
-                                <h2>Los Angeles</h2>
-                            </div>
-                        </a>
-                    </div>
+                <?php endif; endforeach; ?>
                 </div>    
             </div>
+
             <div class="row">
                 <div class="more_explore">
                     <a href="#">Explore more studios around the world</a>
