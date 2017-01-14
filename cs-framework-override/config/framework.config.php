@@ -355,6 +355,272 @@ $options[]   = array(
 ));
 
 
+// ------------------------------
+// Become A Vendor
+// ------------------------------
+$options[]   = array(
+  'name'     => 'become_vendor_setting',
+  'title'    => 'Become A Vendor Setup',
+  'icon'     => 'fa fa-home',
+  'fields'   => array(
+  /*--------------- Slider -----------------------------*/
+    array(
+      'type'    => 'heading',
+      'content' => 'Banner Section',
+    ),
+    array(
+      'id'              => 'vendor_banner',
+      'type'            => 'upload',
+      'title'           => 'Vendor Banner Image',
+      'button_title'    => 'Add Bannder',
+      'accordion_title' => 'Add New Vendor Banner',
+    ),
+    array(
+      'id'      => 'v_banner_btn_text',
+      'type'    => 'text',
+      'help'    => 'Become A Vendor Button Text',
+      'title'   => 'Become A Vendor Button Text',
+      'attributes' => array(
+        'placeholder' => 'Become A Vendor'
+      )
+    ),
+     array(
+    'id'         => 'v_banner_btn_link',
+    'type'       => 'textarea',
+    'title'      => 'Become A Vendor Button Link',
+    'attributes' => array(
+        'placeholder' => 'http://google.com'
+      )
+  ),
+
+
+
+
+  /*---------------  Advantage Section -----------------------*/
+  array(
+    'type'    => 'heading',
+    'content' => 'Advantage Section',
+  ),
+  array(
+    'id'      => 'advantage_title',
+    'type'    => 'text',
+    'help'    => 'Avantage Title',
+    'title'   => 'Section Title',
+    'attributes' => array(
+      'placeholder' => 'Advantage'
+    )
+  ),
+   array(
+  'id'         => 'advantage_subtitle',
+  'type'       => 'textarea',
+  'title'      => 'Section Subtitle',
+),
+
+  array(
+    'id'              => 'advantage_items',
+    'type'            => 'group',
+    'title'           => 'Advantage Items',
+    'button_title'    => 'Add Advantage Item',
+    'accordion_title' => 'Add New Advantage Item',
+    'fields'          => array(
+       array(
+      'id'      => 'advantage_icon',
+      'type'    => 'text',
+      'help'    => 'Add Ionicicon',
+      'title'   => 'Advantage Icon',
+      'attributes' => array(
+        'placeholder' => 'ion-ios-cart-outline'
+        )
+       ),
+       array(
+      'id'      => 'advantage_title',
+      'type'    => 'text',
+      'help'    => 'Add Advantage Title is here',
+      'title'   => 'Advantage Title',
+      'attributes' => array(
+        'placeholder' => 'Advantage Title'
+        )
+       ),
+       array(
+      'id'      => 'advantage_link',
+      'type'    => 'text',
+      'help'    => 'Add Advantage link is here',
+      'title'   => 'Advantage link',
+      'attributes' => array(
+        'placeholder' => 'https://google.com'
+        )
+       ),
+      array(
+      'id'         => 'advantage_content',
+      'type'       => 'textarea',
+      'title'      => 'Advantage Content',
+      'help'    => 'Add Advantage Content is here',
+      'attributes' => array(
+        'placeholder' => 'Advantage Content'
+      )
+      ),
+   ),
+  ),
+
+  array(
+    'id'      => 'advantage_more_link',
+    'type'    => 'text',
+    'help'    => 'Avantage More Link',
+    'title'   => 'Avantage More Link',
+    'attributes' => array(
+      'placeholder' => 'http://google.com'
+    )
+  ),
+
+  array(
+    'id'      => 'advantage_more_text',
+    'type'    => 'text',
+    'help'    => 'Avantage More Text',
+    'title'   => 'Avantage More Text',
+    'attributes' => array(
+      'placeholder' => 'Explore more escaperoom around the world'
+    )
+  ),// End
+
+  /*--------------- Features Escaperoom -----------------------*/
+   array(
+    'type'    => 'heading',
+    'content' => 'Escaperoom Services Info',
+  ),
+   array(
+    'id'      => 'service_info_section_title',
+    'type'    => 'text',
+    'help'    => 'Services Info Section Title',
+    'title'   => 'Section Title',
+    'attributes' => array(
+      'placeholder' => 'Escaperoom Services Info'
+    )
+  ),
+   array(
+  'id'         => 'service_info_section_subtitle',
+  'type'       => 'textarea',
+  'title'      => 'Section Subtitle',
+),
+    array(
+      'id'              => 'service_info_items',
+      'type'            => 'group',
+      'title'           => 'Service Info Items',
+      'button_title'    => 'Add Servie Info Item',
+      'accordion_title' => 'Add New Servie Info Item',
+      'fields'          => array(
+         array(
+        'id'      => 'servie_info_icon',
+        'type'    => 'text',
+        'help'    => 'Add Info Service Ionicicon Icon',
+        'title'   => 'Service Info Icon',
+        'attributes' => array(
+          'placeholder' => 'ion-android-calendar'
+          )
+         ),
+         array(
+        'id'      => 'servie_info_title',
+        'type'    => 'text',
+        'help'    => 'Add Service Info Title is here',
+        'title'   => 'Service Info Title',
+        'attributes' => array(
+          'placeholder' => 'Servie Info Title'
+          )
+         ),
+       array(
+        'id'         => 'servie_info_content',
+        'type'       => 'textarea',
+        'title'      => 'Service Info Content',
+        'help'    => 'Add Service Info Content is here',
+        'attributes' => array(
+          'placeholder' => 'Servie Info Content'
+        )
+        ),
+     ),
+    ),// End 
+
+
+
+  /*--------------- Vendor Feature Video Section -----------------------*/
+  array(
+    'type'    => 'heading',
+    'content' => 'Vendor Feature Video Section',
+  ),
+  array(
+    'id'      => 'feature_video_title',
+    'type'    => 'text',
+    'help'    => 'Feature Video Section Title',
+    'title'   => 'Section Title',
+    'attributes' => array(
+      'placeholder' => 'Feature Video Escaperoom'
+    )
+  ),
+   array(
+  'id'         => 'feature_video_subtitle',
+  'type'       => 'textarea',
+  'title'      => 'Section Subtitle',
+  ),
+  array(
+  'id'              => 'feature_video_item',
+  'type'            => 'group',
+  'title'           => 'Feature Video Items',
+  'button_title'    => 'Add Feature Video Item',
+  'accordion_title' => 'Add New Feature Video Item',
+  'fields'          => array(
+     array(
+    'id'      => 'video_id',
+    'type'    => 'text',
+    'help'    => 'Add  Vimeo Video Id',
+    'title'   => 'Vimeo Video Id',
+    'attributes' => array(
+      'placeholder' => '51589652'
+      )
+     ),
+ ),
+),// End 
+  /*--------------- Testimonial Section -----------------------*/
+  array(
+    'type'    => 'heading',
+    'content' => 'Testimonial Section',
+  ),
+      array(
+      'id'              => 'testimoials',
+      'type'            => 'group',
+      'title'           => 'Testimonial Items',
+      'button_title'    => 'Add Testimonial Item',
+      'accordion_title' => 'Add New Testimonial Item',
+      'fields'          => array(
+         array(
+        'id'      => 'clinet_name',
+        'type'    => 'text',
+        'help'    => 'Add Testimonial Client Name',
+        'title'   => 'Testimonial Client Name',
+        'attributes' => array(
+          'placeholder' => 'MR. CLAY'
+          )
+         ),
+         array(
+        'id'      => 'client_location',
+        'type'    => 'text',
+        'help'    => 'Add Testimonial Location',
+        'title'   => 'Testimonial Location',
+        'attributes' => array(
+          'placeholder' => 'UNITED STATES'
+          )
+         ),
+       array(
+        'id'         => 'client_text',
+        'type'       => 'textarea',
+        'title'      => 'Testimonial Content',
+        'help'    => 'Add Testimonial Content is here',
+        'attributes' => array(
+          'placeholder' => 'Testimonial Content'
+        )
+        ),
+     ),
+    ),// End 
+));
+
+
 
 
 // ------------------------------

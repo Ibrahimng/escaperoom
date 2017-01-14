@@ -516,8 +516,9 @@ Vendor page
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(img/cropped-hall_banner-1.png) no-repeat center center;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
 }
 .vendor_banner {
     position: relative;

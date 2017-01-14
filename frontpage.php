@@ -152,14 +152,16 @@ get_header(); ?>
         <div class="container">
 
             <div class="row">
-                 <div class="section_header">
-                    <?php  $fature_escaperoom = cs_get_option( 'fature_escaperoom' );
-                        if($fature_escaperoom):
-                        echo '<h1>'.$fature_escaperoom.'</h1>';
-                        ?>
-                        <?php else: ?>
-                        <h1>Featured Escaperoom</h1>       
-                    <?php  endif; ?>    
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                     <div class="section_header">
+                        <?php  $fature_escaperoom = cs_get_option( 'fature_escaperoom' );
+                            if($fature_escaperoom):
+                            echo '<h1>'.$fature_escaperoom.'</h1>';
+                            ?>
+                            <?php else: ?>
+                            <h1>Featured Escaperoom</h1>       
+                        <?php  endif; ?>    
+                    </div>
                 </div>
             </div>
 
@@ -205,14 +207,16 @@ get_header(); ?>
         <div class="container">
 
             <div class="row">
-                 <div class="section_header">  
-                    <?php  $howitwork = cs_get_option( 'howitwork' );
-                        if($howitwork):
-                        echo '<h1>'.$howitwork.'</h1>';
-                        ?>
-                        <?php else: ?>
-                        <h1>How It's Work</h1>       
-                    <?php  endif; ?>                   
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                     <div class="section_header">  
+                        <?php  $howitwork = cs_get_option( 'howitwork' );
+                            if($howitwork):
+                            echo '<h1>'.$howitwork.'</h1>';
+                            ?>
+                            <?php else: ?>
+                            <h1>How It's Work</h1>       
+                        <?php  endif; ?>                   
+                    </div>
                 </div>
             </div>
 
@@ -247,22 +251,24 @@ get_header(); ?>
     <section id="feature_video_section" class="padding_bottom_50">
         <div class="container">
             <div class="row">
-                <div class="section_header">
-                    <?php  $feature_video_title = cs_get_option( 'feature_video_title' );
-                        if($feature_video_title):
-                        echo '<h1>'.$feature_video_title.'</h1>';
-                        ?>
-                        <?php else: ?>
-                        <h1>Feature Video</h1>       
-                    <?php  endif; ?>    
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <div class="section_header">
+                        <?php  $feature_video_title = cs_get_option( 'feature_video_title' );
+                            if($feature_video_title):
+                            echo '<h1>'.$feature_video_title.'</h1>';
+                            ?>
+                            <?php else: ?>
+                            <h1>Feature Video</h1>       
+                        <?php  endif; ?>    
 
-                    <?php  $feature_video_subtitle = cs_get_option( 'feature_video_subtitle' );
-                        if($feature_video_subtitle):
-                        echo '<h4>'.$feature_video_subtitle.'</h4>';
-                        ?>
-                        <?php else: ?>
-                         <h4>Find studios in your city, or explore unique ones around the world.</h4>     
-                    <?php  endif; ?>    
+                        <?php  $feature_video_subtitle = cs_get_option( 'feature_video_subtitle' );
+                            if($feature_video_subtitle):
+                            echo '<h4>'.$feature_video_subtitle.'</h4>';
+                            ?>
+                            <?php else: ?>
+                             <h4>Find studios in your city, or explore unique ones around the world.</h4>     
+                        <?php  endif; ?>    
+                    </div>
                 </div>
             </div>
             <div class="row">
