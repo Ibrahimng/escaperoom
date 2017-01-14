@@ -15,12 +15,27 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="call_action">
+                    <?php 
+                        $call_to_action_content = cs_get_option('call_to_action_content'); 
+                        $call_to_action_btn_text = cs_get_option('call_to_action_btn_text'); 
+                        $call_to_action_btn_link = cs_get_option('call_to_action_btn_link'); 
+
+                        if ($call_to_action_content) : 
+                    ?>
                         <span class="call_action_text pull-left">
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing</h3>
+                            <h3><?php echo $call_to_action_content; ?></h3>
+                        </span>
+                        <div class="become_vendor_btn vendor_banner_btn pull-right">
+                            <a href="<?php echo $call_to_action_btn_link; ?>"><?php echo $call_to_action_btn_text; ?></a>
+                        </div>
+                    <?php else : ?>
+                        <span class="call_action_text pull-left">
+                            <h3>Default Call to Action Text</h3>
                         </span>
                         <div class="become_vendor_btn vendor_banner_btn pull-right">
                             <a href="#">Become A Vendor</a>
                         </div>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -41,12 +56,20 @@
                             'menu_id'            => ''
                             ) ); 
                         ?>
-                        <ul class="social_media list-inline">
-                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                            <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                            <li><a href="#"><span class="fa fa-instagram"></span></a></li>
-                        </ul>
+                       
+                        <?php  
+                            $ft_social_medias = cs_get_option( 'ft_social_media' );
+                            echo ' <ul class="social_media list-inline">';
+                            if(is_array($ft_social_medias)){
+                                foreach($ft_social_medias as $ft_social_item) {  
+                            ?>
+                                 <li><a href="<?php echo $ft_social_item['social_media_link']; ?>"><span class="fa <?php echo $ft_social_item['social_media_icon']; ?>"></span></a></li>
+                            <?php }
+                            }
+                            echo ' </ul>';
+                        ?>
+
+
                         <?php $footer_text = cs_get_option('footer_text');
                             if ($footer_text): ?>
                             <div class="footer_text">
