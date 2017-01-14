@@ -401,7 +401,7 @@ span.hourly-rate {
     margin-bottom: 0;
     text-align: center;
     font-size: 15px;
-    line-height: 30px;
+    line-height: 25px;
 }
 /* feature video section */
 .feature_video_item iframe {
@@ -426,10 +426,12 @@ span.hourly-rate {
     outline: 0;
 }
 .testimonial .testimonial_single p {
-	color: #FFFFFF;
-	font-size: 25px;
+    color: #FFFFFF;
+    font-size: 20px;
     font-weight: 300;
     padding-bottom: 50px;
+    line-height: 29px;
+    letter-spacing: .5px;
 }
 .testimonial .testimonial_single h5.client_name {
     font-size: 16px;
@@ -572,7 +574,6 @@ Priceing Section
  ============================**/
 #pricing-table {
     padding-top: 60px;
-    background: url(img/pricingbg.jpg);
     display: block;
     padding-bottom: 30px;
 }

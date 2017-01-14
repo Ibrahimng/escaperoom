@@ -106,7 +106,7 @@ get_header(); ?>
     </section>
     <!-- end section -->
 
-    <section id="pricing-table" class="padding_bottom_50">
+    <section id="pricing-table" class="padding_bottom_50" style="background: url(<?php echo get_template_directory_uri(); ?>/img/pricingbg.jpg);">
         <div class="container">
             <div class="row">
                 <div class="pricing">
@@ -205,7 +205,7 @@ get_header(); ?>
             </div>
     		<div class="row">
     			
-                    <?php  
+                <?php  
                     $service_info_items = cs_get_option( 'service_info_items' );
                     
                     if(is_array($service_info_items)){
