@@ -753,3 +753,17 @@ Advantage 3d Section
 main#main {
     margin: 20px 0px;
 }
+/* custom color section */
+.advantage_icon span, .more_explore a{
+    color: #3498db;
+}
+.advantage_icon span, .more_explore:hover a{
+    color: #fc913b;
+}
+.testimonial, .vedor_banner_btn, .become_vendor_btn a {
+    background: #3498db;
+}
+.vedor_banner_btn, .become_vendor_btn:hover a {
+    background-color: #fc913b;
+    border: #fc913b;
+}

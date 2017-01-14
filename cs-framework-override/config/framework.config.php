@@ -94,6 +94,65 @@ $options[]   = array(
           'type'         => 'switcher',
           'title'        => 'Scroll to Top',
         ),
+
+        //call action section 
+        array(
+         'id'      => 'call_to_action_content',
+          'type'    => 'text',
+          'help'    => 'Call to Action Content',
+          'title'   => 'Call to Action Content',
+          'attributes' => array(
+            'placeholder' => 'Write your Call Action Text'
+            )
+          ),
+       
+        array(
+         'id'      => 'call_to_action_btn_text',
+          'type'    => 'text',
+          'help'    => 'Call to Action Button Text',
+          'title'   => 'Call to Action Button Text',
+          'attributes' => array(
+            'placeholder' => 'Become a Vendor'
+            )
+          ),
+
+        array(
+         'id'      => 'call_to_action_btn_link',
+          'type'    => 'text',
+          'help'    => 'Call to Action Button link',
+          'title'   => 'Call to Action Button link',
+          'attributes' => array(
+            'placeholder' => 'https://google.com'
+            )
+          ),
+
+        array(
+          'id'              => 'ft_social_media',
+          'type'            => 'group',
+          'title'           => 'Social Media List',
+          'button_title'    => 'Add Social Media List',
+          'accordion_title' => 'Add New Social Media List',
+          'fields'          => array(
+             array(
+            'id'      => 'social_media_icon',
+            'type'    => 'text',
+            'help'    => 'Add Social Media Icon Font Awesome',
+            'title'   => 'Service Info Icon',
+            'attributes' => array(
+              'placeholder' => 'fa-instagram'
+              )
+             ),
+             array(
+            'id'      => 'social_media_link',
+            'type'    => 'text',
+            'help'    => 'Add Social Media Link',
+            'title'   => 'Service Info Title',
+            'attributes' => array(
+              'placeholder' => 'https://facebook.com'
+              )
+             ),
+          ),
+        ),// End 
         // begin: footer Text
         array(
           'id'    => 'footer_text',
@@ -363,6 +422,7 @@ $options[]   = array(
   'title'    => 'Become A Vendor Setup',
   'icon'     => 'fa fa-home',
   'fields'   => array(
+
   /*--------------- Slider -----------------------------*/
     array(
       'type'    => 'heading',
@@ -482,7 +542,7 @@ $options[]   = array(
     )
   ),// End
 
-  /*--------------- Features Escaperoom -----------------------*/
+  /*--------------- Service Info Escaperoom -----------------------*/
    array(
     'type'    => 'heading',
     'content' => 'Escaperoom Services Info',
@@ -501,42 +561,42 @@ $options[]   = array(
   'type'       => 'textarea',
   'title'      => 'Section Subtitle',
 ),
-    array(
-      'id'              => 'service_info_items',
-      'type'            => 'group',
-      'title'           => 'Service Info Items',
-      'button_title'    => 'Add Servie Info Item',
-      'accordion_title' => 'Add New Servie Info Item',
-      'fields'          => array(
-         array(
-        'id'      => 'servie_info_icon',
-        'type'    => 'text',
-        'help'    => 'Add Info Service Ionicicon Icon',
-        'title'   => 'Service Info Icon',
-        'attributes' => array(
-          'placeholder' => 'ion-android-calendar'
-          )
-         ),
-         array(
-        'id'      => 'servie_info_title',
-        'type'    => 'text',
-        'help'    => 'Add Service Info Title is here',
-        'title'   => 'Service Info Title',
-        'attributes' => array(
-          'placeholder' => 'Servie Info Title'
-          )
-         ),
+  array(
+    'id'              => 'service_info_items',
+    'type'            => 'group',
+    'title'           => 'Service Info Items',
+    'button_title'    => 'Add Servie Info Item',
+    'accordion_title' => 'Add New Servie Info Item',
+    'fields'          => array(
        array(
-        'id'         => 'servie_info_content',
-        'type'       => 'textarea',
-        'title'      => 'Service Info Content',
-        'help'    => 'Add Service Info Content is here',
-        'attributes' => array(
-          'placeholder' => 'Servie Info Content'
+      'id'      => 'servie_info_icon',
+      'type'    => 'text',
+      'help'    => 'Add Info Service Ionicicon Icon',
+      'title'   => 'Service Info Icon',
+      'attributes' => array(
+        'placeholder' => 'ion-android-calendar'
         )
-        ),
-     ),
-    ),// End 
+       ),
+       array(
+      'id'      => 'servie_info_title',
+      'type'    => 'text',
+      'help'    => 'Add Service Info Title is here',
+      'title'   => 'Service Info Title',
+      'attributes' => array(
+        'placeholder' => 'Servie Info Title'
+        )
+       ),
+     array(
+      'id'         => 'servie_info_content',
+      'type'       => 'textarea',
+      'title'      => 'Service Info Content',
+      'help'    => 'Add Service Info Content is here',
+      'attributes' => array(
+        'placeholder' => 'Servie Info Content'
+      )
+      ),
+   ),
+  ),// End 
 
 
 
@@ -546,6 +606,13 @@ $options[]   = array(
     'content' => 'Vendor Feature Video Section',
   ),
   array(
+      'id'              => 'vendor_video_bg',
+      'type'            => 'upload',
+      'title'           => 'Vendor Video Image',
+      'button_title'    => 'Add Vendor Video Image',
+      'accordion_title' => 'Add New Vendor Video Image',
+    ),
+  array(
     'id'      => 'feature_video_title',
     'type'    => 'text',
     'help'    => 'Feature Video Section Title',
@@ -554,70 +621,23 @@ $options[]   = array(
       'placeholder' => 'Feature Video Escaperoom'
     )
   ),
+ 
    array(
   'id'         => 'feature_video_subtitle',
   'type'       => 'textarea',
   'title'      => 'Section Subtitle',
   ),
+
   array(
-  'id'              => 'feature_video_item',
-  'type'            => 'group',
-  'title'           => 'Feature Video Items',
-  'button_title'    => 'Add Feature Video Item',
-  'accordion_title' => 'Add New Feature Video Item',
-  'fields'          => array(
-     array(
-    'id'      => 'video_id',
+    'id'      => 'v_feature_secton_video_id',
     'type'    => 'text',
     'help'    => 'Add  Vimeo Video Id',
-    'title'   => 'Vimeo Video Id',
+    'title'   => 'Section Title',
     'attributes' => array(
       'placeholder' => '51589652'
-      )
-     ),
- ),
-),// End 
-  /*--------------- Testimonial Section -----------------------*/
-  array(
-    'type'    => 'heading',
-    'content' => 'Testimonial Section',
+    )
   ),
-      array(
-      'id'              => 'testimoials',
-      'type'            => 'group',
-      'title'           => 'Testimonial Items',
-      'button_title'    => 'Add Testimonial Item',
-      'accordion_title' => 'Add New Testimonial Item',
-      'fields'          => array(
-         array(
-        'id'      => 'clinet_name',
-        'type'    => 'text',
-        'help'    => 'Add Testimonial Client Name',
-        'title'   => 'Testimonial Client Name',
-        'attributes' => array(
-          'placeholder' => 'MR. CLAY'
-          )
-         ),
-         array(
-        'id'      => 'client_location',
-        'type'    => 'text',
-        'help'    => 'Add Testimonial Location',
-        'title'   => 'Testimonial Location',
-        'attributes' => array(
-          'placeholder' => 'UNITED STATES'
-          )
-         ),
-       array(
-        'id'         => 'client_text',
-        'type'       => 'textarea',
-        'title'      => 'Testimonial Content',
-        'help'    => 'Add Testimonial Content is here',
-        'attributes' => array(
-          'placeholder' => 'Testimonial Content'
-        )
-        ),
-     ),
-    ),// End 
+
 ));
 
 
