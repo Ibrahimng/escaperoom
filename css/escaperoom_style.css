@@ -474,7 +474,7 @@ span.hourly-rate {
     padding: 50px 0px;
 }
 span.call_action_text h3 {
-    font-size: 32px;
+    font-size: 27px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -711,7 +711,7 @@ span.servies_info_icon {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
     width: 68px;
-    border-left: 3px solid #F2184F !important;
+    border-left: 3px solid #fc913b !important;
     float: left;
     margin-right:30px;
 }
