@@ -56,7 +56,7 @@ get_header(); ?>
     </div>
     <!-- /.intro-header -->
 
-    <section id="explore_location">
+    <section id="explore_location" class="padding_top_50">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
@@ -136,7 +136,7 @@ get_header(); ?>
 
             <div class="row">
                 <div class="more_explore">
-                    <a href="#">Explore more studios around the world</a>
+                    <a href="#">Explore more Escaperoom</a>
                 </div>
             </div>
 

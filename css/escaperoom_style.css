@@ -166,13 +166,13 @@ p {
     flex-grow: 1;
 }
 .input_location input[type="text"], .submit_location input[type="submit"], .select_location select {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 100;
     color: #3d3d3d;
     padding: 17px 25px;
     background-color: #fff;
     border: 0px;
-    line-height: 20px;
+    line-height: 25px;
     outline: 0;
 }
 .input_location input[type="text"] {
@@ -415,7 +415,8 @@ span.hourly-rate {
     margin-bottom: 0;
     text-align: center;
     font-size: 15px;
-    line-height: 25px;
+    line-height: 22px;
+    letter-spacing: 0.3px;
 }
 /* feature video section */
 .feature_video_item iframe {
@@ -463,11 +464,21 @@ span.hourly-rate {
 ============Call to action ===========
 ----------------------------------------*/
 #calltoaction_secton {
-    background: #666;
+    background: #d35400;
+    background: linear-gradient(#fc913b, #e67e22);
+    background: -webkit-linear-gradien(#fc913b, #e67e22);
+    background: -o-linear-gradient(#fc913b, #e67e22);
+    background: -moz-linear-gradient(#fc913b, #e67e22);
+
     color: #fff;
     padding: 50px 0px;
 }
-
+span.call_action_text h3 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 /*--------------------------------------
 ============Footer Section Css Start===========
 ----------------------------------------*/
@@ -546,9 +557,12 @@ Vendor page
     margin: auto;
     text-transform: UPPERCASE;
     font-weight: bold;
+     border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    
 }
-
-
 .vedor_banner_btn a {
     padding: 14px 0px !important;
     font-size: 33px;
@@ -556,11 +570,11 @@ Vendor page
     padding: 10px 20px;
     color: #fff;
     font-size: 25px;
-    border-radius: 5px;
-    text-decoration: none;
     display: block;
     text-transform: UPPERCASE;
     font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /**========================
@@ -769,16 +783,22 @@ main#main {
     margin: 20px 0px;
 }
 /* custom color section */
-.advantage_icon span, .more_explore a{
+ul.social_media.list-inline li a, .advantage_icon span, .more_explore a{
     color: #3498db;
 }
 .advantage_icon span, .more_explore:hover a{
     color: #fc913b;
 }
-.testimonial, .vedor_banner_btn, .become_vendor_btn a {
+span.servies_info_icon, .testimonial, .vedor_banner_btn, .become_vendor_btn a {
     background: #3498db;
+
 }
 .vedor_banner_btn, .become_vendor_btn:hover a {
+    transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
     background-color: #fc913b;
     border: #fc913b;
 }
