@@ -259,9 +259,9 @@ get_header(); ?>
                         foreach($feature_video_items as $feature_video_item) { 
                              $video_id = $feature_video_item['video_id'];
                             ?>
-                             <div class="col-md-4 col-sm-4 col-xs-12">
+                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="feature_video_item">
-                                    <iframe src="https://player.vimeo.com/video/<?php echo $video_id; ?>" width="500" height="281" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                                    <iframe src="https://player.vimeo.com/video/<?php echo $video_id; ?>" width="500" height="320" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                                 </div>  
                             </div>
                         <?php }
