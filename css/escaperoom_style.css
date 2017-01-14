@@ -295,6 +295,18 @@ a.explore_item:hover .explore_title h2 {
 	color: #3f3e3d;
 	text-decoration: none;
 }
+.explore_img {
+    position: relative;
+}
+.explore_img:before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* background-color: rgba(0,0,0,0.2); */
+}
 
 /* features section */
 a.feature_item {
@@ -304,8 +316,9 @@ a.feature_item {
 }
 .feature_item {  
     height: 300px;
-    background-size: contain !important;
-    background-position: center center !important;
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .feature_img {
     width: 100%;

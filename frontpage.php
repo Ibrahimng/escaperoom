@@ -29,7 +29,7 @@ get_header(); ?>
                         <form action="">
                             <div class="b_location_form">
                                 <div class="input_location">
-                                    <input type="text" name="q" placeholder="Where would you like to make music?">
+                                    <input type="text" name="q" placeholder="Search desired keyword">
                                 </div>
                                 <div class="select_location">
                                     <select>
@@ -39,7 +39,7 @@ get_header(); ?>
                                   </select>
                                 </div>
                                 <div class="submit_location">
-                                    <input type="submit" class="floatright button-1" value="Find Studios">
+                                    <input type="submit" class="floatright button-1" value="Find Escaperooms">
                                 </div>    
                             </div>
                         </form>
@@ -74,7 +74,7 @@ get_header(); ?>
                         echo '<h4>'.$explore_city_subtitle.'</h4>';
                         ?>
                         <?php else: ?>
-                          <h4>Find studios in your city, or explore unique ones around the world.</h4>      
+                          <h4>Find escape rooms in your city, or explore unique ones around the world.</h4>     
                         <?php  endif; ?>    
                     </div>
                 </div>
@@ -91,7 +91,7 @@ get_header(); ?>
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo $esr->getLocationImageURL($v); ?>" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getRandomProductImage($v, 'location_img_large'); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
                                 <h2><?php echo $esr->get_location_name($v); ?></h2>
@@ -102,7 +102,7 @@ get_header(); ?>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo $esr->getLocationImageURL($v); ?>" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getLocationImageURL($v, 'location_img_large'); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
                                 <h2><?php echo $esr->get_location_name($v); ?></h2>
@@ -123,7 +123,7 @@ get_header(); ?>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo $esr->getLocationImageURL($v); ?>" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getLocationImageURL($v, 'location_img'); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
                                 <h2><?php echo $esr->get_location_name($v); ?></h2>
@@ -144,6 +144,9 @@ get_header(); ?>
     </section>
     <!-- end section -->
 
+    <?php  
+    $q = new WP_Query($esr->featuredEscapeRoomsArgs()); 
+    if( $q->have_posts()) : ?>
     <section id="features_section" class="padding_bottom_50">
         <div class="container">
 
@@ -162,42 +165,23 @@ get_header(); ?>
             </div>
 
             <div class="row">
+            <?php while( $q->have_posts()) : $q->the_post(); ?>
                 <div class="col-md-4">
-                    <a href="#" class="feature_item" style="background: url('<?php echo get_template_directory_uri(); ?>/img/5.jpg');">
+                    <a href="<?php the_permalink(); ?>" class="feature_item" style="background-image: url('<?php echo $esr->getAttachmentImageLink(get_the_ID(), 'medium'); ?>');">
                         <span class="label-bottom">
-                            JENGA Productions – LA Studio          
+                            <?php the_title(); ?>         
                             <span class="hourly-rate">
                                 Hourly Rate: $60/hour
                             </span>                                     
                         </span>
                     </a>    
                 </div>
-                <div class="col-md-4">
-                    <a href="#" class="feature_item" style="background: url('<?php echo get_template_directory_uri(); ?>/img/5.jpg');">
-                        <span class="label-bottom">
-                            JENGA Productions – LA Studio          
-                            <span class="hourly-rate">
-                                Hourly Rate: $60/hour
-                            </span>                                     
-                        </span>
-                    </a>    
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="feature_item" style="background: url('<?php echo get_template_directory_uri(); ?>/img/5.jpg');">
-                        <span class="label-bottom">
-                            JENGA Productions – LA Studio          
-                            <span class="hourly-rate">
-                                Hourly Rate: $60/hour
-                            </span>                                     
-                        </span>
-                    </a>    
-                </div>
-                
+            <?php endwhile; wp_reset_query(); ?>
             </div>
-
         </div>
     </section>
     <!--End featuers section -->
+    <?php endif; ?>
 
     <section id="service_section" class="padding_bottom_50">
         <div class="container">
