@@ -2,7 +2,11 @@
 
 class EscapeRoom {
 
-
+	function getAttachmentImageLink($id, $size = 'thumbnail') {
+		$attachment_id = get_post_thumbnail_id($id);
+		$img_atts = wp_get_attachment_image_src($attachment_id, $size);
+		return $img_atts[0];
+	}
 	public function getLocationIDs() {
 		$esr_args = array(
 			'taxonomy' => 'esr_locations',
@@ -26,7 +30,7 @@ class EscapeRoom {
 		}
 	}
 
-	public function getRandomProductImage($id) {
+	public function getRandomProductImage($id, $size='medium') {
 		$args = array(
 		    'posts_per_page'   => -1,
 		    'orderby'          => 'rand',
@@ -42,8 +46,24 @@ class EscapeRoom {
 
      	$locations = get_posts( $args );
      	$location_ids = wp_list_pluck($locations, 'ID');
-     	$thumbnail_id = get_post_thumbnail_id($location_ids[0]);
-     	return wp_get_attachment_url($thumbnail_id);
+     	return $this->getAttachmentImageLink($location_ids[0], $size);
+	}
+
+	public function featuredEscapeRoomsArgs() {
+		$meta_query   = WC()->query->get_meta_query();
+		$meta_query[] = array(
+		    'key'   => '_featured',
+		    'value' => 'yes'
+		);
+		$args = array(
+		    'post_type'   =>  'product',
+		    // 'stock'       =>  1,
+		    'showposts'   =>  6,
+		    'orderby'     =>  'date',
+		    'order'       =>  'DESC',
+		    'meta_query'  =>  $meta_query
+		);
+		return $args;
 	}
 }
 
