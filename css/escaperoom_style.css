@@ -172,10 +172,11 @@ p {
     padding: 17px 25px;
     background-color: #fff;
     border: 0px;
+    line-height: 20px;
+    outline: 0;
 }
 .input_location input[type="text"] {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px;
     width: 100%;
 }
 .select_location {
