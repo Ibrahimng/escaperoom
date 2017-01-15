@@ -260,11 +260,13 @@ p {
     height: auto;
 }
 .explore_location_list .explore_item .explore_title {
-    position: absolute;
-    top: 45%;
+    text-align: center;
     width: 100%;
     height: 100%;
-    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: 0% 0 0 -50%;
 }
 .explore_title h2 {
     font-size: 28px;
@@ -272,8 +274,10 @@ p {
     font-weight: 100;
     text-align: center;
     display: block;
+    line-height: 0px;
+    padding: 0px;
+    margin: 0px;
 }
-
 a.explore_item:hover .explore_title h2 {
     opacity: 0.75;
     -webkit-transition: all .3s ease;
@@ -315,9 +319,15 @@ a.feature_item {
     margin: 0px 0px 0px 0px;
     display: block;
 }
-.feature_item {  
+/*.feature_item {  
     height: 300px;
     background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}*/
+.feature_item {
+    height: 300px;
+    background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
 }
