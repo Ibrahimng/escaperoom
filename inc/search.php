@@ -21,13 +21,15 @@ function my_search_form() {
                               'format' => 'select',
                               'pre_html' => '<div class="select_category">',
                               'post_html' => '</div>',
+                              'allow_null' => 'All Categories',
                               );    
     $args['fields'][] = array('type' => 'taxonomy',
                               'taxonomy' => 'esr_locations',
                               'format' => 'select',
                               'pre_html' => '<div class="select_location">',
                               'post_html' => '</div>',
-                              );
+                              'allow_null' => 'Any locations',
+                               );
 
     $args['fields'][] = array( 'type' => 'submit',
 	                           'class' => 'button',
