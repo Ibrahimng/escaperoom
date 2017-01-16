@@ -165,7 +165,10 @@ p {
     display: flex;
     flex-grow: 1;
 }
-.input_location input[type="text"], .submit_location input[type="submit"], .select_location select {
+.input_location input[type="text"],
+.input_location input[type="search"],
+.submit_location input[type="submit"], 
+.select_location select {
     font-size: 19px;
     font-weight: 100;
     color: #3d3d3d;

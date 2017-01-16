@@ -174,5 +174,6 @@ require get_template_directory() . '/inc/required_plugins.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/dokan-hooks.php';
+require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/class.escaperoom.php';
 

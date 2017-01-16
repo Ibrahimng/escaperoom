@@ -1,18 +1,22 @@
 <?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package escaperoom
- */
-
-get_header(); ?>
-
-
+/*
+Template name: Search Page
+*/
+get_header(); 
+$search = new WP_Advanced_Search('newpage'); 
+?>
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+
+        <?php 
+         $temp = $wp_query;
+         $wp_query = $search->query();
+         ?>
+         <h4 class="results-count">
+           Displaying <?php echo $search->results_range(); ?> 
+           of <?php echo $wp_query->found_posts; ?> results
+         </h4>
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -20,6 +24,9 @@ get_header(); ?>
 			<header class="page-header">
 				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'escaperoom' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
+
+
+			<ul class="products">
 
 			<?php
 			/* Start the Loop */
@@ -30,17 +37,29 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', 'search' );
+				wc_get_template_part( 'content', 'product' );
 
-			endwhile;
+			endwhile; 
+
+			?>
+			<ul>
+
+			<?php 
 
 			the_posts_navigation();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			echo __( 'No products found' );
 
-		endif; ?>
+		endif; 
+
+		$search->pagination();
+
+		$wp_query = $temp;
+		wp_reset_query();
+
+         ?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
@@ -48,3 +67,4 @@ get_header(); ?>
 <?php
 get_sidebar();
 get_footer();
+?>

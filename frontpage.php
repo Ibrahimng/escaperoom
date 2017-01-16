@@ -20,16 +20,23 @@ get_header(); ?>
                         
                         <?php  $slider_subtitle = cs_get_option( 'slider_subtitle' );
                         if($slider_subtitle):
-                        echo '<h2>'.$slider_subtitle.'<h2>';
+                        echo '<h2>'.$slider_subtitle.'</h2>';
                         ?>
                         <?php else: ?>
                           <h2>Listify helps you find out whats happening in your city, Let's explore.</h2>      
                         <?php  endif; ?>
+
+
+                        <?php $search = new WP_Advanced_Search('newpage'); ?>
+                           <?php $search->the_form(); ?>
+
                        
-                        <form action="">
+
+ 
+<!--                         <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url( home_url( '/'  ) ); ?>">
                             <div class="b_location_form">
                                 <div class="input_location">
-                                    <input type="text" name="q" placeholder="Search desired keyword">
+                                    <input type="search" placeholder="<?php echo esc_attr_x( 'Search Products&hellip;', 'placeholder', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label', 'woocommerce' ); ?>" />
                                 </div>
                                 <div class="select_location">
                                     <select>
@@ -38,11 +45,13 @@ get_header(); ?>
                                       <option>option 3 </option>
                                   </select>
                                 </div>
+
                                 <div class="submit_location">
-                                    <input type="submit" class="floatright button-1" value="Find Escaperooms">
-                                </div>    
+                                    <input type="submit" class="floatright button-1" value="<?php echo esc_attr_x( 'Find Escaperooms', 'submit button', 'woocommerce' ); ?>" />
+                                </div> 
+                                <input type="hidden" name="post_type" value="product" />   
                             </div>
-                        </form>
+                        </form> -->
 
 
 
