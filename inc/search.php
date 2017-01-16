@@ -1,5 +1,6 @@
 <?php 
 
+if( function_exists('register_wpas_form')) {
 function my_search_form() {
     $args = array();
     
@@ -16,7 +17,7 @@ function my_search_form() {
                               'post_html' => '</div>',
                               );
     $args['fields'][] = array('type' => 'taxonomy',
-                              'taxonomy' => 'category',
+                              'taxonomy' => 'product_cat',
                               'format' => 'select',
                               'pre_html' => '<div class="select_category">',
                               'post_html' => '</div>',
@@ -38,3 +39,5 @@ function my_search_form() {
     register_wpas_form('escaperoom_search', $args);    
 }
 add_action('init', 'my_search_form');
+
+}
