@@ -3,7 +3,7 @@
 Template name: Search Page
 */
 get_header(); 
-$search = new WP_Advanced_Search('newpage'); 
+$search = new WP_Advanced_Search('escaperoom_search'); 
 ?>
 
 	<section id="primary" class="content-area">
