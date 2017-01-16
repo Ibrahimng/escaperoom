@@ -151,12 +151,14 @@ add_action( 'wp_enqueue_scripts', 'escaperoom_scripts' );
 
 // redirect after login 
 function sellers_redirect_to_dashboard( $redirect_to, $request, $user ) {
-    if( in_array('seller', $user->roles) ) {
-		$page_id = dokan_get_option( 'dashboard', 'dokan_pages' );
-		return get_permalink($page_id);
-    } else {
-        return $redirect_to;
-    }
+	 if ( ! is_wp_error( $user ) ) {
+	    if( is_array($user->roles) && in_array('seller', $user->roles) ) {
+			$page_id = dokan_get_option( 'dashboard', 'dokan_pages' );
+			return get_permalink($page_id);
+	    } else {
+	        return $redirect_to;
+	    }
+	}
 }
 add_filter( 'login_redirect', 'sellers_redirect_to_dashboard', 10, 3 );
 
