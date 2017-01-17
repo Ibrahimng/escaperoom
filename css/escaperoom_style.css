@@ -818,3 +818,58 @@ span.servies_info_icon, .testimonial, .vedor_banner_btn, .become_vendor_btn a {
     background-color: #fc913b;
     border: #fc913b;
 }
+
+
+/* woocommerce */
+.woocommerce .woocommerce-breadcrumb, 
+.woocommerce-breadcrumb {
+    margin: 2em 0;
+}
+.seller_overview {
+    display: inline-flex;
+    margin-bottom: 2em;
+    background-color: #ddd;
+    width: 100%;
+    padding: 1em;
+}
+.seller_overview .seller_img {
+    height: 80px;
+    width: 80px;
+    margin-right: 1em;
+}
+.seller_overview .seller_img img {
+    border-radius: 50%;
+    border: 1px solid #FFF;
+}
+
+.seller_overview .store-name {
+    font-weight: bold;
+}
+
+.woocommerce-tabs h2 {
+    font-size: 24px;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    padding-left: 0;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    background: #3498db;
+    border: 0;
+    border-radius: 0;
+    position: static !important;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    color: #FFF;
+    padding: 0.6em 1em;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    color: #FFF;
+    background: #fc913b;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
+    color: #ddd;
+}
+
+#woopcomm .wpc-comment-author a {
+    color: #3498db;
+}

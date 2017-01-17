@@ -114,6 +114,11 @@ function escaperoom_register_required_plugins() {
 			'name'      	=> 'Categories Images',
 			'slug'      	=> 'categories-images',
 			'required'  	=> true,
+		),		
+		array(
+			'name'      	=> 'WooDiscuz - WooCommerce Comments',
+			'slug'      	=> 'woodiscuz-woocommerce-comments',
+			'required'  	=> true,
 		),
 		array(
 	        'name' => 'WP Advanced Search',
