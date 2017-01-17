@@ -89,6 +89,12 @@ function escaperoom_register_required_plugins() {
 			'slug'         	=> 'woocommerce-bookings', 
 			'source'       	=> get_stylesheet_directory() . '/inc/plugins/woocommerce-bookings.zip',
 			'required'     	=> true,
+		),		
+		array(
+			'name'         	=> 'YITH WOOCOMMERCE ADVANCED REVIEWS', 
+			'slug'         	=> 'yith-woocommerce-advanced-reviews', 
+			'source'       	=> get_stylesheet_directory() . '/inc/plugins/yith-woocommerce-advanced-reviews.zip',
+			'required'     	=> true,
 		),
 		array(
 			'name'      	=> 'WooCommerce',
