@@ -19,5 +19,13 @@
         numeratio: true,            
         infinigall: true            
     });
+
+    // Wc Categories after arrow
+	var arrow = $( '<span class="arrow_right ion-android-arrow-dropright"></span>' );
+	$( ".product-categories li.cat-parent > a" ).after(arrow);
+
+	$( ".product-categories li.cat-parent .arrow_right" ).click(function() {
+	  $(this).toggleClass( 'ion-android-arrow-dropdown ion-android-arrow-dropright').next().toggle();
+	});
     
 }(jQuery));	

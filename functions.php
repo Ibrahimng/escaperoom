@@ -56,6 +56,7 @@ function escaperoom_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size('location_img', 260, 240, true);
 	add_image_size('location_img_large', 748, 240, true);
+	add_image_size('225x170', 225, 170, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -106,12 +107,12 @@ add_action( 'after_setup_theme', 'escaperoom_content_width', 0 );
  */
 function escaperoom_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'escaperoom' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'escaperoom' ),
+		'name'          => esc_html__( 'Vendor Sidebar', 'escaperoom' ),
+		'id'            => 'vendor-sidebar',
+		'description'   => esc_html__( 'Add widgets For Vendor page.', 'escaperoom' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widget_title">',
 		'after_title'   => '</h2>',
 	) );
 }
