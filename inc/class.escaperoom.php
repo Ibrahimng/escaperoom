@@ -65,6 +65,41 @@ class EscapeRoom {
 		);
 		return $args;
 	}
+
+
+	public function productLocations() {
+
+		$args = array(
+			'posts_per_page'   => -1,
+			'offset'           => 0,
+			'orderby'          => 'date',
+			'order'            => 'DESC',
+			'post_type'        => 'product',
+			'author'	   => '',
+			'author_name'	   => '',
+			'post_status'      => 'publish',
+			);
+
+		$q = get_posts($args);
+
+		$product_ids = wp_list_pluck($q, 'ID');
+	
+
+		$locations = array();
+		foreach($product_ids as $id) {
+			$lat = get_post_meta($id, 'location_lat', true);
+			$lng = get_post_meta($id, 'location_long', true);
+			$lat = floatval($lat);
+			$lng = floatval($lng);
+			if($lat && $lng) {
+				$locations[] = array('lat' => $lat, 'lng' => $lng);
+			}
+		}
+
+		 echo json_encode($locations);
+		
+		die();
+	}
 }
 
 

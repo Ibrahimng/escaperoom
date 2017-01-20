@@ -53,10 +53,10 @@ function escaperoom_setup() {
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails', array('product','post'));
 	add_image_size('location_img', 260, 240, true);
 	add_image_size('location_img_large', 748, 240, true);
-	add_image_size('225x170', 225, 170, true);
+	add_image_size('pro_thum_shop', 240, 160, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -122,6 +122,9 @@ add_action( 'widgets_init', 'escaperoom_widgets_init' );
  * Enqueue scripts and styles.
  */
 function escaperoom_scripts() {
+
+	$api =  dokan_get_option( 'gmap_api_key', 'dokan_general', false );
+
 	wp_enqueue_style('google_fonts', 'https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic', array(), false, 'all');
 	wp_enqueue_style('fonts_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array(), false, 'all');
 	wp_enqueue_style('ionic_fonts', 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), false, 'all');
@@ -129,6 +132,7 @@ function escaperoom_scripts() {
 	wp_enqueue_style('slick_theme', get_template_directory_uri() . '/css/slick-theme.css', array(), false, 'all');
 	wp_enqueue_style('slick', get_template_directory_uri() . '/css/slick.css', array(), false, 'all');
 	wp_enqueue_style('venobox', get_template_directory_uri() . '/css/venobox.css', array(), false, 'all');
+	wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.css', array(), false, 'all');
 	//wp_enqueue_style('landing_page', get_template_directory_uri() . '/css/landing-page.css', array(), false, 'all');
 	wp_enqueue_style('escaperoom_style', get_template_directory_uri() . '/css/escaperoom_style.css', array(), false, 'all');
 	wp_enqueue_style('responsive', get_template_directory_uri() . '/css/responsive.css', array(), false, 'all');
@@ -137,9 +141,17 @@ function escaperoom_scripts() {
 	/*JS Enqueue*/
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('bootstrap_min', get_template_directory_uri() . '/js/bootstrap.min.js', array(), false, true);
+
+	wp_enqueue_script('google_maps', 'https://maps.googleapis.com/maps/api/js?key='.$api.'', array(),  false, true);
+
+	wp_enqueue_script('markerclusterer', get_template_directory_uri() . '/assets/maps/markerclusterer.js', array('google_maps'), false, true);
+
 	wp_enqueue_script('slick_min', get_template_directory_uri() . '/js/slick.min.js', array(), false, true);
+
+
 	wp_enqueue_script('venobox', get_template_directory_uri() . '/js/venobox.min.js', array(), false, true);
 	wp_enqueue_script('settings', get_template_directory_uri() . '/js/settings.js', array(), false, true);
+	wp_localize_script('settings', 'localized', array('themepath' => get_stylesheet_directory_uri() ));
 	wp_enqueue_script( 'escaperoom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'escaperoom-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -187,3 +199,4 @@ if(function_exists('dokan_get_template_part')) {
 }
 require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/class.escaperoom.php';
+require get_template_directory() . '/inc/ajax.php';

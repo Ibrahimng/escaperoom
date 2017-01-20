@@ -26,8 +26,14 @@ get_header(); ?>
                           <h2>Listify helps you find out whats happening in your city, Let's explore.</h2>      
                         <?php  endif; ?>
 
-                        <?php $search = new WP_Advanced_Search('escaperoom_search'); ?>
-                           <?php $search->the_form(); ?>
+                        <?php 
+                        if( class_exists('WP_Advanced_Search') ) {
+                            $search = new WP_Advanced_Search('escaperoom_search');
+                            $search->the_form();
+                        } else {
+                            echo '<h3> WP Advanced Search PLugin is inactive </h3>';
+                        }
+                            ?>
                     </div>
                 </div>
             </div>
