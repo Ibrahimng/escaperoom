@@ -1258,7 +1258,7 @@ span.author_info h5 {
 
 .grid-button {
     position: absolute;
-    top: -50px;
+    top: -75px;
     right: 0;
     margin-bottom: 20px;
 }
@@ -1336,3 +1336,12 @@ span.author_info h5 {
 /*.maps_layout .custom_product {
     display: none;
 }*/
+
+.grid_layout div#product_map, .list_layout div#product_map, .maps_layout .custom_product {
+    display: none;
+} 
+.pagination {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}

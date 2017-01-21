@@ -56,7 +56,9 @@ function escaperoom_setup() {
 	add_theme_support( 'post-thumbnails', array('product','post'));
 	add_image_size('location_img', 260, 240, true);
 	add_image_size('location_img_large', 748, 240, true);
+	add_image_size('maps_pro_img', 200, 75, true);
 	add_image_size('pro_thum_shop', 240, 160, true);
+	
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

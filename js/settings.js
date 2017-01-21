@@ -33,21 +33,28 @@
 
     $('.btn_grid').on('click', changeClassgrid);
     $('.btn_list').on('click', changeClass_list);
-   // $('.btn_maps').on('click', changeClass_maps);
+    $('.btn_maps').on('click', changeClass_maps);
 
 	function changeClass_list() {
-	   $('.layout').removeClass('col-md-4 col-sm-4 col-xs-12').addClass('col-md-12 col-sm-12 col-xs-12 list_layout').fadeIn("slow");
+	   $('.layout').removeClass('col-md-4 col-sm-4 col-xs-12 grid_layout maps_layout').addClass('col-md-12 col-sm-12 col-xs-12 list_layout').fadeIn("slow");
 	}
 	function changeClassgrid() {
-	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout').addClass('col-md-4 col-sm-4 col-xs-12').fadeIn("slow");
+	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn("slow");
 	}
-	// function changeClass_maps() {
-	//    $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 col-md-4 col-sm-4 col-xs-12 list_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn("slow");
-	// }
+	function changeClass_maps() {
+	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn("slow");
+
+	}
+
+	// $(".btn_maps").click(function(){
+ //    $("div").append('<div id="product_map"></div>');
+	// });
+
 
 	// loadProductMap function 
 
 	function loadProductMap(data) {
+		
 		var product_locations = JSON.parse(data);
 		console.log(product_locations);
 		var map = new google.maps.Map(document.getElementById('product_map'), {
@@ -85,11 +92,31 @@
 				loadProductMap(response); 
 			}
 		});
+
+
+	var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h2 id="firstHeading" class="firstHeading">Uluru</h2>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+		 // markers.addListener('click', function() {
+		 //    infowindow.open(markers.get('map'), markers);
+		 //  });
+
+	google.maps.event.addListener(markers, 'click', function() {
+        infowindow.open(map,markers);
+		});
+
     }
 
+   
     google.maps.event.addDomListener(window, 'load', initMap);
 
 }(jQuery));
-
 
     

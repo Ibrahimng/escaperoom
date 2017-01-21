@@ -16,7 +16,7 @@ get_header(); ?>
 	<div class="whitespace"></div>
 	<div id="primary" class="container">
 		<main id="main" class="site-main" role="main">
-
+		<div class="whitespace"></div>
 		<?php //get_product_locations_ajax_func(); ?>
 
 			<?php $sidebar = is_shop(); 
@@ -37,26 +37,30 @@ get_header(); ?>
 			<?php endif; ?>
 
 			<div class="<?php echo $colum; ?> padding_bottom_50">
-				<div class="col-md-12">
-					<div class="grid-button btn-group pull-right">
-					  <a class="btn btn-primary btn_grid" id="grid">
-					  	<span class="ion-android-apps"></span>
-					  	Grid
-					  </a>
-					  <a class="btn btn-primary btn_list" id="">
-					  	<span class="ion-navicon"></span>
-					  	List
-					  </a>
-					  <a class="btn btn-primary btn_maps" id="maps">
-					  	<span class="ion-ios-location-outline"></span>
-					  	Maps
-					  </a>
+
+				<?php if ( is_shop() && is_archive() ) {  ?>
+
+				 	<div class="col-md-12">
+						<div class="grid-button btn-group pull-right">
+						  <a class="btn btn-primary btn_grid" id="grid">
+						  	<span class="ion-android-apps"></span>
+						  	Grid
+						  </a>
+						  <a class="btn btn-primary btn_list" id="">
+						  	<span class="ion-navicon"></span>
+						  	List
+						  </a>
+						  <a class="btn btn-primary btn_maps" id="maps">
+						  	<span class="ion-ios-location-outline"></span>
+						  	Maps
+						  </a>
+						</div>
 					</div>
-				</div>
+				<?php  } ?>
+				
 				<div class="clearfix"></div>
 				<?php woocommerce_content(); ?>
 			</div>
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

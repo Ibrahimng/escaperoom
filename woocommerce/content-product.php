@@ -42,8 +42,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	}
 	?>
 
-<div id="product_map"></div>
-<div class="layout col-md-4 col-sm-4 col-xs-12">
+
+<div class="layout col-md-4 col-sm-4 col-xs-12 grid_layout">
 
 	<div class="custom_product">
 		<?php the_post_thumbnail('pro_thum_shop',array ('class' => 'pro_thumb')) ?>
@@ -66,6 +66,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		</span>
 		</div>
 	</div>
+
+	<div id="product_map"></div>
 
 </div>
  
