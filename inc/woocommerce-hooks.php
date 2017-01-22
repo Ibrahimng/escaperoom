@@ -101,20 +101,18 @@ function product_location_long_lat_custom() {
 		woocommerce_wp_text_input( 
 			array( 
 				'id'          => 'location_lat', 
-				'label'       => __( 'Location Maps Latitude :', 'escaperoom' ), 
-				'placeholder' => 'Write your Maps Latitude',
+				'label'       => __( 'Escape Room Latitude :', 'escaperoom' ), 
+				'placeholder' => 'i.e. 24.0221628',
 				'desc_tip'    => 'true',
-				'description' => __( 'EnterMaps Latitude.', 'escaperoom' ) 
 			)
 		); 
   
 		woocommerce_wp_text_input( 
 			array( 
 				'id'          => 'location_long', 
-				'label'       => __( 'Location Maps Longitude :', 'escaperoom' ), 
-				'placeholder' => 'Write your Maps Longitude',
+				'label'       => __( 'Escape Room Longitude :', 'escaperoom' ), 
+				'placeholder' => 'i.e. 89.2295773',
 				'desc_tip'    => 'true',
-				'description' => __( 'EnterMaps Longitude.', 'escaperoom' ) 
 			)
 		); 
 

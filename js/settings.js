@@ -56,21 +56,56 @@
 	function loadProductMap(data) {
 		
 		var product_locations = JSON.parse(data);
-		console.log(product_locations);
 		var map = new google.maps.Map(document.getElementById('product_map'), {
           zoom: 3,
-          center: {lat: -25.363, lng: 131.044}
         });
-		var labels = 'AIzaSyAWQTIcIfpsttvugW18F1y14p8gbFXmtXE';
 
-     	var markers = product_locations.map(function(location, i) {
-          return new google.maps.Marker({
-            position: location,
-            zoom: 4,
-            map: map,
-            label: labels[i % labels.length]
-          });
-        });
+
+	    // locate to users location
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(function (position) {
+	        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	        map.setCenter(initialLocation);
+	      });
+	    }
+
+
+        var markers = [];
+
+        for( var i=0; i < product_locations.length; i++ ) {
+
+        	var latLng = new google.maps.LatLng(product_locations[i].lat, product_locations[i].lng);
+        	  marker = new google.maps.Marker({
+							position: latLng,
+							zoom: 4,
+							map: map
+				        });
+
+        	  markers.push(marker);
+
+	        infowindow = new google.maps.InfoWindow();
+		      google.maps.event.addListener(marker, 'click', (function(marker,i){
+		        return function(){
+
+					  infowindow.setContent(
+			              '<div id="content">'+
+			              '<div id="siteNotice">'+
+			              '</div>'+
+			              '<h3 id="firstHeading" class="firstHeading">' + product_locations[i].title + '</h3>'+
+			              '<div id="bodyContent">'+
+			              '<p><b>Lat: </b>' + product_locations[i].lat + '</p>' +
+			              '<p><b>Long: </b>' + product_locations[i].lng + '</p>' +
+			              '<p><b>Image: </b><img style="height: 100px; width: 200px;" src="' + product_locations[i].img + '"/></p>' +
+			              '</div>'+
+			              '</div>');
+			          infowindow.open(map,marker);
+
+		        }
+		      })(marker, i));
+
+
+        }
+
 
         // Add a marker clusterer to manage the markers.
         var markerCluster = new MarkerClusterer(map, markers,
@@ -91,25 +126,6 @@
 				console.log(response);
 				loadProductMap(response); 
 			}
-		});
-
-
-	var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h2 id="firstHeading" class="firstHeading">Uluru</h2>'+
-        '</div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-		 // markers.addListener('click', function() {
-		 //    infowindow.open(markers.get('map'), markers);
-		 //  });
-
-	google.maps.event.addListener(markers, 'click', function() {
-        infowindow.open(map,markers);
 		});
 
     }

@@ -88,12 +88,12 @@ class EscapeRoom {
 		foreach($product_ids as $id) {
 			$lat = get_post_meta($id, 'location_lat', true);
 			$lng = get_post_meta($id, 'location_long', true);
-			$title = get_the_title();
+			$title = get_the_title($id);
 			$img = wp_get_attachment_image_src( get_post_thumbnail_id( $id ),'maps_pro_img');
 			$lat = floatval($lat);
 			$lng = floatval($lng);
 			if($lat && $lng) {
-				$locations[] = array('lat' => $lat, 'lng' => $lng, 'title' => $title, 'img' => $img, );
+				$locations[] = array('lat' => $lat, 'lng' => $lng, 'title' => $title, 'img' => $img[0], );
 			}
 			
 		}
