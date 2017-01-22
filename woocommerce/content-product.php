@@ -67,8 +67,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		</div>
 	</div>
 
-	<div id="product_map"></div>
-
 </div>
  
 <?php echo $clearfix; ?>

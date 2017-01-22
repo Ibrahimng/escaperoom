@@ -20,7 +20,8 @@ get_header(); ?>
 		<?php //get_product_locations_ajax_func(); ?>
 
 			<?php $sidebar = is_shop(); 
-				if($sidebar) {
+			 $arsidebar = is_archive(); 
+				if($sidebar || $arsidebar) {
 					$colum = 'col-md-9 col-sm-9 col-xs-12';
 				}
 				 else {
@@ -28,7 +29,7 @@ get_header(); ?>
 				} 
 			?>
 			
-			<?php if($sidebar) : ?>
+			<?php if($sidebar || $arsidebar) : ?>
 				<div class="col-md-3">
 					<div class="sidebar_wrapper">
 						<?php dynamic_sidebar('vendor-sidebar'); ?>
@@ -38,7 +39,7 @@ get_header(); ?>
 
 			<div class="<?php echo $colum; ?> padding_bottom_50">
 
-				<?php if ( is_shop() && is_archive() ) {  ?>
+				<?php if ( is_shop() || is_archive() ) {  ?>
 
 				 	<div class="col-md-12">
 						<div class="grid-button btn-group pull-right">

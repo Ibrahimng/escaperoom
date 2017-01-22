@@ -88,18 +88,32 @@ class EscapeRoom {
 		foreach($product_ids as $id) {
 			$lat = get_post_meta($id, 'location_lat', true);
 			$lng = get_post_meta($id, 'location_long', true);
+			$author_id = get_post_field( 'post_author', $id );
+			$auth_img = get_avatar( $author_id, 50 );
+			$auth_name = get_the_author_meta('display_name', $author_id);
+			$price =  get_post_meta( $id, '_price', true);
+			$book_duration =  get_post_meta( $id, '_wc_booking_duration_unit', true);
+
 			$title = get_the_title($id);
 			$img = wp_get_attachment_image_src( get_post_thumbnail_id( $id ),'maps_pro_img');
 			$lat = floatval($lat);
 			$lng = floatval($lng);
 			if($lat && $lng) {
-				$locations[] = array('lat' => $lat, 'lng' => $lng, 'title' => $title, 'img' => $img[0], );
+				$locations[] = array(
+					'lat' => $lat, 
+					'lng' => $lng, 
+					'title' => $title, 
+					'img' => $img[0], 
+					'auth_img' => $auth_img, 
+					'auth_name' => $auth_name, 
+					'price' => $price,  
+					'book_duration' => $book_duration,  
+				);
 			}
 			
 		}
 
 		 echo json_encode($locations);
-		
 		die();
 	}
 }

@@ -39,12 +39,21 @@
 	   $('.layout').removeClass('col-md-4 col-sm-4 col-xs-12 grid_layout maps_layout').addClass('col-md-12 col-sm-12 col-xs-12 list_layout').fadeIn("slow");
 	}
 	function changeClassgrid() {
-	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn("slow");
+	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout ').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn("slow");
 	}
 	function changeClass_maps() {
-	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn("slow");
+	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout maps_hidde').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn("slow");
 
 	}
+
+
+	// var showmaps = $( '<div id="product_map"></div>' );
+	// 	//$( ".product-categories li.cat-parent > a" ).after(showmaps);
+
+	// 	$( ".btn_maps" ).click(function() {
+	// 	  $('#main .col-md-3').after(showmaps);
+	// 	});
+
 
 	// $(".btn_maps").click(function(){
  //    $("div").append('<div id="product_map"></div>');
@@ -88,18 +97,24 @@
 		        return function(){
 
 					  infowindow.setContent(
-			              '<div id="content">'+
-			              '<div id="siteNotice">'+
-			              '</div>'+
-			              '<h3 id="firstHeading" class="firstHeading">' + product_locations[i].title + '</h3>'+
-			              '<div id="bodyContent">'+
-			              '<p><b>Lat: </b>' + product_locations[i].lat + '</p>' +
-			              '<p><b>Long: </b>' + product_locations[i].lng + '</p>' +
-			              '<p><b>Image: </b><img style="height: 100px; width: 200px;" src="' + product_locations[i].img + '"/></p>' +
-			              '</div>'+
-			              '</div>');
+			              '<div class="mapinfo_wrapper">'+
+			              	  '<img class="pro_image" src="' + product_locations[i].img + '"/>'+
+				              '<h3 class="protitle">' 
+				             	 + product_locations[i].title + 
+				              '</h3>'+
+				              '<div class="mapinfoauthor">'
+				              	+'<div class="mapautimg">'+ 
+				             	 	product_locations[i].auth_img + 
+				             	 	'<p class="map_author_name">'+product_locations[i].auth_name+'</p>'+
+				             	 '</div>'+
+				             	 '<div class="mapautprice">'+
+				             		'<span class="map_price">'
+				             	 		+'$'+product_locations[i].price+'  '+product_locations[i].book_duration+
+				             	 	'</span>'
+				              	+'</div>'+
+				              +'</div>'+
+			               '</div>');
 			          infowindow.open(map,marker);
-
 		        }
 		      })(marker, i));
 
