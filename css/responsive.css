@@ -21,4 +21,19 @@ section#feature_video_section .section_header h4 {
 .vedor_banner_btn {
     width: 80% !important;
 }
+.list_layout span.pro_title {
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: normal;
+}
+.list_layout span.pro_price {
+    font-size: 27px !important;
+}
+.list_layout img {
+    width: 35%;
+    border-radius: 5px;
+}
+.list_layout .product_info {
+    margin-left: 5px;
+}
 }

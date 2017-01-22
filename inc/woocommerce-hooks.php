@@ -46,3 +46,106 @@ add_filter('woocommerce_product_description_heading',
 function isa_product_description_heading() {
     return __('Room Information', 'woocommerce');
 }
+
+
+
+//redirect checkput page
+/*
+add_filter('add_to_cart_redirect', 'esr_add_to_cart_redirect');
+	function smoothwriter_add_to_cart_redirect() {
+	 global $woocommerce;
+	 $checkout_url = $woocommerce->cart->get_checkout_url();
+	 return $checkout_url;
+	}
+*/	
+
+
+
+remove_action('woocommerce_before_shop_loop_item','woocommerce_template_loop_product_link_open', 20);
+
+//remove sale flash
+remove_action('woocommerce_before_shop_loop_item_title','woocommerce_show_product_loop_sale_flash', 10);
+
+//remove rating
+remove_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_rating', 5);
+
+
+//remove button
+remove_action('woocommerce_after_shop_loop_item','woocommerce_template_loop_add_to_cart', 10);
+
+//remove ordering
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+
+//remove shop page title
+add_filter( 'woocommerce_show_page_title' , 'woo_hide_page_title' );
+function woo_hide_page_title() {
+	
+	return false;
+	
+}
+//breadcrumb remove
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+
+//remove count shop page
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+//add maps longitude and latitude
+
+function product_location_long_lat_custom() {
+
+  global $woocommerce, $post;
+  
+  echo '<div class="options_group">';
+  
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'location_lat', 
+				'label'       => __( 'Location Maps Latitude :', 'escaperoom' ), 
+				'placeholder' => 'Write your Maps Latitude',
+				'desc_tip'    => 'true',
+				'description' => __( 'EnterMaps Latitude.', 'escaperoom' ) 
+			)
+		); 
+  
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'location_long', 
+				'label'       => __( 'Location Maps Longitude :', 'escaperoom' ), 
+				'placeholder' => 'Write your Maps Longitude',
+				'desc_tip'    => 'true',
+				'description' => __( 'EnterMaps Longitude.', 'escaperoom' ) 
+			)
+		); 
+
+  echo '</div>';
+	
+}
+add_action( 'woocommerce_product_options_general_product_data', 'product_location_long_lat_custom' );
+
+//product location longitude and latitude
+function product_location_long_lat_save( $post_id ){
+	$longitude = $_POST['location_lat'];
+	$latitude = $_POST['location_long'];
+
+	if( !empty( $longitude ) )
+		update_post_meta( $post_id, 'location_lat', esc_attr( $longitude ) );
+
+	if( !empty( $latitude ) )
+		update_post_meta( $post_id, 'location_long', esc_attr( $latitude ) );
+}
+add_action( 'woocommerce_process_product_meta', 'product_location_long_lat_save' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+

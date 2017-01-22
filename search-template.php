@@ -5,8 +5,8 @@ Template name: Search Page
 get_header(); 
 $search = new WP_Advanced_Search('escaperoom_search'); 
 ?>
-
-	<section id="primary" class="content-area">
+	<div class="whitespace"></div>
+	<section id="primary" class="content-area container">
 		<main id="main" class="site-main" role="main">
 
         <?php 
@@ -26,12 +26,21 @@ $search = new WP_Advanced_Search('escaperoom_search');
 			</header><!-- .page-header -->
 
 
-			<ul class="products">
+			<div class="row">
 
 			<?php
+			$counter = 0;
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-
+				++$counter;
+					//var_dump($counter);
+					if($counter == 3){
+						$clearfix = '<div class="clearfix"></div>';
+						$counter = 0;
+					}
+					else{
+						$clearfix = '';
+					}
 				/**
 				 * Run the loop for the search to output the results.
 				 * If you want to overload this in a child theme then include a file
@@ -39,23 +48,21 @@ $search = new WP_Advanced_Search('escaperoom_search');
 				 */
 				wc_get_template_part( 'content', 'product' );
 
+				echo $clearfix;
 			endwhile; 
 
 			?>
-			<ul>
+			<div>
 
 			<?php 
-
-			the_posts_navigation();
+			//the_posts_navigation();
 
 		else :
 
 			echo __( 'No products found' );
 
 		endif; 
-
 		$search->pagination();
-
 		$wp_query = $temp;
 		wp_reset_query();
 
@@ -65,6 +72,5 @@ $search = new WP_Advanced_Search('escaperoom_search');
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
 ?>
