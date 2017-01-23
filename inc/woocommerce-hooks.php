@@ -28,6 +28,33 @@ function show_seller_info_dokan() {
 
 add_action('woocommerce_before_main_content', 'show_seller_info_dokan', 21, 0);
 
+function products_filter_nav() {
+
+	if( is_shop() || is_archive() ) {
+	?>
+		 	<div class="col-md-12">
+			<div class="grid-button btn-group pull-right">
+			  <a class="btn btn-primary btn_grid" id="grid">
+			  	<span class="ion-android-apps"></span>
+			  	Grid
+			  </a>
+			  <a class="btn btn-primary btn_list" id="">
+			  	<span class="ion-navicon"></span>
+			  	List
+			  </a>
+			  <a class="btn btn-primary btn_maps" id="maps">
+			  	<span class="ion-ios-location-outline"></span>
+			  	Maps
+			  </a>
+			</div>
+		</div>
+
+		<?php
+	}
+}
+
+add_action('woocommerce_before_main_content', 'products_filter_nav', 20, 0);
+
 
 // remove Dokan default seller tab and edit update new ones 
 function woo_remove_product_tabs( $tabs ) {
