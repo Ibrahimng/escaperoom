@@ -58,12 +58,12 @@
                         ?>
                        
                         <?php  
-                            $ft_social_medias = cs_get_option( 'ft_social_media' );
+                            $social_medias = cs_get_option( 'ft_social_media' );
                             echo ' <ul class="social_media list-inline">';
-                            if(is_array($ft_social_medias)){
-                                foreach($ft_social_medias as $ft_social_item) {  
+                            if(is_array($social_medias)){
+                                foreach($social_medias as $social_item) {  
                             ?>
-                                 <li><a href="<?php echo $ft_social_item['social_media_link']; ?>"><span class="fa <?php echo $ft_social_item['social_media_icon']; ?>"></span></a></li>
+                                 <li><a href="<?php echo $social_item['social_link']; ?>"><span class="fa <?php echo $social_item['social_icon']; ?>"></span></a></li>
                             <?php }
                             }
                             echo ' </ul>';
