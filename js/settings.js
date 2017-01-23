@@ -42,16 +42,16 @@
 	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout ').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn("slow");
 	}
 	function changeClass_maps() {
-	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout maps_hidde').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn("slow");
+	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout');
 
 	}
 
 
-	// var showmaps = $( '<div id="product_map"></div>' );
-	// 	//$( ".product-categories li.cat-parent > a" ).after(showmaps);
+	//  var showmaps = '<div id="product_map"></div>';
+	// // 	//$( ".product-categories li.cat-parent > a" ).after(showmaps);
 
-	// 	$( ".btn_maps" ).click(function() {
-	// 	  $('#main .col-md-3').after(showmaps);
+	// 	$( '.btn_maps' ).click(function() {
+	// 	  $('#main').after(showmaps);
 	// 	});
 
 
@@ -98,21 +98,21 @@
 
 					  infowindow.setContent(
 			              '<div class="mapinfo_wrapper">'+
-			              	  '<img class="pro_image" src="' + product_locations[i].img + '"/>'+
-				              '<h3 class="protitle">' 
+			              	  '<a href="'+product_locations[i].pro_link+'"><img class="pro_image" src="' + product_locations[i].img + '"/></a>'+
+				              '<a href="'+product_locations[i].pro_link+'"><h3 class="protitle">' 
 				             	 + product_locations[i].title + 
-				              '</h3>'+
+				              '</h3></a>'+
 				              '<div class="mapinfoauthor">'
 				              	+'<div class="mapautimg">'+ 
 				             	 	product_locations[i].auth_img + 
-				             	 	'<p class="map_author_name">'+product_locations[i].auth_name+'</p>'+
+				             	 	'<a href="'+product_locations[i].store_url+'"><p class="map_author_name">'+product_locations[i].auth_name+'</p></a>'+
 				             	 '</div>'+
 				             	 '<div class="mapautprice">'+
 				             		'<span class="map_price">'
-				             	 		+'$'+product_locations[i].price+'  '+product_locations[i].book_duration+
-				             	 	'</span>'
-				              	+'</div>'+
-				              +'</div>'+
+				             	 		+ product_locations[i].currency + product_locations[i].price + ' ' +product_locations[i].book_duration + 
+				             	 		'</span>'+
+				              	'</div>'+
+				              '</div>'+
 			               '</div>');
 			          infowindow.open(map,marker);
 		        }
@@ -137,6 +137,7 @@
 		$.ajax({
 			url: woocommerce_params.ajax_url,
 			data: data,
+
 			success:function(response) {
 				console.log(response);
 				loadProductMap(response); 

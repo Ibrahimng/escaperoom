@@ -90,11 +90,16 @@ class EscapeRoom {
 			$lng = get_post_meta($id, 'location_long', true);
 			$author_id = get_post_field( 'post_author', $id );
 			$auth_img = get_avatar( $author_id, 50 );
+
+			$store_url = dokan_get_store_url( $author_id );
 			$auth_name = get_the_author_meta('display_name', $author_id);
+
 			$price =  get_post_meta( $id, '_price', true);
 			$book_duration =  get_post_meta( $id, '_wc_booking_duration_unit', true);
 
 			$title = get_the_title($id);
+			$pro_link = get_permalink($id);
+			$currency = get_woocommerce_currency_symbol();
 			$img = wp_get_attachment_image_src( get_post_thumbnail_id( $id ),'maps_pro_img');
 			$lat = floatval($lat);
 			$lng = floatval($lng);
@@ -108,6 +113,9 @@ class EscapeRoom {
 					'auth_name' => $auth_name, 
 					'price' => $price,  
 					'book_duration' => $book_duration,  
+					'store_url' => $store_url,  
+					'pro_link' => $pro_link,  
+					'currency' => $currency,  
 				);
 			}
 			

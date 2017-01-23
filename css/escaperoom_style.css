@@ -939,6 +939,9 @@ span.author_info {
     display: block;
     border-radius: 0px 0px 5px 5px;
 }
+span.author_info a {
+    text-decoration: none;
+}
 span.pro_title {
     position: absolute;
     bottom: 85px;
@@ -1389,7 +1392,7 @@ img.pro_image {
 }
 .mapinfoauthor {
     background: #fff !important;
-    padding: 20px 10px;
+    padding: 30px 10px;
 }
 .mapautprice {
     float: right;
@@ -1412,6 +1415,7 @@ p.map_author_name {
     position: absolute;
     font-size: 14px;
     bottom: 11px;
+    color:#333;
 }
 
 /* white background and box outline */
