@@ -5,11 +5,12 @@ add_action('woocommerce_before_main_content', 'escaperoom_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'escaperoom_wrapper_end', 10);
 
 function escaperoom_wrapper_start() {
-  echo '<div id="primary" class="container"><div id="content" role="main">';
+  echo '<div id="primary" class="container">
+		<main id="main" class="site-main" role="main">';
 }
 
 function escaperoom_wrapper_end() {
-  echo '</div></div>';
+  echo '</div></main></div>';
 }
 
 // single page product page-top seller overview
@@ -31,23 +32,36 @@ add_action('woocommerce_before_main_content', 'show_seller_info_dokan', 21, 0);
 function products_filter_nav() {
 
 	if( is_shop() || is_archive() ) {
-	?>
-		 	<div class="col-md-12">
-			<div class="grid-button btn-group pull-right">
-			  <a class="btn btn-primary btn_grid" id="grid">
-			  	<span class="ion-android-apps"></span>
-			  	Grid
-			  </a>
-			  <a class="btn btn-primary btn_list" id="">
-			  	<span class="ion-navicon"></span>
-			  	List
-			  </a>
-			  <a class="btn btn-primary btn_maps" id="maps">
-			  	<span class="ion-ios-location-outline"></span>
-			  	Maps
-			  </a>
+		if ( is_active_sidebar( 'vendor-sidebar' ) ) {
+			$column = 'col-md-9';
+		} else {
+			$column = 'col-md-12';
+		}
+		if ( is_active_sidebar( 'vendor-sidebar' ) ) : ?>		
+
+			<div class="col-md-3">
+				<div class="sidebar">
+					<?php dynamic_sidebar('vendor-sidebar'); ?>
+				</div>
 			</div>
-		</div>
+			<?php endif; ?>
+			
+		 	<div class="<?php echo $column; ?>">
+		 		<div class="escaperoom_wrapper">
+					<div class="grid-button btn-group pull-right">
+					  <a class="btn btn-primary btn_grid" id="grid">
+					  	<span class="ion-android-apps"></span>
+					  	Grid
+					  </a>
+					  <a class="btn btn-primary btn_list" id="">
+					  	<span class="ion-navicon"></span>
+					  	List
+					  </a>
+					  <a class="btn btn-primary btn_maps" id="maps">
+					  	<span class="ion-ios-location-outline"></span>
+					  </a>
+					</div>
+				</div>
 
 		<?php
 	}

@@ -18,7 +18,7 @@ get_header(); ?>
  */
 
 get_header(); ?>
-    <div class="whitespace"></div>
+    
     <div id="primary" class="container-fluid">
         <main id="main" class="site-main" role="main">
 

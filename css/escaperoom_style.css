@@ -25,10 +25,6 @@ p {
     line-height: 25px;
     font-size: 15px;
 }
-
-div#primary {
-    padding-top: 100px;
-}
 .clearfix {
     display: block;
     overflow: hidden;
@@ -1270,10 +1266,10 @@ span.author_info h5 {
 /* grid button */
 
 .grid-button {
-    position: absolute;
-    top: -75px;
-    right: 0;
     margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 .grid-button a {
     font-size: 19px;
@@ -1339,6 +1335,10 @@ span.author_info h5 {
 
 .list_layout span.hide_list {
     display: none;
+}
+.woocommerce nav.woocommerce-pagination {
+    text-align: center;
+    clear: both;
 }
 /* google maps */
 
@@ -1460,3 +1460,13 @@ p.map_author_name {
 {
     display: block;
 }
+
+/* fixing page wrapper */
+/*.dokan-dashboard, div#primary {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.woocommerce-page, div#primary {
+    //padding-top: 90px;
+    padding-bottom: 55px;
+}*/

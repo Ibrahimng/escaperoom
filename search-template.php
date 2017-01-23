@@ -5,7 +5,7 @@ Template name: Search Page
 get_header(); 
 $search = new WP_Advanced_Search('escaperoom_search'); 
 ?>
-	<div class="whitespace"></div>
+
 	<section id="primary" class="content-area container">
 		<main id="main" class="site-main" role="main">
 
