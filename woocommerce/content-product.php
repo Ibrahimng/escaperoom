@@ -61,7 +61,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		
 		<span class="author_info">
 			
-			<a href="<?php echo dokan_get_store_url( $author );?>"><?php echo get_avatar( $author->ID, 50 ); ?>
+			<a href="<?php echo dokan_get_store_url( $author->ID );?>"><?php echo get_avatar( $author->ID, 50 ); ?>
 			<h5><?php echo esc_html( $store_info['store_name'] ); ?></h5></a>
 		</span>
 		</div>

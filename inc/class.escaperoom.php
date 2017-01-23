@@ -90,10 +90,8 @@ class EscapeRoom {
 			$lng = get_post_meta($id, 'location_long', true);
 			$author_id = get_post_field( 'post_author', $id );
 			$auth_img = get_avatar( $author_id, 50 );
-
-			$store_url = dokan_get_store_url( $author_id );
+			$store_url	= dokan_get_store_url( $author_id);
 			$auth_name = get_the_author_meta('display_name', $author_id);
-
 			$price =  get_post_meta( $id, '_price', true);
 			$book_duration =  get_post_meta( $id, '_wc_booking_duration_unit', true);
 

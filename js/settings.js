@@ -93,7 +93,7 @@
 				              '<div class="mapinfoauthor">'
 				              	+'<div class="mapautimg">'+ 
 				             	 	product_locations[i].auth_img + 
-				             	 	'<a href="'+product_locations[i].store_url+'"><p class="map_author_name">'+product_locations[i].auth_name+'</p></a>'+
+				             	 	'<a href="'+product_locations[i].store_url+'"><p class="map_author_name">'+product_locations[i].auth_name+'</p></a>' +
 				             	 '</div>'+
 				             	 '<div class="mapautprice">'+
 				             		'<span class="map_price">'
