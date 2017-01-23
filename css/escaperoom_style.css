@@ -25,6 +25,10 @@ p {
     line-height: 25px;
     font-size: 15px;
 }
+
+div#primary {
+    padding-top: 100px;
+}
 .clearfix {
     display: block;
     overflow: hidden;

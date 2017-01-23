@@ -243,7 +243,7 @@ get_header(); ?>
     	<div class="container">
 			<div class="row">
 				<div class="video_content text-center">
-					<a href="#" class="popup_video" data-type="vimeo" data-autoplay="true" href="http://vimeo.com/<?php echo $vendor_video_id; ?>"><span class="ion-ios-play-outline"></span></a>
+					<a class="popup_video" data-type="vimeo" data-autoplay="true" href="http://vimeo.com/<?php echo $vendor_video_id; ?>"><span class="ion-ios-play-outline"></span></a>
 					<h2 class="title"><?php echo cs_get_option( 'feature_video_title' ); ?></h2>
 					<span class="sub-title"><?php echo cs_get_option( 'feature_video_subtitle' ); ?></span>
 				</div>

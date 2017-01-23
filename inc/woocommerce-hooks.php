@@ -1,6 +1,17 @@
 <?php 
 
 
+add_action('woocommerce_before_main_content', 'escaperoom_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'escaperoom_wrapper_end', 10);
+
+function escaperoom_wrapper_start() {
+  echo '<div id="primary" class="container"><div id="content" role="main">';
+}
+
+function escaperoom_wrapper_end() {
+  echo '</div></div>';
+}
+
 // single page product page-top seller overview
 function show_seller_info_dokan() {
 	if(is_singular('product')) {
