@@ -54,17 +54,17 @@
 		var product_locations = JSON.parse(data);
 		var map = new google.maps.Map(document.getElementById('product_map'), {
           zoom: 3,
-           center: {lat: -34.397, lng: 150.644},
+           //center: {lat: -34.397, lng: 150.644},
         });
 
 
 	    // locate to users location
-	    // if (navigator.geolocation) {
-	    //   navigator.geolocation.getCurrentPosition(function (position) {
-	    //     initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	    //     map.setCenter(initialLocation);
-	    //   });
-	    // }
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(function (position) {
+	        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	        map.setCenter(initialLocation);
+	      });
+	    }
 
 
         var markers = [];
