@@ -208,6 +208,7 @@ div#primary {
     border: 0px;
     line-height: 25px;
     outline: 0;
+    font-family: "Source Sans Pro", helvetica, sans-serif;
 }
 .b_location_form input[type="text"] {
     border-radius: 5px;
@@ -512,11 +513,6 @@ span.hourly-rate {
 ----------------------------------------*/
 #calltoaction_secton {
     background: #d35400;
-    background: linear-gradient(#fc913b, #e67e22);
-    background: -webkit-linear-gradien(#fc913b, #e67e22);
-    background: -o-linear-gradient(#fc913b, #e67e22);
-    background: -moz-linear-gradient(#fc913b, #e67e22);
-
     color: #fff;
     padding: 50px 0px;
 }
@@ -566,6 +562,16 @@ ul.social_media.list-inline li a {
     font-size: 30px;
     padding: 7px 7px;
     color:#fc913b;
+}
+ul.social_media li a span {
+    border: 1px solid #3498db;
+    padding: 5px 7px;
+    border-radius: 4px;
+}
+ul.social_media li:hover a span {
+    border: 1px solid #fc913b;
+    color: #fc913b;
+    cursor: pointer;
 }
 hr {
     border-color: #fc913b;

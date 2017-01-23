@@ -154,13 +154,14 @@ get_header(); ?>
 
             <div class="row">
             <?php while( $q->have_posts()) : $q->the_post(); ?>
+                <?php global $product;  ?>
                 <div class="col-md-4">
                     <a href="<?php the_permalink(); ?>" class="feature_item" style="background-image: url('<?php echo $esr->getAttachmentImageLink(get_the_ID(), 'medium'); ?>');">
                         <span class="label-bottom">
                             <?php the_title(); ?>         
                             <span class="hourly-rate">
-                                Hourly Rate: $60/hour
-                            </span>                                     
+                                Rate: <?php echo get_woocommerce_currency_symbol(); echo $product->get_price(); ?>/ <?php echo $product->get_duration_unit();?>
+                            </span>     
                         </span>
                     </a>    
                 </div>

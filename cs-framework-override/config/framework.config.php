@@ -82,24 +82,43 @@ $options[]   = array(
       // begin: fields
       'fields'    => array(
 
-        // begin: footer Widgets show & hide
-        array(
-          'id'           => 'footer_widgets',
-          'type'         => 'switcher',
-          'title'        => 'Footer Widgets',
-        ),
-        // begin: Scroll to Top
-        array(
-          'id'           => 'scrolltotop',
-          'type'         => 'switcher',
-          'title'        => 'Scroll to Top',
-        ),
         // begin: footer Text
         array(
           'id'    => 'footer_text',
-          'type'  => 'textarea',
+          'type'  => 'wysiwyg',
           'title' => 'Footer Text',
         ),
+
+      array(
+        'id'              => 'ft_social_media',
+        'type'            => 'group',
+        'title'           => 'Add Social Media',
+        'button_title'    => 'Add Social Meida Item',
+        'accordion_title' => 'Add New Social Meida Item',
+        'fields'          => array(
+           array(
+          'id'      => 'social_icon',
+          'type'    => 'text',
+          'help'    => 'Add Social Media Icon from Font Awesome',
+          'title'   => 'Social Media Icon',
+          'attributes' => array(
+            'placeholder' => 'fa-facebook'
+            )
+           ),
+           array(
+          'id'      => 'social_link',
+          'type'    => 'text',
+          'help'    => 'Add Social Media Link',
+          'title'   => 'Social Media Link',
+          'attributes' => array(
+            'placeholder' => 'https://facebook.com'
+            )
+           ),
+       ),
+      ),// End 
+
+
+
         // begin: footer Copyright
         array(
           'id'    => 'footer_copyright',
@@ -513,32 +532,30 @@ $options[]   = array(
   array(
     'id'      => 'vendor_title',
     'type'    => 'text',
-    'help'    => 'Vendor Feature Video Section Title',
-    'title'   => 'Add Video Section Title',
+    'help'    => 'Vendor Feature Video Background Title',
+    'title'   => 'Add Video Background Title',
     'attributes' => array(
-      'placeholder' => 'Launching Music Careers'
+      'placeholder' => 'Launching Escap Room Title'
     )
   ),
    array(
   'id'         => 'vendor_video_subtitle',
   'type'       => 'textarea',
-  'title'      => 'Section Subtitle',
+  'title'      => 'Video Background Content',
   ),
   array(
-      'id'              => 'vendor_video_bg',
-      'type'            => 'upload',
-      'title'           => 'Vendor Video Banner',
-      'button_title'    => 'Add Vendor Video Banner',
-      'accordion_title' => 'Add New Vendor Video Banner',
-    ),
-    array(
-      'id'      => 'vendor_video_id',
-      'type'    => 'text',
-      'help'    => 'Vendor Video Id',
-      'title'   => 'Vendor title',
-      'attributes' => array(
-        'placeholder' => '195592912'
-      )
+  'id'              => 'vendor_video_bg',
+  'type'            => 'upload',
+  'title'           => 'Vendor Video Background Image',
+  ),
+  array(
+    'id'      => 'vendor_video_id',
+    'type'    => 'text',
+    'help'    => 'Vendor Video Id',
+    'title'   => 'Vendor Vimeo Id',
+    'attributes' => array(
+      'placeholder' => '195592912'
+    )
     ),
  
 ));
