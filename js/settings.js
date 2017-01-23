@@ -42,16 +42,16 @@
 	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout ').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn("slow");
 	}
 	function changeClass_maps() {
-	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout');
+	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout .woocommerce-pagination').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn("slow");
 
 	}
 
 
-	//  var showmaps = '<div id="product_map"></div>';
-	// // 	//$( ".product-categories li.cat-parent > a" ).after(showmaps);
+	// var showmaps = $( '<div id="product_map"></div>' );
+	// 	//$( ".product-categories li.cat-parent > a" ).after(showmaps);
 
-	// 	$( '.btn_maps' ).click(function() {
-	// 	  $('#main').after(showmaps);
+	// 	$( ".btn_maps" ).click(function() {
+	// 	  $('#main .col-md-3').after(showmaps);
 	// 	});
 
 
