@@ -175,7 +175,7 @@ function sellers_redirect_to_dashboard( $redirect_to, $request, $user ) {
 	    }
 	}
 }
-add_filter( 'login_redirect', 'sellers_redirect_to_dashboard', 10, 3 );
+// add_filter( 'login_redirect', 'sellers_redirect_to_dashboard', 10, 3 );
 
 /* woocommerce support */
 add_action( 'after_setup_theme', 'woocommerce_support' );
