@@ -1345,6 +1345,7 @@ span.author_info h5 {
 #product_map {
     height: 400px !important;
     width: 100% !important;
+    display: none;
     }
 /*.maps_layout .custom_product {
     display: none;

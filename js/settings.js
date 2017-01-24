@@ -39,13 +39,16 @@
 
 	function changeClass_list() {
 	   $('.layout').removeClass('col-md-4 col-sm-4 col-xs-12 grid_layout maps_layout').addClass('col-md-12 col-sm-12 col-xs-12 list_layout').fadeIn();
-	  
+	  $('#product_map').css('display', 'none');
 	}
 	function changeClassgrid() {
 	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout ').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn();
+	   $('#product_map').css('display', 'none');
 	}
 	function changeClass_maps() {
 	   $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn();
+	   $('#product_map').css('display', 'block');
+	   initMap();
 		//$('.maps_layout').append('<div id="product_map"></div>');
 	}
 	

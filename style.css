@@ -31,7 +31,8 @@ Tags:
     border: none;
 }
 
-.widget.dokan-category-menu h3.widget-title {
+.widget.dokan-category-menu h3.widget-title,
+.widget_product_categories .widget_title {
     margin: 0;
     padding: 10px 10px 10px 20px;
     background: #eee;
@@ -64,10 +65,12 @@ Tags:
     display: block;
 }
 
-.widget .widget-title {
+.widget .widget-title,
+.widget .widget_title {
     border-left: 3px solid #f05025;
     margin-left: -10px;
     padding-left: 6px;
+    font-size: 18px !important;
 }
 .widget .widget-title {
     margin: 0 0 15px 0;
@@ -76,5 +79,6 @@ Tags:
     font-size: 18px;
     line-height: 18px;
 }
-
-
+.sidebar {
+    margin-top: 72px;
+}
