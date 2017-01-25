@@ -1,3 +1,4 @@
+
 @media (max-width: 776px) {
 .explore_location_list .explore_item {
     margin-bottom: 25px;
@@ -21,19 +22,21 @@ section#feature_video_section .section_header h4 {
 .vedor_banner_btn {
     width: 80% !important;
 }
-.list_layout span.pro_title {
-    font-size: 15px;
-    line-height: 19px;
-    font-weight: normal;
+/* escaperoom tab */
+.escaperoom_pro_tab {
+    margin-left: 15px;
 }
-.list_layout span.pro_price {
-    font-size: 27px !important;
+h2.list_pro_tile {
+    margin-top: 15px;
 }
-.list_layout img {
-    width: 35%;
-    border-radius: 5px;
+.list_escaperoom {
+    padding-bottom: 0px;
 }
-.list_layout .product_info {
-    margin-left: 5px;
+.listmobile {
+    padding-bottom: 25px;
+    margin-top: -35px;
+}
+.hidden-md{
+    display: block;
 }
 }
