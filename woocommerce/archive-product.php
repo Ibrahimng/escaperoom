@@ -61,7 +61,7 @@ get_header(); ?>
 								while ( have_posts() ) : the_post();
 									wc_get_template_part( 'content', 'product' );
 								endwhile;  
-do_action( 'woocommerce_after_shop_loop' );
+								do_action( 'woocommerce_after_shop_loop' );
 							?>
 							
 							</div>

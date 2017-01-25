@@ -13,9 +13,11 @@
 							 		</div>
 
 							 		<div class="col-md-7">
+										<a href="<?php the_permalink(); ?>">
 										<h2 class="list_pro_tile">
 										<?php the_title(); ?>
 										</h2>
+										</a>
 										<div class="list_author">
 											<a href="<?php echo dokan_get_store_url( $author->ID );?>">
 											<?php echo get_avatar( $author->ID, 50 ); ?>
