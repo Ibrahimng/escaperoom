@@ -126,12 +126,6 @@ function escaperoom_register_required_plugins() {
 			'slug'      	=> 'woodiscuz-woocommerce-comments',
 			'required'  	=> true,
 		),
-		array(
-	        'name' => 'WP Advanced Search',
-	        'slug' => 'wp-advanced-search',
-	        'source' => 'https://github.com/bootsz/wp-advanced-search/archive/master.zip',
-	        'required'  	=> true,
-	    )
 	);
 
 	/*

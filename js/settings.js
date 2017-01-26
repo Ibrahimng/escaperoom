@@ -28,31 +28,7 @@
 	  $(this).toggleClass( 'ion-android-arrow-dropdown ion-android-arrow-dropright').next().toggle();
 	});
 
-    
-    //grid & list and maps layout 
-
- //    $('.btn_grid').on('click', changeClassgrid);
- //    $('.btn_list').on('click', changeClass_list);
- //    $('.btn_maps').on('click', changeClass_maps);
-
-     
-
-	// function changeClass_list() {
-	//    $('.layout').removeClass('col-md-4 col-sm-4 col-xs-12 grid_layout maps_layout').addClass('col-md-12 col-sm-12 col-xs-12 list_layout').fadeIn();
-	//   $('#product_map').css('display', 'none');
-	// }
-	// function changeClassgrid() {
-	//    $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout ').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn();
-	//    $('#product_map').css('display', 'none');
-	// }
-	// function changeClass_maps() {
-	//    $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn();
-	//    $('.woocommerce-pagination').css('display', 'none');
-	//    $('#product_map').css('display', 'block');
-	//    initMap();
-	// }
-	
-
+   
 	// loadProductMap function 
 
 	function loadProductMap(data) {
@@ -65,12 +41,12 @@
 
 
 	    // locate to users location
-	    // if (navigator.geolocation) {
-	    //   navigator.geolocation.getCurrentPosition(function (position) {
-	    //     initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	    //     map.setCenter(initialLocation);
-	    //   });
-	    // }
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(function (position) {
+	        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	        map.setCenter(initialLocation);
+	      });
+	    }
 
 
         var markers = [];
@@ -111,8 +87,6 @@
 			          infowindow.open(map,marker);
 		        }
 		      })(marker, i));
-
-
         }
 
 
@@ -127,13 +101,11 @@
 		var data = {
 			'action': 'get_product_locations_ajax'
 		};
-
 		$.ajax({
 			url: woocommerce_params.ajax_url,
 			data: data,
 
 			success:function(response) {
-				console.log(response);
 				loadProductMap(response); 
 			}
 		});
