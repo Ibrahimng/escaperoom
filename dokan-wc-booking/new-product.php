@@ -57,6 +57,13 @@ $_enable_reviews = $post->comment_status;
 
 $has_persons  = get_post_meta( $post_id, '_wc_booking_has_persons', true );
 $has_resource = get_post_meta( $post_id, '_wc_booking_has_resources', true );
+
+/* custom fields azizultex */
+$location_lat          = get_post_meta( $post_id, 'location_lat', true );
+$location_long         = get_post_meta( $post_id, 'location_long', true );
+$number_of_person        = get_post_meta( $post_id, 'number_of_person', true );
+
+
 ?>
 
 <header class="dokan-dashboard-header dokan-clearfix">
@@ -171,6 +178,29 @@ $has_resource = get_post_meta( $post_id, '_wc_booking_has_resources', true );
                                 ?>
                             </div>
 
+
+
+                        <div class="dokan-form-group">
+                            <!-- latitude -->
+                            <div class="half">
+                                <label for="location_lat" class="form-label"><?php _e( 'Latitude', 'dokan-wc-booking' ); ?></label>
+                                <div class="dokan-product-title-alert dokan-hide dokan-alert dokan-alert-danger">
+                                    <?php _e( 'Latitude & Longititude required !!!', 'dokan-wc-booking' ); ?>
+                                </div>
+                                <?php dokan_post_input_box( $post_id, 'location_lat', array( 'placeholder' => __( 'Latitude', 'dokan' ), 'value' => $location_lat ) ); ?>
+                            </div>   
+
+                            <!-- longititude -->                         
+                            <div class="half">
+                                <label for="location_long" class="form-label"><?php _e( 'Longititude', 'dokan-wc-booking' ); ?></label>
+                                <div class="dokan-product-title-alert dokan-hide dokan-alert dokan-alert-danger">
+                                    <?php _e( 'Latitude & Longititude required !!!', 'dokan-wc-booking' ); ?>
+                                </div>
+                                <?php dokan_post_input_box( $post_id, 'location_long', array( 'placeholder' => __( 'Longititude', 'dokan' ), 'value' => $location_long ) ); ?>
+                            </div>
+                        </div>
+
+
                         <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>
                             <div class="dokan-form-group">
 
@@ -249,6 +279,15 @@ $has_resource = get_post_meta( $post_id, '_wc_booking_has_resources', true );
 
                             echo str_replace( '<select', '<select data-placeholder="' . __( 'Select product tags', 'dokan' ) . '" multiple="multiple" ', $drop_down_tags );
                             ?>
+                        </div>
+
+                        <div class="dokan-form-group">
+                            <!-- Number of person -->
+                            <label for="number_of_person" class="form-label"><?php _e( 'Number of Person', 'dokan-wc-booking' ); ?></label>
+                            <div class="dokan-product-title-alert dokan-hide dokan-alert dokan-alert-danger">
+                                <?php _e( 'Number of Person Required!!!', 'dokan-wc-booking' ); ?>
+                            </div>
+                            <?php dokan_post_input_box( $post_id, 'number_of_person', array( 'placeholder' => __( 'Number of Person', 'dokan' ), 'value' => $number_of_person ) ); ?>
                         </div>
 
                     </div><!-- .content-half-part -->

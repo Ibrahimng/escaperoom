@@ -172,6 +172,14 @@ function product_location_long_lat_custom() {
 				'placeholder' => 'i.e. 89.2295773',
 				'desc_tip'    => 'true',
 			)
+		); 		
+
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'number_of_person', 
+				'label'       => __( 'Number of Person:', 'escaperoom' ), 
+				'desc_tip'    => 'true',
+			)
 		); 
 
   echo '</div>';
@@ -183,12 +191,18 @@ add_action( 'woocommerce_product_options_general_product_data', 'product_locatio
 function product_location_long_lat_save( $post_id ){
 	$longitude = $_POST['location_lat'];
 	$latitude = $_POST['location_long'];
+	$number_of_person = $_POST['number_of_person'];
 
-	if( !empty( $longitude ) )
+	if( !empty( $longitude ) ) {
 		update_post_meta( $post_id, 'location_lat', esc_attr( $longitude ) );
+	}
 
-	if( !empty( $latitude ) )
+	if( !empty( $latitude ) ) {
 		update_post_meta( $post_id, 'location_long', esc_attr( $latitude ) );
+	}	
+	if( !empty( $number_of_person ) ) {
+		update_post_meta( $post_id, 'number_of_person', esc_attr( $number_of_person ) );
+	}
 }
 add_action( 'woocommerce_process_product_meta', 'product_location_long_lat_save' );
 

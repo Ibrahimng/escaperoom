@@ -87,3 +87,22 @@ Tags:
     margin-top: 0px !important;
     } 
 }
+
+/* dokan frontend product submission form */
+.select2-container {
+    z-index: 9 !important;
+}
+.product-edit-new-container .dokan-edit-row {
+    padding: 0 10px;
+}
+.dokan-input-group .dokan-form-control {
+    z-index: 1;
+}
+
+.dokan-dashboard .dokan-dashboard-wrap .half {
+    width: 48%;
+    display: inline-block;
+}
+.dokan-alert {
+    padding: 2px 5px;
+}

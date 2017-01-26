@@ -10,6 +10,8 @@
  */
 
 ?>
+
+<?php if(!is_user_logged_in()) : ?>
     <section id="calltoaction_secton">
         <div class="container">
             <div class="row">
@@ -41,6 +43,8 @@
             </div>
         </div>
     </section>
+<?php endif; ?>
+
     <footer id="footer_section">
         <div class="container">
 
