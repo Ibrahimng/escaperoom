@@ -979,7 +979,60 @@ span.author_info h5 {
     font-size: 15px;
 }
 
-
+/* escaperoom list sytle */
+.list_escaperoom {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+img.list_esc_img {
+    border-radius: 5px;
+}
+h2.list_pro_tile {
+    line-height: 23px;
+    font-size: 20px;
+    margin-top: 0px;
+    font-weight: 600;
+    color: #807d7c;
+    padding-bottom: 25px;
+}
+h2.list_pro_tile:hover a{
+   color: #595756;
+}
+.list_price_section {
+    text-align: right; 
+}
+span.list_price {
+    font-size: 2em;
+    line-height: 1;
+    font-weight: 400;
+    color: #3c3c3c;
+}
+span.list_duction {
+    font-size: 17px;
+    color: #000;
+    margin-right: 4px;
+    font-weight: 100;
+}
+.list_author a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.list_author img {
+    border-radius: 5px;
+    float: left;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+.list_author h5 {
+    color: #3c3c3c;
+    text-decoration: none;
+    font-size: 16px;
+}
 /*--------- Product Filter Widget -----------*/
 .price_slider_wrapper {
   padding: 0 10px;
@@ -1263,24 +1316,39 @@ span.author_info h5 {
     text-decoration: none;
 }
 
-/* grid button */
 
-.grid-button {
+
+.escaperoom_pro_tab {
     margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    margin-right: 15px;
 }
-.grid-button a {
-    font-size: 19px;
-    padding: 0px 20px;
-    line-height: 2;
-    margin: 0;
+ul.escaperoom_pro_tab li {
+    float: left;
+    list-style: none;
 }
-.grid-button .btn span {
+
+ul.escaperoom_pro_tab a {
+    font-size: 18px;
+    padding: 7px 30px;
+    line-height: 0;
+    margin-right: 0px;
+    border-radius: 2px;
+}
+ul.escaperoom_pro_tab span {
     font-size: 25px;
     margin-right:10px;
 }
+.escaperoom_tablist_border {
+    width: 97%;
+    border-bottom: 1px solid #ddd;
+    margin: 0px auto;
+    display: block;
+    clear: both;
+    margin-bottom: 25px;
+}
+
+
+
 .layout {
     transition: all 0.9s;
 }
@@ -1345,22 +1413,22 @@ span.author_info h5 {
 #product_map {
     height: 400px !important;
     width: 100% !important;
-    display: none;
+    //display: none;
     }
 /*.maps_layout .custom_product {
     display: none;
 }*/
-.maps_hidde {
+/*.maps_hidde {
     display: none;
 }
 
 .maps_show {
     display: block !important;
-}
-
+}*/
+/*
 .grid_layout div#product_map, .list_layout div#product_map, .maps_layout .custom_product {
     display: none;
-} 
+} */
 .pagination {
     text-align: center;
     margin: 0 auto;
@@ -1461,13 +1529,6 @@ p.map_author_name {
 {
     display: block;
 }
-
-/* fixing page wrapper */
-/*.dokan-dashboard, div#primary {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.hidden-md{
+    display: none;
 }
-.woocommerce-page, div#primary {
-    //padding-top: 90px;
-    padding-bottom: 55px;
-}*/

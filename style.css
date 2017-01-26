@@ -80,5 +80,10 @@ Tags:
     line-height: 18px;
 }
 .sidebar {
-    margin-top: 72px;
+    margin-top: 60px !important;
+}
+@media (max-width: 776px) {
+   .sidebar {
+    margin-top: 0px !important;
+    } 
 }
