@@ -195,6 +195,7 @@ require get_template_directory() . '/inc/required_plugins.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/dokan-hooks.php';
+require get_template_directory() . '/inc/shortcodes.php';
 
 if(function_exists('dokan_get_template_part')) {
 	require get_template_directory() . '/inc/woocommerce-hooks.php';
