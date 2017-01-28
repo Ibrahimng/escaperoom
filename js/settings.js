@@ -1,6 +1,63 @@
 (function ($) {
 	// "use strict";
 
+$('.single_product_thmub_slider').slick({
+		autoplay: true,
+		arrows: true,
+		dots: true,
+		speed: 300,
+		draggable: true,
+		fade: false,
+		infinite: true,
+		slidesToShow: 1,
+		responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
+	});
+$('.feature_product_items').slick({
+		autoplay: true,
+		arrows: true,
+		dots: true,
+		speed: 300,
+		draggable: true,
+		fade: false,
+		infinite: true,
+		slidesToShow: 3,
+		responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
+	});
+
+$('.feature_vidoes').slick({
+		autoplay: false,
+		arrows: true,
+		dots: false,
+		draggable: true,
+		fade: false,
+		infinite: true,
+		slidesToShow: 2,
+		responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
+	});
+
+
+
 	/* Testimonial */
 	$('.testimonial_slider').slick({
 		autoplay: true,
@@ -28,30 +85,6 @@
 	  $(this).toggleClass( 'ion-android-arrow-dropdown ion-android-arrow-dropright').next().toggle();
 	});
 
-    
-    //grid & list and maps layout 
-
- //    $('.btn_grid').on('click', changeClassgrid);
- //    $('.btn_list').on('click', changeClass_list);
- //    $('.btn_maps').on('click', changeClass_maps);
-
-     
-
-	// function changeClass_list() {
-	//    $('.layout').removeClass('col-md-4 col-sm-4 col-xs-12 grid_layout maps_layout').addClass('col-md-12 col-sm-12 col-xs-12 list_layout').fadeIn();
-	//   $('#product_map').css('display', 'none');
-	// }
-	// function changeClassgrid() {
-	//    $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout maps_layout ').addClass('col-md-4 col-sm-4 col-xs-12 grid_layout').fadeIn();
-	//    $('#product_map').css('display', 'none');
-	// }
-	// function changeClass_maps() {
-	//    $('.layout').removeClass('col-md-12 col-sm-12 col-xs-12 list_layout col-md-4 col-sm-4 col-xs-12 grid_layout').addClass('col-md-12 col-sm-12 col-xs-12 maps_layout').fadeIn();
-	//    $('.woocommerce-pagination').css('display', 'none');
-	//    $('#product_map').css('display', 'block');
-	//    initMap();
-	// }
-	
 
 	// loadProductMap function 
 

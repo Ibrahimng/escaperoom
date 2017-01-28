@@ -193,6 +193,35 @@ function product_location_long_lat_save( $post_id ){
 add_action( 'woocommerce_process_product_meta', 'product_location_long_lat_save' );
 
 
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+
+
+add_action( 'woocommerce_before_single_product_summary', 'escaperoom_curosel_single_product_fun');
+
+function escaperoom_curosel_single_product_fun(){	?>
+	<div class="single_product_thmub_slider">
+	  	<?php 
+		    global $post, $product, $woocommerce;
+		    $product_thumb = get_post_thumbnail_id($post->ID);
+			$attachment_ids = $product->get_gallery_attachment_ids();
+			$attachment_ids[] = $product_thumb;
+			// array_push($attachment_ids, $product_thumb);
+
+			if($attachment_ids) :
+
+			foreach ($attachment_ids as $attachment_id) :
+			$image_link = wp_get_attachment_url( $attachment_id );
+			?>
+			<div class="single_pro_thumb_item">
+			  <img src="<?php echo $image_link; ?>">
+			</div>
+
+			<?php endforeach; ?>
+	    
+		<?php endif; ?>
+	</div>
+<?php } 
+
 
 
 
