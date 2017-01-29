@@ -39,4 +39,8 @@ h2.list_pro_tile {
 .hidden-md{
     display: block;
 }
+.single_product_thmub_slider.slick-initialized.slick-slider.slick-dotted {
+    width: 100%;
+    float: none;
+}
 }

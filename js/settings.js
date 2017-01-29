@@ -1,6 +1,63 @@
 (function ($) {
 	// "use strict";
 
+$('.single_product_thmub_slider').slick({
+		autoplay: true,
+		arrows: true,
+		dots: true,
+		speed: 300,
+		draggable: true,
+		fade: false,
+		infinite: true,
+		slidesToShow: 1,
+		responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
+	});
+$('.feature_product_items').slick({
+		autoplay: true,
+		arrows: true,
+		dots: true,
+		speed: 300,
+		draggable: true,
+		fade: false,
+		infinite: true,
+		slidesToShow: 3,
+		responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
+	});
+
+$('.feature_vidoes').slick({
+		autoplay: false,
+		arrows: true,
+		dots: false,
+		draggable: true,
+		fade: false,
+		infinite: true,
+		slidesToShow: 2,
+		responsive: [
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    }
+	  ]
+	});
+
+
+
 	/* Testimonial */
 	$('.testimonial_slider').slick({
 		autoplay: true,
@@ -28,7 +85,6 @@
 	  $(this).toggleClass( 'ion-android-arrow-dropdown ion-android-arrow-dropright').next().toggle();
 	});
 
-   
 	// loadProductMap function 
 
 	function loadProductMap(data) {
@@ -111,8 +167,6 @@
 		});
 
     }
-
-   
     google.maps.event.addDomListener(window, 'load', initMap);
 
 }(jQuery));

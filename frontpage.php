@@ -142,7 +142,7 @@ echo '</pre>';
     <?php  
     $q = new WP_Query($esr->featuredEscapeRoomsArgs()); 
     if( $q->have_posts()) : ?>
-    <section id="features_section" class="padding_bottom_50">
+    <section id="features_section" class="padding_bottom_50" style="background:#ddd;">
         <div class="container">
 
             <div class="row">
@@ -160,20 +160,24 @@ echo '</pre>';
             </div>
 
             <div class="row">
-            <?php while( $q->have_posts()) : $q->the_post(); ?>
-                <?php global $product;  ?>
-                <div class="col-md-4">
-                    <a href="<?php the_permalink(); ?>" class="feature_item" style="background-image: url('<?php echo $esr->getAttachmentImageLink(get_the_ID(), 'medium'); ?>');">
-                        <span class="label-bottom">
-                            <?php the_title(); ?>         
-                            <span class="hourly-rate">
-                                Rate: <?php echo get_woocommerce_currency_symbol(); echo $product->get_price(); ?>/ <?php echo $product->get_duration_unit();?>
-                            </span>     
-                        </span>
-                    </a>    
+                <div class="feature_product_items">
+                <?php while( $q->have_posts()) : $q->the_post(); ?>
+                    <?php global $product;  ?>
+                    <div class="col-md-4">
+                        <a href="<?php the_permalink(); ?>" class="feature_item" style="background-image: url('<?php echo $esr->getAttachmentImageLink(get_the_ID(), 'medium'); ?>');">
+                            <span class="label-bottom">
+                                <?php the_title(); ?>         
+                                <span class="hourly-rate">
+                                    Rate: <?php echo get_woocommerce_currency_symbol(); echo $product->get_price(); ?>/ <?php echo $product->get_duration_unit();?>
+                                </span>     
+                            </span>
+                        </a>    
+                    </div>
+                <?php endwhile; wp_reset_query(); ?>
                 </div>
-            <?php endwhile; wp_reset_query(); ?>
             </div>
+
+
         </div>
     </section>
     <!--End featuers section -->
@@ -228,7 +232,7 @@ echo '</pre>';
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                    <div class="section_header">
+                    <div class="section_header padding_bottom_50">
                         <?php  $feature_video_title = cs_get_option( 'feature_video_title' );
                             if($feature_video_title):
                             echo '<h1>'.$feature_video_title.'</h1>';
@@ -247,22 +251,29 @@ echo '</pre>';
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <?php  
-                $feature_video_items = cs_get_option( 'feature_video_item' );
-                    
-                    if(is_array($feature_video_items)){
-                        foreach($feature_video_items as $feature_video_item) { 
-                             $video_id = $feature_video_item['video_id'];
-                            ?>
-                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="feature_video_item">
-                                    <iframe src="https://player.vimeo.com/video/<?php echo $video_id; ?>" width="500" height="320" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                                </div>  
-                            </div>
-                        <?php }
-                    }
-                  ?>
+
+           <div class="row">
+               
+                  <div class="feature_vidoes">
+                    <?php  
+                    $feature_video_items = cs_get_option( 'feature_video_item' );
+                        
+                        if(is_array($feature_video_items)){
+                            foreach($feature_video_items as $feature_video_item) { 
+                                 $video_id = $feature_video_item['video_id'];
+                                ?>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                
+                                    <div class="feature_video_item">
+                                        <iframe src="https://player.vimeo.com/video/<?php echo $video_id; ?>" width="500" height="320" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                                    </div>  
+                                </div>
+                               
+                            <?php }
+                        }
+                      ?>
+                 </div>
+                
             </div>
         </div>    
     </section> 
