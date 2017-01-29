@@ -175,7 +175,7 @@ function sellers_redirect_to_dashboard( $redirect_to, $request, $user ) {
 	    }
 	}
 }
-add_filter( 'login_redirect', 'sellers_redirect_to_dashboard', 10, 3 );
+// add_filter( 'login_redirect', 'sellers_redirect_to_dashboard', 10, 3 );
 
 /* woocommerce support */
 add_action( 'after_setup_theme', 'woocommerce_support' );
@@ -195,6 +195,8 @@ require get_template_directory() . '/inc/required_plugins.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/dokan-hooks.php';
+require get_template_directory() . '/inc/shortcodes.php';
+require_once('wp-advanced-search/wpas.php');
 
 if(function_exists('dokan_get_template_part')) {
 	require get_template_directory() . '/inc/woocommerce-hooks.php';

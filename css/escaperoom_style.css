@@ -1383,9 +1383,9 @@ ul.escaperoom_pro_tab a {
     line-height: 0;
     margin-right: 0px;
     border-radius: 2px;
+    margin-right: 5px;
 }
 ul.escaperoom_pro_tab span {
-    font-size: 25px;
     margin-right:10px;
 }
 .escaperoom_tablist_border {

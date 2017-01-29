@@ -85,7 +85,6 @@ $('.feature_vidoes').slick({
 	  $(this).toggleClass( 'ion-android-arrow-dropdown ion-android-arrow-dropright').next().toggle();
 	});
 
-
 	// loadProductMap function 
 
 	function loadProductMap(data) {
@@ -98,12 +97,12 @@ $('.feature_vidoes').slick({
 
 
 	    // locate to users location
-	    // if (navigator.geolocation) {
-	    //   navigator.geolocation.getCurrentPosition(function (position) {
-	    //     initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	    //     map.setCenter(initialLocation);
-	    //   });
-	    // }
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(function (position) {
+	        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	        map.setCenter(initialLocation);
+	      });
+	    }
 
 
         var markers = [];
@@ -144,8 +143,6 @@ $('.feature_vidoes').slick({
 			          infowindow.open(map,marker);
 		        }
 		      })(marker, i));
-
-
         }
 
 
@@ -160,20 +157,16 @@ $('.feature_vidoes').slick({
 		var data = {
 			'action': 'get_product_locations_ajax'
 		};
-
 		$.ajax({
 			url: woocommerce_params.ajax_url,
 			data: data,
 
 			success:function(response) {
-				console.log(response);
 				loadProductMap(response); 
 			}
 		});
 
     }
-
-   
     google.maps.event.addDomListener(window, 'load', initMap);
 
 }(jQuery));
