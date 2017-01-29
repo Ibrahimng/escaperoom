@@ -204,3 +204,4 @@ if(function_exists('dokan_get_template_part')) {
 require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/class.escaperoom.php';
 require get_template_directory() . '/inc/ajax.php';
+

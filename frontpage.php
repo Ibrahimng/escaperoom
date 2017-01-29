@@ -10,6 +10,13 @@ get_header(); ?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
+<?php 
+echo '<pre>';
+var_dump(get_post_meta(121, '_wc_booking_duration_type'));
+echo '</pre>';
+
+?>
+
                         <?php  $slider_title = cs_get_option( 'slider_title' );
                         if($slider_title):
                         echo '<h1>'.$slider_title.'</h1>';
