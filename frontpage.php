@@ -10,12 +10,6 @@ get_header(); ?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-<?php 
-echo '<pre>';
-var_dump(get_post_meta(121, '_wc_booking_duration_type'));
-echo '</pre>';
-
-?>
 
                         <?php  $slider_title = cs_get_option( 'slider_title' );
                         if($slider_title):
@@ -86,7 +80,7 @@ echo '</pre>';
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo $esr->getRandomProductImage($v, 'location_img_large'); ?>" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getLocationImageURL($v, 'location_img_large'); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
                                 <h2><?php echo $esr->get_location_name($v); ?></h2>
@@ -97,7 +91,7 @@ echo '</pre>';
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <a href="<?php echo get_term_link($v); ?>" class="explore_item">
                             <div class="explore_img">
-                                <img src="<?php echo $esr->getLocationImageURL($v, 'location_img_large'); ?>" class="img-responsive" alt="">
+                                <img src="<?php echo $esr->getLocationImageURL($v, 'location_img'); ?>" class="img-responsive" alt="">
                             </div>
                             <div class="explore_title">
                                 <h2><?php echo $esr->get_location_name($v); ?></h2>

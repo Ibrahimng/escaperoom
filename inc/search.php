@@ -15,11 +15,7 @@ function my_search_form() {
                               'placeholder' => 'Search desired esaperooms',
                               'pre_html' => '<div class="b_location_form"><div class="input_location">',
                               'post_html' => '</div>',
-                              );
-    $args['fields'][] = array('type' => 'meta_key',
-                              'format' => 'date',
-                              'meta_key' => '_wc_booking_max_date'
-                              );        
+                              );     
     $args['fields'][] = array('type' => 'taxonomy',
                               'taxonomy' => 'product_cat',
                               'format' => 'select',

@@ -22,11 +22,11 @@ class EscapeRoom {
 		return $location->name;
 	}
 
-	public function getLocationImageURL($id) {
+	public function getLocationImageURL($id, $size='medium') {
 		if($this->getRandomProductImage($id)) {
-			return $this->getRandomProductImage($id);
+			return $this->getRandomProductImage($id, $size);
 		} else if(function_exists('z_taxonomy_image_url')) {
-			return z_taxonomy_image_url($id);
+			return z_taxonomy_image_url($id, $size);
 		}
 	}
 

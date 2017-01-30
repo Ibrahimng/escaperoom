@@ -55,7 +55,7 @@ function escaperoom_setup() {
 	 */
 	add_theme_support( 'post-thumbnails', array('product','post'));
 	add_image_size('location_img', 260, 240, true);
-	add_image_size('location_img_large', 748, 240, true);
+	add_image_size('location_img_large', 748, 333, true);
 	add_image_size('maps_pro_img', 200, 75, true);
 	add_image_size('pro_thum_shop', 240, 160, true);
 	
@@ -148,11 +148,11 @@ function escaperoom_scripts() {
 
 	wp_enqueue_script('markerclusterer', get_template_directory_uri() . '/assets/maps/markerclusterer.js', array('google_maps'), false, true);
 
-	wp_enqueue_script('slick_min', get_template_directory_uri() . '/js/slick.min.js', array(), false, true);
+	wp_enqueue_script('slick_slider', get_template_directory_uri() . '/js/slick.min.js', array(), false, true);
 
 
 	wp_enqueue_script('venobox', get_template_directory_uri() . '/js/venobox.min.js', array(), false, true);
-	wp_enqueue_script('settings', get_template_directory_uri() . '/js/settings.js', array(), false, true);
+	wp_enqueue_script('settings', get_template_directory_uri() . '/js/settings.js', array('slick_slider'), false, true);
 	wp_localize_script('settings', 'localized', array('themepath' => get_stylesheet_directory_uri() ));
 	wp_enqueue_script( 'escaperoom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

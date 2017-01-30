@@ -19,6 +19,7 @@ $('.single_product_thmub_slider').slick({
 	    }
 	  ]
 	});
+
 $('.feature_product_items').slick({
 		autoplay: true,
 		arrows: true,

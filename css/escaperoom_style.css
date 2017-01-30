@@ -290,6 +290,21 @@ p {
     position: relative;
     display: block;
 }
+.explore_location_list .explore_img {
+    position: relative;
+}
+.explore_location_list .explore_img:before {
+    position: absolute;
+    content: '';
+    height: 100%
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+}
+.explore_location_list .explore_img:hover:before {
+        background: transparent;
+}
 .explore_location_list .explore_img img {
     width: 100%;
     height: auto;
