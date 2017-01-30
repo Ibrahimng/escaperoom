@@ -29,47 +29,6 @@ function show_seller_info_dokan() {
 
 add_action('woocommerce_before_main_content', 'show_seller_info_dokan', 21, 0);
 
-function products_filter_nav() {
-
-	if( is_shop() || is_archive() ) {
-		if ( is_active_sidebar( 'vendor-sidebar' ) ) {
-			$column = 'col-md-9';
-		} else {
-			$column = 'col-md-12';
-		}
-		if ( is_active_sidebar( 'vendor-sidebar' ) ) : ?>		
-
-			<div class="col-md-3">
-				<div class="sidebar">
-					<?php dynamic_sidebar('vendor-sidebar'); ?>
-				</div>
-			</div>
-			<?php endif; ?>
-			
-		 	<div class="<?php echo $column; ?>">
-		 		<div class="escaperoom_wrapper">
-					<div class="grid-button btn-group pull-right">
-					  <a class="btn btn-primary btn_grid" id="grid">
-					  	<span class="ion-android-apps"></span>
-					  	Grid
-					  </a>
-					  <a class="btn btn-primary btn_list" id="">
-					  	<span class="ion-navicon"></span>
-					  	List
-					  </a>
-					  <a class="btn btn-primary btn_maps" id="maps">
-					  	<span class="ion-ios-location-outline"></span>
-					  </a>
-					</div>
-				</div>
-
-		<?php
-	}
-}
-
-add_action('woocommerce_before_main_content', 'products_filter_nav', 20, 0);
-
-
 // remove Dokan default seller tab and edit update new ones 
 function woo_remove_product_tabs( $tabs ) {
 	$tabs['description']['title'] = __( 'Room Information' );
@@ -193,16 +152,10 @@ function product_location_long_lat_save( $post_id ){
 	$latitude = $_POST['location_long'];
 	$number_of_person = $_POST['number_of_person'];
 
-	if( !empty( $longitude ) ) {
-		update_post_meta( $post_id, 'location_lat', esc_attr( $longitude ) );
-	}
+	update_post_meta( $post_id, 'location_lat', esc_attr( $longitude ) );
+	update_post_meta( $post_id, 'location_long', esc_attr( $latitude ) );
+	update_post_meta( $post_id, 'number_of_person', esc_attr( $number_of_person ) );
 
-	if( !empty( $latitude ) ) {
-		update_post_meta( $post_id, 'location_long', esc_attr( $latitude ) );
-	}	
-	if( !empty( $number_of_person ) ) {
-		update_post_meta( $post_id, 'number_of_person', esc_attr( $number_of_person ) );
-	}
 }
 add_action( 'woocommerce_process_product_meta', 'product_location_long_lat_save' );
 
@@ -221,7 +174,7 @@ function escaperoom_curosel_single_product_fun(){	?>
 			$attachment_ids[] = $product_thumb;
 			// array_push($attachment_ids, $product_thumb);
 
-			if($attachment_ids) :
+			// if($attachment_ids) :
 
 			foreach ($attachment_ids as $attachment_id) :
 			$image_link = wp_get_attachment_url( $attachment_id );
@@ -232,7 +185,7 @@ function escaperoom_curosel_single_product_fun(){	?>
 
 			<?php endforeach; ?>
 	    
-		<?php endif; ?>
+		 <?php // endif; ?>
 	</div>
 <?php } 
 

@@ -1584,7 +1584,7 @@ p.map_author_name {
 }
 
 /* single product slider */
-.single_product_thmub_slider.slick-initialized.slick-slider.slick-dotted {
+.single_product_thmub_slider {
     width: 50%;
     float: left;
 }
@@ -1596,4 +1596,7 @@ p.map_author_name {
 }
 .single_product_thmub_slider button.slick-next{
     right: 20px;
+}
+div#wc-bookings-booking-form {
+    display: block !important;
 }
