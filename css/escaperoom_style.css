@@ -96,8 +96,11 @@ p {
     padding-top: 2px;
     padding-bottom: 0px;
 }
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover
 .navbar-toggle {
-    background: #dbdbdb;
+    background: #337ab7;
     color: #fff;
 }
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
