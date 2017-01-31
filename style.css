@@ -106,3 +106,18 @@ Tags:
 .dokan-alert {
     padding: 2px 5px;
 }
+.product_videos input {
+    margin-bottom: 3px;
+}
+.single_product_video {
+    position: relative;
+}
+.single_product_video .fa.fa-minus {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+}
+.add_more_video {
+    cursor: pointer;
+}

@@ -177,6 +177,26 @@ function sellers_redirect_to_dashboard( $redirect_to, $request, $user ) {
 }
 // add_filter( 'login_redirect', 'sellers_redirect_to_dashboard', 10, 3 );
 
+
+/* login & register page css */
+function login_register_css() {
+	echo "<style>body.woocommerce-account {
+    color: #FFF;
+    background-image: url('" . get_stylesheet_directory_uri() ."/img/intro-bg.jpg');
+    background-size: cover;
+}
+
+.dps-pack {
+    background: #fc913b !important;
+}
+.dps-pack ul {
+    list-style: none;
+}</style>";
+}
+if(!is_user_logged_in()) {
+	add_action('wp_footer', 'login_register_css');
+}
+
 /* woocommerce support */
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
@@ -204,4 +224,6 @@ if(function_exists('dokan_get_template_part')) {
 require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/class.escaperoom.php';
 require get_template_directory() . '/inc/ajax.php';
+
+
 

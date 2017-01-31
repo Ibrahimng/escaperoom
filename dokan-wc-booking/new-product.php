@@ -282,12 +282,15 @@ $number_of_person        = get_post_meta( $post_id, 'number_of_person', true );
                         </div>
 
                         <div class="dokan-form-group">
-                            <!-- Number of person -->
-                            <label for="number_of_person" class="form-label"><?php _e( 'Number of Person', 'dokan-wc-booking' ); ?></label>
+                            <!-- Product videos -->
+                            <label for="product_video" class="form-label"><?php _e( 'Add Product Video', 'dokan-wc-booking' ); ?></label>
+                            <span class="dokan-tooltips-help tips" title="" data-original-title="<?php _e( 'You can add any video embed URL like Vimeo: <pre>https://player.vimeo.com/video/{videoid}</pre>, Youtube: <code>https://www.youtube.com/embed/{videoid}</code>', 'dokan-wc-booking' ) ?>">
+                                <i class="fa fa-question-circle"></i>
+                            </span>
                             <div class="dokan-product-title-alert dokan-hide dokan-alert dokan-alert-danger">
-                                <?php _e( 'Number of Person Required!!!', 'dokan-wc-booking' ); ?>
+                                <?php _e( 'Product video required !', 'dokan-wc-booking' ); ?>
                             </div>
-                            <?php dokan_post_input_box( $post_id, 'number_of_person', array( 'placeholder' => __( 'Number of Person', 'dokan' ), 'value' => $number_of_person ) ); ?>
+                            <?php dokan_post_input_box( $post_id, 'product_video', array( 'placeholder' => __( 'i.e. https://player.vimeo.com/video/197922418', 'dokan' ), 'value' => $product_video ) ); ?>
                         </div>
 
                     </div><!-- .content-half-part -->

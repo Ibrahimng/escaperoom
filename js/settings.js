@@ -86,6 +86,16 @@ $('.feature_vidoes').slick({
 	  $(this).toggleClass( 'ion-android-arrow-dropdown ion-android-arrow-dropright').next().toggle();
 	});
 
+
+	// add more video in new product page
+	$('.add_more_video').click(function(e){
+		$('<p class="single_product_video"><input type="text" name="product_video[]" class="dokan-form-control" placeholder="i.e. https://player.vimeo.com/video/197922418"><span class="fa fa-minus"></span></p>').appendTo('.product_videos');
+	});
+
+	$('body').on('click', '.fa-minus', function(){
+		$(this).parent().remove();
+	});
+
 	// loadProductMap function 
 
 	function loadProductMap(data) {

@@ -35,13 +35,9 @@ function save_booking_customized_data($post_id) {
         update_post_meta( $post_id, 'location_long', esc_attr($location_long) );
     }
 
-    /* number of person */
-    if( !isset( $_POST['number_of_person'] ) && empty( $_POST['number_of_person'] ) ) {
-        $errors[] = __( 'Number of person required !!', 'dokan' );
-    } else {
-        $number_of_person = $_POST['number_of_person'];
-        update_post_meta( $post_id, 'number_of_person', esc_attr($number_of_person) );
-    }
+    /* Product Videos */
+    $product_video = array_filter($_POST['product_video']);
+    update_post_meta( $post_id, 'product_video', $product_video );
 
 }
 add_action('dokan_new_product_added', 'save_booking_customized_data');

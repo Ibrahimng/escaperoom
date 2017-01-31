@@ -47,7 +47,19 @@ function woo_remove_product_tabs( $tabs ) {
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
 function escape_room_videos() {
-	echo '<h2> Product videos list </h2>';
+	global $post; 
+	$output = '<h2> Product videos list </h2>';
+	$product_videos = get_post_meta( $post->ID, 'product_video', true );
+	if(is_array($product_videos)) {
+		$output .= '<div class="single_product_video_list">';
+		foreach ($product_videos as $vid) {
+			$output .= '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="'.$vid.'"></iframe></div>';
+		}
+		$output .= '</div>';
+	} else {
+		$output = '<p> No video added with this room</p>';
+	}
+	echo $output;
 }
 
 // https://isabelcastillo.com/change-product-description-title-woocommerce
@@ -144,7 +156,7 @@ function product_location_long_lat_custom() {
   echo '</div>';
 	
 }
-add_action( 'woocommerce_product_options_general_product_data', 'product_location_long_lat_custom' );
+add_action( 'woocommerce_product_options_general_product_data', 'product_location_long_lat_custom');
 
 //product location longitude and latitude
 function product_location_long_lat_save( $post_id ){
