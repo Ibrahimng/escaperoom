@@ -1618,3 +1618,33 @@ p.map_author_name {
 div#wc-bookings-booking-form {
     display: block !important;
 }
+
+/* login & register page */
+.woocommerce form .form-row input.input-text {
+    padding: 5px;
+}
+.form-row.form-group.user-role {
+    margin-left: 20px;
+}
+
+body.woocommerce-account {
+    color: #FFF;
+    background-image: url('../img/intro-bg.jpg');
+    background-size: cover;
+}
+
+.dps-pack {
+    background: #fc913b !important;
+}
+.dps-pack ul {
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+

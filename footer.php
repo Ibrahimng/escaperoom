@@ -11,7 +11,7 @@
 
 ?>
 
-<?php if(!is_user_logged_in()) : ?>
+<?php if(!is_user_logged_in() && !is_page('My Account')) : ?>
     <section id="calltoaction_secton">
         <div class="container">
             <div class="row">
@@ -45,6 +45,7 @@
     </section>
 <?php endif; ?>
 
+<?php if (!is_page('My Account')) : ?>
     <footer id="footer_section">
         <div class="container">
 
@@ -99,6 +100,8 @@
             </div>
         </div>
     </footer>
+<?php endif; ?>
+
     <!-- /.footer -->
     <?php wp_footer(); ?>
     <?php $ganalytics = cs_get_option('ganalytics'); ?>
