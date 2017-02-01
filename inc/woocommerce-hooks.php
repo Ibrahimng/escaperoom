@@ -51,11 +51,11 @@ function escape_room_videos() {
 	$output = '<h2> Product videos list </h2>';
 	$product_videos = get_post_meta( $post->ID, 'product_video', true );
 	if(is_array($product_videos)) {
-		$output .= '<div class="single_product_video_list">';
+		$output .= '<div class="row"><div class="single_product_video_list">';
 		foreach ($product_videos as $vid) {
-			$output .= '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="'.$vid.'"></iframe></div>';
+			$output .= '<div class="col-md-4 col-xs-12 single_reated_video"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="'.$vid.'"></iframe></div></div>';
 		}
-		$output .= '</div>';
+		$output .= '</div></div>';
 	} else {
 		$output = '<p> No video added with this room</p>';
 	}

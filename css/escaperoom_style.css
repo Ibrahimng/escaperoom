@@ -1627,7 +1627,9 @@ legend {
     display: inline-block;
     margin-right: 10px;
 }
-
+.single_reated_video {
+    margin-bottom: 30px;
+}
 /* login & register page */
 .woocommerce form .form-row input.input-text {
     padding: 5px;
