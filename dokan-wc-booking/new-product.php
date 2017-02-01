@@ -61,8 +61,7 @@ $has_resource = get_post_meta( $post_id, '_wc_booking_has_resources', true );
 /* custom fields azizultex */
 $location_lat          = get_post_meta( $post_id, 'location_lat', true );
 $location_long         = get_post_meta( $post_id, 'location_long', true );
-$number_of_person        = get_post_meta( $post_id, 'number_of_person', true );
-
+$product_videos        = get_post_meta( $post_id, 'product_video', true );
 
 ?>
 
@@ -283,14 +282,20 @@ $number_of_person        = get_post_meta( $post_id, 'number_of_person', true );
 
                         <div class="dokan-form-group">
                             <!-- Product videos -->
-                            <label for="product_video" class="form-label"><?php _e( 'Add Product Video', 'dokan-wc-booking' ); ?></label>
-                            <span class="dokan-tooltips-help tips" title="" data-original-title="<?php _e( 'You can add any video embed URL like Vimeo: <pre>https://player.vimeo.com/video/{videoid}</pre>, Youtube: <code>https://www.youtube.com/embed/{videoid}</code>', 'dokan-wc-booking' ) ?>">
+                            <label for="product_video" class="form-label"><?php _e( 'Add Product Video', 'dokan-wc-booking' ); ?></label><span class="dokan-tooltips-help tips" title="" data-original-title="<?php _e( 'You can add any video embed URL like Vimeo: https://player.vimeo.com/video/{id}, Youtube: https://www.youtube.com/embed/{id}', 'dokan-wc-booking' ) ?>">
                                 <i class="fa fa-question-circle"></i>
                             </span>
-                            <div class="dokan-product-title-alert dokan-hide dokan-alert dokan-alert-danger">
-                                <?php _e( 'Product video required !', 'dokan-wc-booking' ); ?>
+                            <div class="product_videos">
+                                <?php 
+                                    if( is_array($product_videos) ) : 
+                                    foreach ($product_videos as $vid) : 
+                                ?>
+                                <p class="single_product_video"><input type="text" name="product_video[]" class="dokan-form-control" value="<?php echo $vid; ?>"><span class="fa fa-minus"></span></p>
+                                <?php endforeach; else:  ?>
+                                    <p class="single_product_video"><input type="text" name="product_video[]" class="dokan-form-control" value="i.e. https://player.vimeo.com/video/197922418"><span class="fa fa-minus"></span></p>
+                                <?php endif;  ?>
                             </div>
-                            <?php dokan_post_input_box( $post_id, 'product_video', array( 'placeholder' => __( 'i.e. https://player.vimeo.com/video/197922418', 'dokan' ), 'value' => $product_video ) ); ?>
+                            <span class="add_more_video">Add more video</span>
                         </div>
 
                     </div><!-- .content-half-part -->
