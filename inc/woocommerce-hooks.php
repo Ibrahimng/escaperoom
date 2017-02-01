@@ -189,10 +189,10 @@ function escaperoom_curosel_single_product_fun(){	?>
 			// if($attachment_ids) :
 
 			foreach ($attachment_ids as $attachment_id) :
-			$image_link = wp_get_attachment_url( $attachment_id );
+			$img_atts = wp_get_attachment_image_src( $attachment_id, 'single_product_page' );
 			?>
 			<div class="single_pro_thumb_item">
-			  <img src="<?php echo $image_link; ?>">
+			  <img src="<?php echo $img_atts[0]; ?>">
 			</div>
 
 			<?php endforeach; ?>

@@ -1,16 +1,4 @@
 <?php
-  // $con = mysql_connect('localhost', 'root', '');
-  // if (!$con) {
-  //     echo "Cannot connect to the database ";
-  //     die();
-  // }
-  // mysql_select_db('escaperoom');
-  // $result = mysql_query('show tables');
-  // while ($tables = mysql_fetch_array($result)) {
-  //     foreach ($tables as $key => $value) {
-  //         mysql_query("ALTER TABLE $value CONVERT TO CHARACTER SET utf8 COLLATE utf8_bin");
-  //     }
-  // }
   // echo "The collation of your database has been successfully changed!";
 /**
  * escaperoom functions and definitions
@@ -58,6 +46,7 @@ function escaperoom_setup() {
 	add_image_size('location_img_large', 748, 333, true);
 	add_image_size('maps_pro_img', 200, 75, true);
 	add_image_size('pro_thum_shop', 240, 160, true);
+	add_image_size('single_product_page', 575, 450, true);
 	
 
 	// This theme uses wp_nav_menu() in one location.

@@ -417,8 +417,9 @@ span.hourly-rate {
     padding-bottom: 50px;
     cursor: col-resize;
 }
-.feature_product_items, .slick-dots {
-    bottom: 0px;
+.feature_product_items, 
+.slick-dots {
+    bottom: 15px;
 }
 
 .feature_product_items .slick-dots li button:before {
@@ -1617,6 +1618,14 @@ p.map_author_name {
 }
 div#wc-bookings-booking-form {
     display: block !important;
+}
+
+legend {
+    display: none;
+}
+.wc-bookings-booking-form label {
+    display: inline-block;
+    margin-right: 10px;
 }
 
 /* login & register page */
