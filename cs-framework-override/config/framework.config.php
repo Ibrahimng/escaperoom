@@ -117,8 +117,6 @@ $options[]   = array(
        ),
       ),// End 
 
-
-
         // begin: footer Copyright
         array(
           'id'    => 'footer_copyright',
@@ -129,6 +127,38 @@ $options[]   = array(
       ), // begin: fields end
 
     ), // end: Footer Options
+
+
+
+    // -----------------------------
+    // begin: Contact us page     -
+    // -----------------------------
+    array(
+      'name'      => 'contact_ust',
+      'title'     => 'Contact Us',
+      'icon'      => 'fa fa-envelope',
+
+      // begin: fields
+      'fields'    => array(
+
+        // begin: Contact Us Heading
+        array(
+          'id'    => 'contact_us_heading',
+          'type'  => 'textarea',
+          'title' => 'Contact Us Heading',
+        ),
+        // begin: Contact Us text
+        array(
+          'id'    => 'contact_us_text',
+          'type'  => 'wysiwyg',
+          'title' => 'Contact Us Content',
+        ),
+
+      ), // begin: fields end
+
+    ), // end: Contact Options
+
+
   ) // end: General section
 ); // end: General Setting
 

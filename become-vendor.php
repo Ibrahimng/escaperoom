@@ -137,7 +137,7 @@ get_header(); ?>
                             <div class="pricing-header">
                                 <p class="pricing-title">Business Plan</p>
                                 <p class="pricing-rate"><sup>$</sup> 20 <span>/Mo.</span></p>
-                                <a href="#" class="btn btn-custom active">And Get Free Month</a>
+                                <a href="#" class="btn btn-custom active_custom">And Get Free Month</a>
                             </div>
 
                             <div class="pricing-list">

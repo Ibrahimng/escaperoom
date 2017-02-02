@@ -205,6 +205,7 @@ require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/dokan-hooks.php';
 require get_template_directory() . '/inc/shortcodes.php';
+require get_template_directory() . '/inc/custom-post-type.php';
 require_once('wp-advanced-search/wpas.php');
 
 if(function_exists('dokan_get_template_part')) {

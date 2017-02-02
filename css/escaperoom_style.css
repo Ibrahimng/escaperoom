@@ -806,7 +806,7 @@ a.btn.btn-custom {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.active {
+.active_custom {
     color: #fc913b;
     border-color: #fc913b;
 }
@@ -1638,11 +1638,40 @@ legend {
 .form-row.form-group.user-role {
     margin-left: 20px;
 }
+/* contact us page */
+.contact_us {
+    color: #000;
+    border-radius: 0px;
+}
+.contact_us-sm {
+    padding-bottom: 24px;
+}
+.contact_us small {
+    color: #333;
+}
+.h1 small {
+    font-size: 24px;
+}
+/* content pages tab layout */
+.custom_page_coontetn {
+    display: block;
+    overflow: hidden;
+}
+.custom_page_coontetn ul li {
+    background: #ddd;
+    border-bottom-right-radius: 2px;
+    border-left: 2px solid #fc913b;
+}
 
-
-
-
-
+.custom_page_coontetn ul li.active>a, .custom_page_coontetn ul li.active>a:focus, .custom_page_coontetn ul li.active>a:hover{
+    background: #337ab7;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: 2px solid #fc913b;
+}
+.nav-pills>li>a{
+    border-radius: 0px;
+}
 
 
 
