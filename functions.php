@@ -205,7 +205,6 @@ require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/dokan-hooks.php';
 require get_template_directory() . '/inc/shortcodes.php';
-require get_template_directory() . '/inc/custom-post-type.php';
 require_once('wp-advanced-search/wpas.php');
 
 if(function_exists('dokan_get_template_part')) {
@@ -214,6 +213,28 @@ if(function_exists('dokan_get_template_part')) {
 require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/class.escaperoom.php';
 require get_template_directory() . '/inc/ajax.php';
+
+
+
+
+function escaperoom_meta_custom_js() {
+    echo '<script type="text/javascript">
+			jQuery(document).ready(function(){
+				jQuery("#page_template").change( function() {
+					jQuery("#_aboutus_options").hide();
+					jQuery("#postdivrich").show();
+					switch( jQuery( this ).val() ) {
+						case "about-us.php":
+				          jQuery("#_aboutus_options").show();
+				          jQuery("#postdivrich").hide();
+				        break;
+					}
+				}).change();
+			});
+		</script>';
+}
+add_action('admin_head', 'escaperoom_meta_custom_js');
+
 
 
 

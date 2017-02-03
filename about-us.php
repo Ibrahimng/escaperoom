@@ -13,7 +13,19 @@
  * @package escaperoom
  */
 
-get_header(); ?>
+get_header(); 
+
+	$about_get_meta = get_post_meta( get_the_ID(), '_aboutus_options', true);
+
+	$about_us_items = $about_get_meta['about_us'];
+
+
+
+
+?>
+
+
+
 	
 	<div id="primary" class="container">
 		<main id="main" class="site-main" role="main">
@@ -21,28 +33,35 @@ get_header(); ?>
 
 				<ul class="nav nav-pills nav-stacked col-md-2">
 
-				 <?php 
-				 	$loop = new WP_Query( array( 'post_type' => 'esr_custom_pages', 'posts_per_page' => -1 ) ); ?>
-			        <?php 
-			        $counter = 0;
-			        while ( $loop->have_posts() ) : $loop->the_post(); 
-			            $counter++;
+				
+			    <?php 
+
+			      if(is_array($about_us_items)){
+			      		$counter = 0;
+				        foreach($about_us_items as $about_us_item) {
+				            $counter++;    
        			 ?>
 
-				  <li class="post-<?php the_ID(); ?> <?=($counter == 1) ? 'active' : ''?>"><a href="#post-<?php the_ID(); ?>" data-toggle="pill"><?php the_title();?></a></li>
-				<?php endwhile; wp_reset_query(); ?>
+				  <li class="post-<?php the_ID(); ?> <?=($counter == 1) ? 'active' : ''?>"><a href="#post-<?php the_ID(); ?>" data-toggle="pill">
+				  	<?php echo $about_us_item['about_title']; ?>
+				  </a></li>
+
+				<?php  } } ?>
 				</ul>
+
+
 				<div class="tab-content col-md-10">
 					<?php
+						if(is_array($about_us_items)){
 				        $counter = 0;
-				        $loop = new WP_Query( array( 'post_type' => 'esr_custom_pages', 'posts_per_page' => -1 ) );
-				        while ( $loop->have_posts() ) : $loop->the_post(); 
+				        foreach($about_us_items as $about_us_item) {
 				            $counter++;
+				       
 			        ?>
 				        <div class="tab-pane <?=($counter == 1) ? 'active' : ''?>" id="post-<?php the_ID(); ?>">
-				             <?php the_content();?>
+				             <?php echo $about_us_item['about_content']; ?>
 				        </div>
-			        <?php endwhile; ?>
+			        <?php  }  } ?>
 				</div>
 
 			</div><!-- tab content -->
