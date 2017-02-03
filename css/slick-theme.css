@@ -10,7 +10,7 @@
     font-size: 0;
     line-height: 0;
     position: absolute;
-    top: 50%;
+    top: 37%;
     display: block;
     width: 20px;
     height: 20px;
@@ -55,12 +55,10 @@
 .slick-prev:before,
 .slick-next:before {
     font-family: "FontAwesome";
-    font-size: 30px;
+    font-size: 60px;
     line-height: 1;
-
     opacity: .75;
-    color: white;
-
+    color: #337ab7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -68,6 +66,7 @@
 .slick-prev {
     left: -25px;
 }
+
 [dir='rtl'] .slick-prev {
     right: -25px;
     left: auto;

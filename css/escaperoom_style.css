@@ -122,22 +122,21 @@ p {
 }
 .intro-message {
     position: relative;
+    margin-bottom: 60px;
 }
 .intro-message h1{
-    font-size: 58px;
-    line-height: 65px;
+    font-size: 45px;
+    line-height: 55px;
     font-weight: 100;
     color: #fff;
     padding-bottom: 0px;
     margin: 0px;
 } 
 .intro-message h2{
-    font-size: 24px;
+    font-size: 20px;
     line-height: 36px;
-    font-weight: 100;
     color: #fff;
-    padding-bottom: 25px;
-    margin: 0px;
+    padding-bottom: 15px;
     margin: 0px;
 } 
 .intro-message > h1 {
@@ -190,7 +189,7 @@ p {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     display: inline-flex;
-    width: 80%;
+    width: 85%;
 }
 .input_location {
     display: flex;
@@ -198,21 +197,22 @@ p {
 }
 .b_location_form input[type="text"],
 .b_location_form input[type="search"],
+.b_location_form input[type="number"],
 .b_location_form input[type="submit"], 
 .b_location_form select {
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 100;
     color: #3d3d3d;
-    padding: 17px 25px;
+    padding: 10px;
     background-color: #fff;
     border: 0px;
-    line-height: 25px;
+    line-height: 20px;
     outline: 0;
+    margin-right: 5px;
     font-family: "Source Sans Pro", helvetica, sans-serif;
 }
-.b_location_form input[type="text"] {
-    border-radius: 5px;
-    width: 100%;
+.b_location_form input[type="number"] {
+    width: 160px;
 }
 .select_location,
 .select_category {
@@ -224,11 +224,11 @@ p {
     -o-appearance: none;
     -ms-appearance: none;
     appearance: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-left: 2px;
-    padding: 18px 40px;
-    padding-right: 112px;
+    border-radius: 0;
+    width: 150px;
+}
+.b_location_form select[name="tax_esr_locations"] {
+    padding-left: 30px;
 }
 .select_location:before,
 .select_location:after,
@@ -240,27 +240,25 @@ p {
 }
 .select_location:before {
     content: "\f041";
-    left: 15px;
-    line-height: 65px;
-    color:#999;
-    
+    left: 5px;
+    line-height: 45px;
+    color: #999;
+    width: 18px;
 }
 .select_location:after, 
 .select_category:after {
     content: "\f107";
     top: 0;
     right: 12px;
-    line-height: 62px;
+    line-height: 45px;
 }
 .b_location_form input[type="submit"] {
 	color: #fff;
     background-color: #fc913b;
     border: 0px;
     border-radius: 3px;
-    margin-left: 25px;
+    width: 115px;
 }
-
-
 
 @media (max-width: 776px) {
 	.b_location_form {

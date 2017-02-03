@@ -41,7 +41,6 @@ get_header(); ?>
 
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.intro-header -->
 
