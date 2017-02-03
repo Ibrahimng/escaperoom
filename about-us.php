@@ -18,9 +18,6 @@ get_header();
 	$aboutus_tabs = get_field('about_us_tab');
 
 ?>
-
-
-
 	
 	<div id="primary" class="container">
 		<main id="main" class="site-main" role="main">

@@ -3,25 +3,25 @@
 Template name: FrontPage
 */
 get_header(); ?>
-  <?php  $slider_banner = cs_get_option( 'home_slider' ); ?>
-    <div class="intro-header" style="background-image: url('<?php if($slider_banner): echo $slider_banner; else: echo get_template_directory_uri(); ?>/img/intro-bg.jpg <?php endif; ?>');">
+  <?php  $esr_banner_img = get_field( 'escaperoom_banner_background_image' ); ?>
+    <div class="intro-header" style="background-image: url('<?php if($esr_banner_img): echo $esr_banner_img; else: echo get_template_directory_uri(); ?>/img/intro-bg.jpg <?php endif; ?>');">
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
 
-                        <?php  $slider_title = cs_get_option( 'slider_title' );
-                        if($slider_title):
-                        echo '<h1>'.$slider_title.'</h1>';
+                        <?php  $esr_banner_title = get_field( 'escaperoom_banner_title' );
+                        if($esr_banner_title):
+                        echo '<h1>'.$esr_banner_title.'</h1>';
                         ?>
                         <?php else: ?>
                          <h1>Book Escaperoom Anywhere</h1>       
                         <?php  endif; ?>
                         
-                        <?php  $slider_subtitle = cs_get_option( 'slider_subtitle' );
-                        if($slider_subtitle):
-                        echo '<h2>'.$slider_subtitle.'</h2>';
+                        <?php  $esr_banner_subtitle = get_field( 'escaperoom_banner_sub_title' );
+                        if($esr_banner_subtitle):
+                        echo '<h2>'.$esr_banner_subtitle.'</h2>';
                         ?>
                         <?php else: ?>
                           <h2>Listify helps you find out whats happening in your city, Let's explore.</h2>      
@@ -50,17 +50,17 @@ get_header(); ?>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
                     <div class="section_header">
-                        <?php  $explore_city_title = cs_get_option( 'explore_city_title' );
-                        if($explore_city_title):
-                        echo '<h1>'.$explore_city_title.'</h1>';
+                        <?php  $explore_escaperoom_section_title = get_field( 'explore_escaperoom_section_title' );
+                        if($explore_escaperoom_section_title):
+                        echo '<h1>'.$explore_escaperoom_section_title.'</h1>';
                         ?>
                         <?php else: ?>
                         <h1>Explore Escaperoom</h1>       
                         <?php  endif; ?>
 
-                        <?php  $explore_city_subtitle = cs_get_option( 'explore_city_subtitle' );
-                        if($explore_city_subtitle):
-                        echo '<h4>'.$explore_city_subtitle.'</h4>';
+                        <?php  $explore_escaperoom_section_sub_title = get_field( 'explore_escaperoom_section_sub_title' );
+                        if($explore_escaperoom_section_sub_title):
+                        echo '<h4>'.$explore_escaperoom_section_sub_title.'</h4>';
                         ?>
                         <?php else: ?>
                           <h4>Find escape rooms in your city, or explore unique ones around the world.</h4>     
@@ -125,7 +125,18 @@ get_header(); ?>
 
             <div class="row">
                 <div class="more_explore">
-                    <a href="#">Explore more Escaperoom</a>
+                    <?php 
+                        $explore_link_text = get_field('explore_more_escaperoom');
+                        $explore_more_escaperoom_link = get_field('explore_more_escaperoom_link');
+                        if($explore_link_text && $explore_more_escaperoom_link){
+                     ?>
+                    <a href="<?php echo $explore_more_escaperoom_link; ?>"><?php echo $explore_link_text;  ?></a>
+
+                    <?php } 
+                    else{
+                        echo '<a href="#">Explore More Escaperoom</a>';
+                    }
+                        ?>
                 </div>
             </div>
 
@@ -142,9 +153,9 @@ get_header(); ?>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
                      <div class="section_header">
-                        <?php  $fature_escaperoom = cs_get_option( 'fature_escaperoom' );
-                            if($fature_escaperoom):
-                            echo '<h1>'.$fature_escaperoom.'</h1>';
+                        <?php  $features_escaperoom_title = get_field( 'features_escaperoom_title' );
+                            if($features_escaperoom_title):
+                            echo '<h1>'.$features_escaperoom_title.'</h1>';
                             ?>
                             <?php else: ?>
                             <h1>Featured Escaperoom</h1>       
@@ -183,9 +194,9 @@ get_header(); ?>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
                      <div class="section_header">  
-                        <?php  $howitwork = cs_get_option( 'howitwork' );
-                            if($howitwork):
-                            echo '<h1>'.$howitwork.'</h1>';
+                        <?php  $how_it_works_section_title = get_field( 'how_it_works_section_title' );
+                            if($how_it_works_section_title):
+                            echo '<h1>'.$how_it_works_section_title.'</h1>';
                             ?>
                             <?php else: ?>
                             <h1>How It's Work</h1>       
@@ -197,19 +208,19 @@ get_header(); ?>
             <div class="row">
 
             <?php  
-                $service_items = cs_get_option( 'service_item' );
+                $escaperoom_service_items = get_field( 'escaperoom_service_items' );
                     
-                    if(is_array($service_items)){
-                        foreach($service_items as $service_item) { 
+                    if(is_array($escaperoom_service_items)){
+                        foreach($escaperoom_service_items as $escaperoom_service_item) { 
                             ?>
                             <div class="col-md-3">
                                 <div class="service_item">
                                     <div class="service_icon"> 
-                                        <i class="fa <?php echo $service_item['servie_icon']; ?>"></i>
+                                        <i class="fa <?php echo $escaperoom_service_item['escaperoom_service_icon']; ?>"></i>
                                     </div>
                                     <div class="service_icon_content">
-                                        <h4><?php echo $service_item['servie_title']; ?></h4>
-                                        <p><?php echo $service_item['servie_subtitle']; ?></p>
+                                        <h4><?php echo $escaperoom_service_item['escaperoom_service_title']; ?></h4>
+                                        <p><?php echo $escaperoom_service_item['escaperoom_service_content']; ?></p>
                                     </div>
                                 </div>    
                             </div>
@@ -227,7 +238,7 @@ get_header(); ?>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
                     <div class="section_header padding_bottom_50">
-                        <?php  $feature_video_title = cs_get_option( 'feature_video_title' );
+                        <?php  $feature_video_title = get_field( 'features_escaperoom_video_title' );
                             if($feature_video_title):
                             echo '<h1>'.$feature_video_title.'</h1>';
                             ?>
@@ -235,12 +246,10 @@ get_header(); ?>
                             <h1>Feature Video</h1>       
                         <?php  endif; ?>    
 
-                        <?php  $feature_video_subtitle = cs_get_option( 'feature_video_subtitle' );
+                        <?php  $feature_video_subtitle = get_field( 'features_escaperoom_video_sub_title' );
                             if($feature_video_subtitle):
                             echo '<h4>'.$feature_video_subtitle.'</h4>';
                             ?>
-                            <?php else: ?>
-                             <h4>Find studios in your city, or explore unique ones around the world.</h4>     
                         <?php  endif; ?>    
                     </div>
                 </div>
@@ -250,16 +259,16 @@ get_header(); ?>
                
                   <div class="feature_vidoes">
                     <?php  
-                    $feature_video_items = cs_get_option( 'feature_video_item' );
+                    $feature_video_items = get_field( 'features_escaperoom_video_items' );
                         
                         if(is_array($feature_video_items)){
                             foreach($feature_video_items as $feature_video_item) { 
-                                 $video_id = $feature_video_item['video_id'];
+                                 $feature_video_link = $feature_video_item['feature_video_link'];
                                 ?>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                 
                                     <div class="feature_video_item">
-                                        <iframe src="https://player.vimeo.com/video/<?php echo $video_id; ?>" width="500" height="320" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                                        <iframe src="<?php echo $feature_video_link; ?>" width="500" height="320" frameborder="0" title="" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                                     </div>  
                                 </div>
                                
@@ -283,13 +292,13 @@ get_header(); ?>
                   <div class="testimonial_slider">
 
                 <?php  
-                $testimoials = cs_get_option( 'testimoials' );
+                $testimoials = get_field( 'escaperoom_testimonial' );
                     
                     if(is_array($testimoials)){
                         foreach($testimoials as $testimoial) { 
-                             $clinet_name = $testimoial['clinet_name'];
-                             $client_location = $testimoial['client_location'];
-                             $client_text = $testimoial['client_text'];
+                             $clinet_name = $testimoial['escaperoom_client_name'];
+                             $client_location = $testimoial['escaperoom_client_location'];
+                             $client_text = $testimoial['escaperoom_client_content'];
                             ?>
                               <div class="testimonial_single text-center">
                                 <p><?php echo $client_text; ?></p>

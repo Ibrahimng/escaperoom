@@ -12,15 +12,17 @@
 ?>
 
 <?php if(!is_user_logged_in() && !is_page('My Account')) : ?>
-    <section id="calltoaction_secton">
+    <?php $callto_section_bg =  get_field('call_to_action_background_color'); ?>
+    <section style="background:<?php echo $callto_section_bg; ?>" id="calltoaction_secton">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="call_action">
                     <?php 
-                        $call_to_action_content = cs_get_option('call_to_action_content'); 
-                        $call_to_action_btn_text = cs_get_option('call_to_action_btn_text'); 
-                        $call_to_action_btn_link = cs_get_option('call_to_action_btn_link'); 
+                        $call_to_action_content = get_field('call_to_action_content'); 
+                        $call_to_action_btn_text = get_field('call_to_action_btn_text'); 
+                        $call_to_action_btn_link = get_field('call_to_action_btn_link'); 
+                        $calltoaction_btn_color = get_field('call_to_action_button_color'); 
 
                         if ($call_to_action_content) : 
                     ?>
@@ -28,14 +30,7 @@
                             <h3><?php echo $call_to_action_content; ?></h3>
                         </span>
                         <div class="become_vendor_btn vendor_banner_btn pull-right">
-                            <a href="<?php echo $call_to_action_btn_link; ?>"><?php echo $call_to_action_btn_text; ?></a>
-                        </div>
-                    <?php else : ?>
-                        <span class="call_action_text pull-left">
-                            <h3>Default Call to Action Text</h3>
-                        </span>
-                        <div class="become_vendor_btn vendor_banner_btn pull-right">
-                            <a href="#">Become A Vendor</a>
+                            <a style="background:<?php echo $calltoaction_btn_color; ?>" href="<?php echo $call_to_action_btn_link; ?>"><?php echo $call_to_action_btn_text; ?></a>
                         </div>
                     <?php endif; ?>
                     </div>
@@ -63,19 +58,19 @@
                         ?>
                        
                         <?php  
-                            $social_medias = cs_get_option( 'ft_social_media' );
+                            $social_medias = get_field( 'er_social_media','options' );
                             echo ' <ul class="social_media list-inline">';
                             if(is_array($social_medias)){
                                 foreach($social_medias as $social_item) {  
                             ?>
-                                 <li><a href="<?php echo $social_item['social_link']; ?>"><span class="fa <?php echo $social_item['social_icon']; ?>"></span></a></li>
+                                 <li><a href="<?php echo $social_item['social_media_link']; ?>"><span class="fa <?php echo $social_item['social_media_icon']; ?>"></span></a></li>
                             <?php }
                             }
                             echo ' </ul>';
                         ?>
 
 
-                        <?php $footer_text = cs_get_option('footer_text');
+                        <?php $footer_text = get_field('footer_text','options');
                             if ($footer_text): ?>
                             <div class="footer_text">
                                 <?php echo $footer_text; ?>
@@ -88,7 +83,7 @@
             <div class="row">
                 <div class="copyright_text">
                     <?php 
-                        $footer_copyright = cs_get_option('footer_copyright'); 
+                        $footer_copyright = get_field('footer_copyright_text','options'); 
 
                         if ($footer_copyright) : 
                     ?>
@@ -104,7 +99,7 @@
 
     <!-- /.footer -->
     <?php wp_footer(); ?>
-    <?php $ganalytics = cs_get_option('ganalytics'); ?>
+    <?php $ganalytics = get_field('ganalytics','options'); ?>
         <?php if($ganalytics) : ?>
         <script>
            (function(i, s, o, g, r, a, m) {

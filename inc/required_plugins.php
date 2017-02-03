@@ -61,12 +61,6 @@ function escaperoom_register_required_plugins() {
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'         	=> 'Codestar framework', 
-			'slug'         	=> 'codestar-framework', 
-			'source'       	=> 'https://github.com/Codestar/codestar-framework/archive/master.zip',
-			'required'           => true,
-		),
-		array(
 			'name'         	=> 'Dokan', 
 			'slug'         	=> 'dokan', 
 			'source'       	=> get_stylesheet_directory() . '/inc/plugins/dokan.zip',

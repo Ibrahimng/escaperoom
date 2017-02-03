@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <?php $favicon = cs_get_option('favicon'); ?>
+    <?php $favicon = get_field('favicon','options'); ?>
     <?php if($favicon) : ?>
         <link rel="icon" href="<?php echo $favicon; ?>" sizes="32x32" />
     <?php endif; ?>
@@ -47,9 +47,9 @@
                 </button>
                 <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
                     <?php
-                        $logo = cs_get_option('logo_main');
-                        if($logo){
-                            echo '<img class="img-responsive" src="'. $logo .'">';
+                        $header_logo = get_field('header_logo','options');
+                        if($header_logo){
+                            echo '<img class="img-responsive" src="'. $header_logo .'">';
                         }else {
                             echo '<span class="text_logo">Escaperoom</span>';
                         }

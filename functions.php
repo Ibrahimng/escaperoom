@@ -218,26 +218,3 @@ require get_template_directory() . '/inc/class.escaperoom.php';
 require get_template_directory() . '/inc/ajax.php';
 
 
-
-
-function escaperoom_meta_custom_js() {
-    echo '<script type="text/javascript">
-			jQuery(document).ready(function(){
-				jQuery("#page_template").change( function() {
-					jQuery("#_aboutus_options").hide();
-					jQuery("#postdivrich").show();
-					switch( jQuery( this ).val() ) {
-						case "about-us.php":
-				          jQuery("#_aboutus_options").show();
-				          jQuery("#postdivrich").hide();
-				        break;
-					}
-				}).change();
-			});
-		</script>';
-}
-add_action('admin_head', 'escaperoom_meta_custom_js');
-
-
-
-
