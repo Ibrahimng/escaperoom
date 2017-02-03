@@ -5,7 +5,17 @@ Template name: Become-vendor
 get_header(); ?>
     <!-- Header -->
     <?php  $vendor_banner = cs_get_option( 'vendor_banner' ); ?>
-    <div class="vendor_section" class="padding_bottom_50" style="background: url(<?php if($vendor_banner): echo $vendor_banner; else: echo get_template_directory_uri(); ?>/img/banner-bg.jpg <?php endif; ?>);">
+
+
+    <?php 
+        $vendor_banner_image = get_field('vendor_banner_image');
+        $vendor_button_text = get_field('vendor_button_text');
+        $vendor_button_link = get_field('vendor_button_link');
+    ?>
+
+
+
+    <div class="vendor_section" class="padding_bottom_50" style="background: url(<?php if($vendor_banner_image): echo $vendor_banner_image; else: echo get_template_directory_uri(); ?>/img/banner-bg.jpg <?php endif; ?>);">
         <div class="container">
 
             <div class="row">
@@ -14,10 +24,8 @@ get_header(); ?>
                         <div class="become_vendor_btn vedor_banner_btn align-center">
                             <?php  
 
-                            $v_banner_btn_text = cs_get_option( 'v_banner_btn_text' );
-                            $v_banner_btn_link = cs_get_option( 'v_banner_btn_link' );
-                            if($v_banner_btn_text || $v_banner_btn_link):
-                            echo '<a href="'.$v_banner_btn_link.'">'.$v_banner_btn_text.'</a>';
+                            if($vendor_button_text || $vendor_button_link):
+                            echo '<a href="'.$vendor_button_link.'">'.$vendor_button_text.'</a>';
                             ?>
                             <?php else: ?>
                              <a href="#">Become A Vendor</a>       
@@ -33,26 +41,32 @@ get_header(); ?>
     </div>
     <!-- /.intro-header -->
 
+
+     <?php 
+        $advantage_section_title = get_field('advantage_section_title');
+        $advantage_section_content = get_field('advantage_section_content');
+        $advantage_items = get_field('advantage_items');
+        $more_advantage_link_text = get_field('more_advantage_link_text');
+        $more_advantage_link = get_field('more_advantage_link');
+    ?>
+
     <section id="advantage_section" class="padding_bottom_50 padding_top_50">
         <div class="container">
             <div class="row">
             	<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
 	                <div class="section_header">
-                        <?php  $advantage_title = cs_get_option( 'advantage_title' );
-                        if($advantage_title):
-                        echo '<h1>'.$advantage_title.'</h1>';
+                        <?php  
+                        if($advantage_section_title):
+                        echo '<h1>'.$advantage_section_title.'</h1>';
                         ?>
                         <?php else: ?>
                         <h1>Anvantage</h1>       
                         <?php  endif; ?>
 
-                        <?php  $advantage_subtitle = cs_get_option( 'advantage_subtitle' );
-                        if($advantage_subtitle):
-                        echo '<h4>'.$advantage_subtitle.'</h4>';
-                        ?>
-                        <?php else: ?>
-                        
-                        <h4>Find studios in your city, or explore unique ones around the world.ind studios in <br>your city, or explore unique ones around the world.</h4>      
+                        <?php 
+                        if($advantage_section_content):
+                        echo '<h4>'.$advantage_section_content.'</h4>';
+                        ?>      
                         <?php  endif; ?>
 	                    
 	                </div>
@@ -63,7 +77,6 @@ get_header(); ?>
                 <div class="advantage_items padding_bottom_50 padding_top_50">
                     	
                     <?php  
-                    $advantage_items = cs_get_option( 'advantage_items' );
                     
                     if(is_array($advantage_items)){
                         foreach($advantage_items as $advantage_item) {  
@@ -71,11 +84,11 @@ get_header(); ?>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="advantage align-center">
                                 <div class="advantage_icon">
-                                   <span class="<?php echo $advantage_item['advantage_icon']; ?>"></span>
+                                   <span class="<?php echo $advantage_item['advantage_item_icon']; ?>"></span>
                                 </div>
                                 <div class="advantage_content">
-                                    <h3><a href="<?php echo  $advantage_item['advantage_link']; ?>"><?php echo $advantage_item['advantage_title']; ?></a></h3>
-                                    <p><?php echo $advantage_item['advantage_content'];
+                                    <h3><a href="<?php echo  $advantage_item['advantage_item_link']; ?>"><?php echo $advantage_item['advantage_item_title']; ?></a></h3>
+                                    <p><?php echo $advantage_item['advantage_item_content'];
                         ?> </p>
                                 </div>
                             </div>
@@ -85,18 +98,17 @@ get_header(); ?>
                   ?>
                    
                 </div>
-            </div>    
+            </div>  
+
      
             <div class="row">
                 <div class="more_explore">
                     <?php  
-                    $advantage_more_text = cs_get_option( 'advantage_more_text' );
-                    $advantage_more_link = cs_get_option( 'advantage_more_link' );
-                    if($advantage_more_text || $advantage_more_link):
-                    echo ' <a href="'.$advantage_more_link.'">'.$advantage_more_text.'</a>';
+                    if($more_advantage_link || $more_advantage_link_text):
+                    echo ' <a href="'.$more_advantage_link.'">'.$more_advantage_link_text.'</a>';
                     ?>
                     <?php else: ?>
-                    <a href="#">Explore more escaeroom around the world</a>
+                    <a href="#">Explore more Advantage</a>
                     <?php  endif; ?>
                     
                 </div>
@@ -180,25 +192,29 @@ get_header(); ?>
         </div>
     </section>
 
+     <?php 
+        $services_info_section_title = get_field('services_info_section_title');
+        $escaperoom_services_info_items = get_field('escaperoom_services_info_items');
+        $escaperoom_services_info_content = get_field('escaperoom_services_info_content');
+    ?>
+
     <section id="servies_info_section" class="padding_bottom_50 padding_top_50">
     	<div class="container">
     		 <div class="row">
             	<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
 	                <div class="section_header">
-                        <?php  $s_info_s_title = cs_get_option( 'service_info_section_title' );
-                        if($s_info_s_title):
-                        echo '<h1>'.$s_info_s_title.'</h1>';
+                        <?php 
+                        if($services_info_section_title):
+                        echo '<h1>'.$services_info_section_title.'</h1>';
                         ?>
                         <?php else: ?>
                         <h1>Escaperoom Services Info</h1>    
                         <?php  endif; ?>
 
-                        <?php  $s_info_s_subtitle = cs_get_option( 'service_info_section_subtitle' );
-                        if($s_info_s_subtitle):
-                        echo '<h4>'.$s_info_s_subtitle.'</h4>';
-                        ?>
-                        <?php else: ?>
-                        <h4>Find studios in your city, or explore unique ones around the world.ind studios in <br>your city, or explore unique ones around the world.</h4>       
+                        <?php  
+                        if($escaperoom_services_info_content):
+                        echo '<h4>'.$escaperoom_services_info_content.'</h4>';
+                        ?>     
                         <?php  endif; ?>
 	                </div>
 	            </div>    
@@ -206,21 +222,18 @@ get_header(); ?>
     		<div class="row">
     			
                 <?php  
-                    $service_info_items = cs_get_option( 'service_info_items' );
-                    
-                    if(is_array($service_info_items)){
-                        foreach($service_info_items as $service_info_item) {  
+                   
+                    if(is_array($escaperoom_services_info_items)){
+                        foreach($services_info_items as $service_info_item) {  
                     ?>
-                        
-                        
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="servies_info_item">         
                                 <span class="servies_info_icon">
-                                    <i class="<?php echo $service_info_item['servie_info_icon']; ?>"></i>
+                                    <i class="<?php echo $service_info_item['services_info_item_icon']; ?>"></i>
                                 </span>
                                 <div class="servies_info_conent">
-                                    <h4><?php echo $service_info_item['servie_info_title']; ?></h4>
-                                    <p><?php echo $service_info_item['servie_info_content']; ?></p>
+                                    <h4><?php echo $service_info_item['services_info_item_title']; ?></h4>
+                                    <p><?php echo $service_info_item['services_info_item_content']; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -234,18 +247,21 @@ get_header(); ?>
     </section>
   	
   	<?php  
-  		$vendor_video_bg = cs_get_option( 'vendor_video_bg' );
-  		$vendor_video_id =  cs_get_option( 'vendor_video_id' ); 
-  		if($vendor_video_bg ||  $vendor_video_id) :
+        $escaperoom_video_background_image = get_field('escaperoom_video_background_image');
+        $escaperoom_viemo_video_id = get_field('escaperoom_viemo_video_id');
+        $escaperoom_video_title = get_field('escaperoom_video_title');
+  		$escaperoom_video_sub_title = get_field('escaperoom_video_sub_title');
+
+  		if($escaperoom_video_background_image &&  $escaperoom_viemo_video_id) :
 
   	?>
-    <section id="advantage_3d_section" style="background-image:url('<?php echo $vendor_video_bg; ?>')">
+    <section id="advantage_3d_section" style="background-image:url('<?php echo $escaperoom_video_background_image; ?>')">
     	<div class="container">
 			<div class="row">
 				<div class="video_content text-center">
-					<a class="popup_video" data-type="vimeo" data-autoplay="true" href="http://vimeo.com/<?php echo $vendor_video_id; ?>"><span class="ion-ios-play-outline"></span></a>
-					<h2 class="title"><?php echo cs_get_option( 'feature_video_title' ); ?></h2>
-					<span class="sub-title"><?php echo cs_get_option( 'feature_video_subtitle' ); ?></span>
+					<a class="popup_video" data-type="vimeo" data-autoplay="true" href="http://vimeo.com/<?php echo $escaperoom_viemo_video_id; ?>"><span class="ion-ios-play-outline"></span></a>
+					<h2 class="title"><?php echo $escaperoom_video_title; ?></h2>
+					<span class="sub-title"><?php echo $escaperoom_video_sub_title; ?></span>
 				</div>
 			</div>
 		</div>	

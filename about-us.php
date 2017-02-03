@@ -15,12 +15,7 @@
 
 get_header(); 
 
-	$about_get_meta = get_post_meta( get_the_ID(), '_aboutus_options', true);
-
-	$about_us_items = $about_get_meta['about_us'];
-
-
-
+	$aboutus_tabs = get_field('about_us_tab');
 
 ?>
 
@@ -33,33 +28,29 @@ get_header();
 
 				<ul class="nav nav-pills nav-stacked col-md-2">
 
-				
 			    <?php 
 
-			      if(is_array($about_us_items)){
+			      if(is_array($aboutus_tabs)){
 			      		$counter = 0;
-				        foreach($about_us_items as $about_us_item) {
+				        foreach($aboutus_tabs as $aboutus_tab) {
 				            $counter++;    
        			 ?>
-
-				  <li class="post-<?php the_ID(); ?> <?=($counter == 1) ? 'active' : ''?>"><a href="#post-<?php the_ID(); ?>" data-toggle="pill">
-				  	<?php echo $about_us_item['about_title']; ?>
+				  <li class="post-<?php the_ID(); ?> <?=($counter == 1) ? 'active' : ''?>"><a href="#post-<?php echo $counter; ?>" data-toggle="pill">
+				  	<?php echo $aboutus_tab['about_tab_title']; ?>
 				  </a></li>
 
 				<?php  } } ?>
 				</ul>
-
-
 				<div class="tab-content col-md-10">
 					<?php
-						if(is_array($about_us_items)){
+						if(is_array($aboutus_tabs)){
 				        $counter = 0;
-				        foreach($about_us_items as $about_us_item) {
+				        foreach($aboutus_tabs as $aboutus_tab) {
 				            $counter++;
 				       
 			        ?>
-				        <div class="tab-pane <?=($counter == 1) ? 'active' : ''?>" id="post-<?php the_ID(); ?>">
-				             <?php echo $about_us_item['about_content']; ?>
+				        <div class="tab-pane <?=($counter == 1) ? 'active' : ''?>" id="post-<?php echo $counter; ?>">
+				             <?php echo $aboutus_tab['about_content']; ?>
 				        </div>
 			        <?php  }  } ?>
 				</div>

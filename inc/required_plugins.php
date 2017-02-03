@@ -97,6 +97,12 @@ function escaperoom_register_required_plugins() {
 			'required'     	=> true,
 		),
 		array(
+			'name'         	=> 'Advance Custom Field Pro', 
+			'slug'         	=> 'advanced-custom-fields-pro', 
+			'source'       	=> get_stylesheet_directory() . '/inc/plugins/advanced-custom-fields-pro.zip',
+			'required'     	=> true,
+		),
+		array(
 			'name'      	=> 'WooCommerce',
 			'slug'      	=> 'woocommerce',
 			'required'  	=> true,
