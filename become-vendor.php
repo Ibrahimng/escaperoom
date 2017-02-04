@@ -2,16 +2,12 @@
 /*
 Template name: Become-vendor
 */
-get_header(); ?>
-    <!-- Header -->
-    <?php  $vendor_banner = cs_get_option( 'vendor_banner' ); ?>
+get_header(); 
 
-
-    <?php 
-        $vendor_banner_image = get_field('vendor_banner_image');
-        $vendor_button_text = get_field('vendor_button_text');
-        $vendor_button_link = get_field('vendor_button_link');
-    ?>
+    $vendor_banner_image = get_field('vendor_banner_image');
+    $vendor_button_text = get_field('vendor_button_text');
+    $vendor_button_link = get_field('vendor_button_link');
+?>
 
 
 
