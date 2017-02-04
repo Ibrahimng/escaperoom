@@ -12,17 +12,19 @@
 ?>
 
 <?php if(!is_user_logged_in() && !is_page('My Account')) : ?>
-    <?php $callto_section_bg =  get_field('call_to_action_background_color'); ?>
+    <?php $callto_section_bg =  get_field('call_to_action_background_color','options'); 
+
+    ?>
     <section style="background:<?php echo $callto_section_bg; ?>" id="calltoaction_secton">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="call_action">
                     <?php 
-                        $call_to_action_content = get_field('call_to_action_content'); 
-                        $call_to_action_btn_text = get_field('call_to_action_btn_text'); 
-                        $call_to_action_btn_link = get_field('call_to_action_btn_link'); 
-                        $calltoaction_btn_color = get_field('call_to_action_button_color'); 
+                        $call_to_action_content = get_field('call_to_action_content','options'); 
+                        $call_to_action_btn_text = get_field('call_to_action_btn_text','options'); 
+                        $call_to_action_btn_link = get_field('call_to_action_btn_link','options'); 
+                        $calltoaction_btn_color = get_field('call_to_action_button_color','options'); 
 
                         if ($call_to_action_content) : 
                     ?>

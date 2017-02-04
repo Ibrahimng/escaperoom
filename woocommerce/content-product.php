@@ -56,7 +56,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 		<div class="product_info">
 		<a href="<?php the_permalink(); ?>">
-			<span class="pro_title"><?php echo $product->get_title(); ?></span>
+			<span class="pro_title">
+			<?php 
+				echo substr($product->get_title(), 0, 28);
+				if (strlen($product->get_title()) > 28) echo "&nbsp;.....";
+			?>
+			</span>
 		</a>
 		
 		<span class="author_info">

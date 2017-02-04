@@ -3,9 +3,7 @@
 Template name: Become-vendor
 */
 get_header(); ?>
-    <!-- Header -->
-    <?php  $vendor_banner = cs_get_option( 'vendor_banner' ); ?>
-
+  
 
     <?php 
         $vendor_banner_image = get_field('vendor_banner_image');
@@ -108,7 +106,7 @@ get_header(); ?>
                     echo ' <a href="'.$more_advantage_link.'">'.$more_advantage_link_text.'</a>';
                     ?>
                     <?php else: ?>
-                    <a href="#">Explore more Advantage</a>
+                    <a href="<?php echo esc_url( $product->get_product_url() ) ?>">Explore more Advantage</a>
                     <?php  endif; ?>
                     
                 </div>
@@ -224,7 +222,8 @@ get_header(); ?>
                 <?php  
                    
                     if(is_array($escaperoom_services_info_items)){
-                        foreach($services_info_items as $service_info_item) {  
+                        foreach($escaperoom_services_info_items as $service_info_item) {  
+                     
                     ?>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="servies_info_item">         
@@ -237,7 +236,9 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                    <?php }
+
+                    <?php 
+                      }
                     }
                 ?>
     			

@@ -186,6 +186,7 @@ $('.feature_vidoes').slick({
 
     // google.maps.event.addDomListener('#loadmap', 'click', initMap);
 
+
 }(jQuery));
 
     
