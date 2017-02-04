@@ -69,20 +69,53 @@ class EscapeRoom {
 
 	public function productLocations() {
 
-		$args = array(
-			'posts_per_page'   => -1,
-			'offset'           => 0,
-			'orderby'          => 'date',
-			'order'            => 'DESC',
-			'post_type'        => 'product',
-			'author'	   => '',
-			'author_name'	   => '',
-			'post_status'      => 'publish',
+		$product_ids = array();
+
+		if ( is_post_type_archive( 'product' ) ) {
+
+			$cate = get_queried_object();
+			$cateID = $cate->term_id;
+
+			 $args = array(
+			    'post_type'             => 'product',
+			    'post_status'           => 'publish',
+			    'ignore_sticky_posts'   => 1,
+			    'posts_per_page'        => '12',
+			    'meta_query'            => array(
+			        array(
+				            'key'           => '_visibility',
+				            'value'         => array('catalog', 'visible'),
+				            'compare'       => 'IN'
+				        )
+				    ),
+				    'tax_query'             => array(
+				        array(
+				            'taxonomy'      => 'product_cat',
+				            'field' 		=> 'term_id', 
+				            'terms'         => $cateID,
+				            'operator'      => 'IN'
+				        )
+				    )
 			);
+			$q = get_posts($args);
+			$product_ids = wp_list_pluck($q, 'ID');
 
-		$q = get_posts($args);
+		} else {
+			$args = array(
+				'posts_per_page'   => -1,
+				'offset'           => 0,
+				'orderby'          => 'date',
+				'order'            => 'DESC',
+				'post_type'        => 'product',
+				'author'	   => '',
+				'author_name'	   => '',
+				'post_status'      => 'publish',
+				);
+			$q = get_posts($args);
+			$product_ids = wp_list_pluck($q, 'ID');
+		}
 
-		$product_ids = wp_list_pluck($q, 'ID');
+
 		$locations = array();
 
 		foreach($product_ids as $id) {

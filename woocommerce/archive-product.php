@@ -47,7 +47,7 @@ get_header(); ?>
 						  	</a>
 						  </li>
 						  <li>
-						  	<a class="btn btn-primary" data-toggle="tab" href="#map">
+						  	<a class="btn btn-primary" id="loadmap" data-toggle="tab" href="#map">
 						  	<span class="ion-ios-location-outline"></span>Map
 						  	</a>
 						  </li>

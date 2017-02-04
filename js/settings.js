@@ -103,17 +103,17 @@ $('.feature_vidoes').slick({
 		var product_locations = JSON.parse(data);
 		var map = new google.maps.Map(document.getElementById('product_map'), {
           zoom: 3,
-           center: {lat: 23.6850, lng: 90.3563},
+          center: {lat: 23.6850, lng: 90.3563},
         });
 
 
 	    // locate to users location
-	    if (navigator.geolocation) {
-	      navigator.geolocation.getCurrentPosition(function (position) {
-	        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	        map.setCenter(initialLocation);
-	      });
-	    }
+	    // if (navigator.geolocation) {
+	    //   navigator.geolocation.getCurrentPosition(function (position) {
+	    //     initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	    //     map.setCenter(initialLocation);
+	    //   });
+	    // }
 
 
         var markers = [];
@@ -123,8 +123,8 @@ $('.feature_vidoes').slick({
         	var latLng = new google.maps.LatLng(product_locations[i].lat, product_locations[i].lng);
         	  marker = new google.maps.Marker({
 							position: latLng,
-							zoom: 4,
-							map: map
+							zoom: 12,
+							map: map,
 				        });
 
         	  markers.push(marker);
@@ -178,7 +178,13 @@ $('.feature_vidoes').slick({
 		});
 
     }
-    google.maps.event.addDomListener(window, 'load', initMap);
+
+     $('a[href="#map"').bind('click', function() {
+                initMap();
+            });
+
+
+    // google.maps.event.addDomListener('#loadmap', 'click', initMap);
 
 }(jQuery));
 
