@@ -207,6 +207,7 @@ require get_template_directory() . '/inc/dokan-hooks.php';
 require get_template_directory() . '/inc/shortcodes.php';
 require get_template_directory() . '/inc/options.php';
 require get_template_directory() . '/inc/esr_location_widget.php';
+require get_template_directory() . '/inc/esr_mostpropullar_view_widget.php';
 
 
 require_once('wp-advanced-search/wpas.php');
