@@ -34,10 +34,17 @@ class Escaperoom_persons_quantity_widgets extends WP_Widget
 		if ( ! empty( $title ) )
 		echo $args['before_title'] . $title . $args['after_title'];
 		 ?>
-		<div class="rangeslider">
-		   <input type="range" min="0" max="5" data-rangeSlider>
-		   <output></output>
-		</div>
+		
+		<div class="person-filter">
+		    <p>
+		        <label for="quantity">Filter by Persons:</label>
+		        <input type="text" id="quantity" style="border:0; color:#f6931f; font-weight:bold;" />
+		    </p>
+
+	   		 <div id="person-filter"></div>
+   		 </div>
+
+
 
 		<?php echo $args['after_widget'];
 	}

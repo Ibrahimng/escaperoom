@@ -124,7 +124,7 @@ function escaperoom_scripts() {
 	wp_enqueue_style('slick', get_template_directory_uri() . '/css/slick.css', array(), false, 'all');
 	wp_enqueue_style('venobox', get_template_directory_uri() . '/css/venobox.css', array(), false, 'all');
 	wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.css', array(), false, 'all');
-	wp_enqueue_style('rangeSlider-css', get_template_directory_uri() . '/css/rangeSlider.css', array(), false, 'all');
+	wp_enqueue_style('jquery-ui', get_template_directory_uri() . '/css/jquery-ui.css', array(), false, 'all');
 	//wp_enqueue_style('landing_page', get_template_directory_uri() . '/css/landing-page.css', array(), false, 'all');
 	wp_enqueue_style('escaperoom_style', get_template_directory_uri() . '/css/escaperoom_style.css', array(), false, 'all');
 	wp_enqueue_style('responsive', get_template_directory_uri() . '/css/responsive.css', array(), false, 'all');
@@ -140,12 +140,10 @@ function escaperoom_scripts() {
 
 	wp_enqueue_script('slick_slider', get_template_directory_uri() . '/js/slick.min.js', array(), false, true);
 
-	wp_enqueue_script('rangeSlider-js', get_template_directory_uri() . '/js/rangeSlider.js', array(), false, true);
+	//wp_enqueue_script('rangeSlider-js', get_template_directory_uri() . '/js/rangeSlider.js', array(), false, true);
 
 
 	wp_enqueue_script('venobox', get_template_directory_uri() . '/js/venobox.min.js', array(), false, true);
-	wp_enqueue_script('settings', get_template_directory_uri() . '/js/settings.js', array('slick_slider'), false, true);
-	wp_localize_script('settings', 'localized', array('themepath' => get_stylesheet_directory_uri() ));
 	wp_enqueue_script( 'escaperoom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'escaperoom-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -153,6 +151,10 @@ function escaperoom_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_script('settings', get_template_directory_uri() . '/js/settings.js', array('slick_slider', 'jquery', 'jquery-ui-slider'), '', true);
+	wp_localize_script('settings', 'localized', array('themepath' => get_stylesheet_directory_uri() ));
+
 }
 add_action( 'wp_enqueue_scripts', 'escaperoom_scripts' );
 

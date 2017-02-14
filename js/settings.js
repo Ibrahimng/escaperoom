@@ -188,56 +188,35 @@ $('.feature_vidoes').slick({
 
 
     // persons by quantity filter 
-	var selector = '[data-rangeSlider]',
-                elements = document.querySelectorAll(selector);
 
-        // Example functionality to demonstrate a value feedback
-        function valueOutput(element) {
-            var value = element.value,
-                    output = element.parentNode.getElementsByTagName('output')[0];
-            output.innerHTML = value;
-        }
+    function loadFilterByPerson(data) {
+    	data.action = 'filterbyperson';
+    	$.ajax({
+    		url: woocommerce_params.ajax_url,
+			data: data,
+			success:function(response) {
+				
+			},
 
-        for (var i = elements.length - 1; i >= 0; i--) {
-            valueOutput(elements[i]);
-        }
-
-        Array.prototype.slice.call(document.querySelectorAll('input[type="range"]')).forEach(function (el) {
-            el.addEventListener('input', function (e) {
-                valueOutput(e.target);
-            }, false);
-        });
+    	});
+    }
 
 
-        // Basic rangeSlider initialization
-        rangeSlider.create(elements, {
+	    $( "#person-filter" ).slider({
+	    	range: true,
             min: 0,
-            max: 5,
-            value : 0,
-            borderRadius : 3,
-            buffer : 0,
-            minEventInterval : 1000,
-
-            // Callback function
-            onInit: function () {
+            max: 10,
+            values: [ 2, 5 ],
+            slide: function( event, ui ) {
+                $( "#quantity" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
             },
+            change: function(event, ui) {
+            	var data = { 'min' : ui.values[ 0 ], 'max' : ui.values[ 1 ] };
+            	loadFilterByPerson(data);
+		    }
+	    });
 
-            // Callback function
-            onSlideStart: function (value, percent, position) {
-                console.info('onSlideStart', 'value: ' + value, 'percent: ' + percent, 'position: ' + position);
-            },
-
-            // Callback function
-            onSlide: function (value, percent, position) {
-                console.log('onSlide', 'value: ' + value, 'percent: ' + percent, 'position: ' + position);
-            },
-
-            // Callback function
-            onSlideEnd: function (value, percent, position) {
-                console.warn('onSlideEnd', 'value: ' + value, 'percent: ' + percent, 'position: ' + position);
-            }
-        });
+	     $( "#quantity" ).val( $( "#person-filter" ).slider( "values", 0 ) +
+        " - " + $( "#person-filter" ).slider( "values", 1 ) );
 
 }(jQuery));
-
-    
