@@ -34,6 +34,9 @@ $map_location = isset( $store_info['location'] ) ? esc_attr( $store_info['locati
 
         }
         ?>
+        <div class="store_social_media">
+            <?php echo social_share(); ?>
+        </div>    
 
         <?php do_action( 'dokan_sidebar_store_after', $store_user, $store_info ); ?>
     </div>

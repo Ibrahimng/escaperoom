@@ -110,12 +110,6 @@ function woo_hide_page_title() {
 //breadcrumb remove
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 
-
-// add_action('woocommerce_after_shop_loop', 'mapshow_fun', 20, 0);
-// function mapshow_fun() {
-// 	echo '<div id="product_map"></div>';
-// }
-
 //remove count shop page
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
@@ -184,20 +178,15 @@ function escaperoom_curosel_single_product_fun(){	?>
 		    $product_thumb = get_post_thumbnail_id($post->ID);
 			$attachment_ids = $product->get_gallery_attachment_ids();
 			$attachment_ids[] = $product_thumb;
-			// array_push($attachment_ids, $product_thumb);
-
-			// if($attachment_ids) :
 
 			foreach ($attachment_ids as $attachment_id) :
 			$img_atts = wp_get_attachment_image_src( $attachment_id, 'single_product_page' );
-			?>
+		?>
 			<div class="single_pro_thumb_item">
 			  <img src="<?php echo $img_atts[0]; ?>">
 			</div>
 
-			<?php endforeach; ?>
-	    
-		 <?php // endif; ?>
+		<?php endforeach; ?>
 	</div>
 <?php } 
 

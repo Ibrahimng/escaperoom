@@ -124,6 +124,7 @@ function escaperoom_scripts() {
 	wp_enqueue_style('slick', get_template_directory_uri() . '/css/slick.css', array(), false, 'all');
 	wp_enqueue_style('venobox', get_template_directory_uri() . '/css/venobox.css', array(), false, 'all');
 	wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.css', array(), false, 'all');
+	wp_enqueue_style('rangeSlider-css', get_template_directory_uri() . '/css/rangeSlider.css', array(), false, 'all');
 	//wp_enqueue_style('landing_page', get_template_directory_uri() . '/css/landing-page.css', array(), false, 'all');
 	wp_enqueue_style('escaperoom_style', get_template_directory_uri() . '/css/escaperoom_style.css', array(), false, 'all');
 	wp_enqueue_style('responsive', get_template_directory_uri() . '/css/responsive.css', array(), false, 'all');
@@ -138,6 +139,8 @@ function escaperoom_scripts() {
 	wp_enqueue_script('markerclusterer', get_template_directory_uri() . '/assets/maps/markerclusterer.js', array('google_maps'), false, true);
 
 	wp_enqueue_script('slick_slider', get_template_directory_uri() . '/js/slick.min.js', array(), false, true);
+
+	wp_enqueue_script('rangeSlider-js', get_template_directory_uri() . '/js/rangeSlider.js', array(), false, true);
 
 
 	wp_enqueue_script('venobox', get_template_directory_uri() . '/js/venobox.min.js', array(), false, true);
@@ -206,8 +209,10 @@ require get_template_directory() . '/inc/custom-taxonomy.php';
 require get_template_directory() . '/inc/dokan-hooks.php';
 require get_template_directory() . '/inc/shortcodes.php';
 require get_template_directory() . '/inc/options.php';
-require get_template_directory() . '/inc/esr_location_widget.php';
-require get_template_directory() . '/inc/esr_mostpropullar_view_widget.php';
+require get_template_directory() . '/inc/widgets/esr_location_widget.php';
+require get_template_directory() . '/inc/widgets/esr_mostpropullar_view_widget.php';
+require get_template_directory() . '/inc/widgets/esr_persons_quantity.php';
+//require get_template_directory() . '/inc/filteringperson.php';
 
 
 require_once('wp-advanced-search/wpas.php');
@@ -219,4 +224,42 @@ require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/class.escaperoom.php';
 require get_template_directory() . '/inc/ajax.php';
 
+
+/* social mendia share function */
+function social_share() {
+
+global $product, $post, $author, $store_info;
+
+
+	$author = get_user_by('id', $post->post_author);
+	$store_info = dokan_get_store_info( $author->ID );
+	
+	$dokanurl = dokan_get_store_url( $author->ID );
+	$storename =  $store_info['store_name'];
+
+
+	$html = '<div id="share_buttons">
+			    <ul class="list-inline">
+			    	<li>
+			    		<!-- Facebook -->
+					    <a href="http://www.facebook.com/sharer.php?u='. $dokanurl.'&amp;text='. $storename.'" target="_blank">
+					        <span class="fa fa-facebook"></span>Share
+					    </a>
+			    	</li>
+			    	<li>
+			    		<!-- Twitter -->
+					    <a href="https://twitter.com/share?url='. $dokanurl.'&amp;text='. $storename.'" target="_blank">
+					        <span class="fa fa-twitter"></span>Twitter
+					    </a>
+			    	</li>
+			    	<li>
+			    		<!-- Email -->
+						<a href="mailto:?Subject='. $storename.'&amp;Body='. $storename.'&amp; '. $dokanurl.'">
+					        <span class="fa fa-envelope-o"></span>Email
+					    </a>
+			    	</li>
+			    </ul>
+			</div>';
+	return $html;
+}
 
