@@ -106,6 +106,15 @@ function escaperoom_widgets_init() {
 		'before_title'  => '<h2 class="widget_title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Store Sidebar', 'escaperoom' ),
+		'id'            => 'sidebar-store',
+		'description'   => esc_html__( 'Add widgets For Store page Sidebar.', 'escaperoom' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'escaperoom_widgets_init' );
 
@@ -214,7 +223,7 @@ require get_template_directory() . '/inc/options.php';
 require get_template_directory() . '/inc/widgets/esr_location_widget.php';
 require get_template_directory() . '/inc/widgets/esr_mostpropullar_view_widget.php';
 require get_template_directory() . '/inc/widgets/esr_persons_quantity.php';
-//require get_template_directory() . '/inc/filteringperson.php';
+require get_template_directory() . '/inc/widgets/esr_store_socialmedia.php';
 
 
 require_once('wp-advanced-search/wpas.php');
@@ -227,41 +236,4 @@ require get_template_directory() . '/inc/class.escaperoom.php';
 require get_template_directory() . '/inc/ajax.php';
 
 
-/* social mendia share function */
-function social_share() {
-
-global $product, $post, $author, $store_info;
-
-
-	$author = get_user_by('id', $post->post_author);
-	$store_info = dokan_get_store_info( $author->ID );
-	
-	$dokanurl = dokan_get_store_url( $author->ID );
-	$storename =  $store_info['store_name'];
-
-
-	$html = '<div id="share_buttons">
-			    <ul class="list-inline">
-			    	<li>
-			    		<!-- Facebook -->
-					    <a href="http://www.facebook.com/sharer.php?u='. $dokanurl.'&amp;text='. $storename.'" target="_blank">
-					        <span class="fa fa-facebook"></span>Share
-					    </a>
-			    	</li>
-			    	<li>
-			    		<!-- Twitter -->
-					    <a href="https://twitter.com/share?url='. $dokanurl.'&amp;text='. $storename.'" target="_blank">
-					        <span class="fa fa-twitter"></span>Twitter
-					    </a>
-			    	</li>
-			    	<li>
-			    		<!-- Email -->
-						<a href="mailto:?Subject='. $storename.'&amp;Body='. $storename.'&amp; '. $dokanurl.'">
-					        <span class="fa fa-envelope-o"></span>Email
-					    </a>
-			    	</li>
-			    </ul>
-			</div>';
-	return $html;
-}
 
