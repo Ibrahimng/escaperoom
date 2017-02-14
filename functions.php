@@ -259,20 +259,20 @@ function filter_by_person_number($query = false ) {
 
 	if(isset($_GET['min_person'])) {
 
-		// $meta_query[] = array(
-		// 	'meta_query' => array(
-	 //        'relation' => 'AND',
-	 //        array(
-	 //            'key' => '_wc_booking_min_persons_group',
-	 //            'value' => $_GET['min_person'],
-	 //            'compare' => '>='
-	 //        ),
-	 //        array(
-	 //            'key' => '_wc_booking_max_persons_group',
-	 //            'value' => $_GET['max_person'],
-	 //            'compare' => '<='
-	 //        )
-	 //    ));
+		$meta_query[] = array(
+			'meta_query' => array(
+	        'relation' => 'AND',
+	        array(
+	            'key' => '_wc_booking_min_persons_group',
+	            'value' => $_GET['min_person'],
+	            'compare' => '>='
+	        ),
+	        array(
+	            'key' => '_wc_booking_max_persons_group',
+	            'value' => $_GET['max_person'],
+	            'compare' => '<='
+	        )
+	    ));
 
 
 		// $meta_query[] = array(
