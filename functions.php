@@ -249,32 +249,52 @@ require get_template_directory() . '/inc/ajax.php';
 
 
 add_action('pre_get_posts', 'filter_by_person_number');
-function filter_by_person_number($query) {
-	// if(is_admin()) {
-	// 	return;
-	// }
+function filter_by_person_number($query = false ) {
+	// Bail if not home, not a query, not main query, or no featured posts
+    if ( ! is_a( $query, 'WP_Query' ) || ! $query->is_main_query() ) {
+        return;
+    }
 
 	$meta_query = $query->get('meta_query');
 
 	if(isset($_GET['min_person'])) {
-		$meta_query[] = array(
-			'key' => '_wc_booking_min_persons_group',
-			'type' => 'numeric',
-			'value' => $_GET['min_person'],
-			'compare' => '>='
-		);
-		$query->set('meta_query',$meta_query);
-	};	
 
-	if(isset($_GET['max_person'])) {
-		$meta_query[] = array(
-			'key' => '_wc_booking_max_persons_group',
-			'type' => 'numeric',
-			'value' => $_GET['max_person'],
-			'compare' => '<='
-		);
-		$query->set('meta_query',$meta_query);
-	};
+		// $meta_query[] = array(
+		// 	'meta_query' => array(
+	 //        'relation' => 'AND',
+	 //        array(
+	 //            'key' => '_wc_booking_min_persons_group',
+	 //            'value' => $_GET['min_person'],
+	 //            'compare' => '>='
+	 //        ),
+	 //        array(
+	 //            'key' => '_wc_booking_max_persons_group',
+	 //            'value' => $_GET['max_person'],
+	 //            'compare' => '<='
+	 //        )
+	 //    ));
+
+
+		// $meta_query[] = array(
+		// 	'meta_key' => '_wc_booking_min_persons_group',
+		// 	'meta_type' => 'numeric',
+		// 	'meta_value' => $_GET['min_person'],
+		// 	'meta_compare' => '>='
+		// );
+	}
+
+	// if(isset($_GET['max_person'])) {
+	// 	$meta_query[] = array(
+	// 		'meta_key' => '_wc_booking_max_persons_group',
+	// 		'meta_type' => 'numeric',
+	// 		'meta_value' => $_GET['max_person'],
+	// 		'meta_compare' => '<='
+	// 	);
+	// };
+
+	$query->set('meta_query', array( $meta_query ));
+
+	return;
 
 }
 

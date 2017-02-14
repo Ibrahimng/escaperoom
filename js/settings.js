@@ -191,19 +191,30 @@ $('.feature_vidoes').slick({
 
     	// http://stackoverflow.com/questions/8902390/constructing-a-url-with-parameters-using-jquery
 	    var buildUrl = function(key1, key2, value1, value2) {
-		    var sep = (localized.current_url_with_args.indexOf('?') > -1) ? '&' : '?';
-		    if(localized.current_url_with_args.indexOf('min_person') > -1) {
-		    	return localized.current_url + sep + key1 + '=' + value1 + '&' + key2 + '=' + value2;
+	    	var base = localized.current_url_with_args;
+		    var sep = (base.indexOf('?') > -1) ? '&' : '?';
+		    if(base.indexOf('min_person') > -1) {
+		    	return localized.current_url + '?' + key1 + '=' + value1 + '&' + key2 + '=' + value2;
 		    } else {
 		    	return localized.current_url_with_args + sep + key1 + '=' + value1 + '&' + key2 + '=' + value2;
 		    }
+		}
+
+		function getParameterByName(name, d ) {
+		    url = window.location.href;
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		        results = regex.exec(url);
+		    if (!results) return d;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
 		}
 
 	    $( "#person-filter" ).slider({
 	    	range: true,
             min: 0,
             max: 10,
-            values: [ 2, 5 ],
+            values: [getParameterByName('min_person', 2 ), getParameterByName('max_person', 5) ],
             slide: function( event, ui ) {
                 $( "#quantity" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
             },
