@@ -18,3 +18,5 @@
 ?>
 <!-- <div class="row">
  -->
+
+ <?php $counter = 0; ?>

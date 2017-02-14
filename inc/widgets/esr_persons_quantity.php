@@ -75,7 +75,7 @@ class Escaperoom_persons_quantity_widgets extends WP_Widget
 		if ( isset( $instance[ 'title' ] ) ) {
 			$title = $instance[ 'title' ];
 		}else {
-			$title = __( 'Filtter Persons Quantity', 'Escaperoom_persons_quantity_widgets' );
+			$title = __( 'Filtter Persons', 'Escaperoom_persons_quantity_widgets' );
 		}
 
 		

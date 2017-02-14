@@ -44,7 +44,7 @@ function escaperoom_setup() {
 	add_theme_support( 'post-thumbnails', array('product','post'));
 	add_image_size('location_img', 260, 240, true);
 	add_image_size('location_img_large', 748, 333, true);
-	add_image_size('maps_pro_img', 200, 75, true);
+	add_image_size('maps_pro_img', 250, 150, true);
 	add_image_size('pro_thum_shop', 240, 160, true);
 	add_image_size('single_product_page', 575, 450, true);
 	
