@@ -162,7 +162,18 @@ function escaperoom_scripts() {
 	}
 
 	wp_enqueue_script('settings', get_template_directory_uri() . '/js/settings.js', array('slick_slider', 'jquery', 'jquery-ui-slider'), '', true);
-	wp_localize_script('settings', 'localized', array('themepath' => get_stylesheet_directory_uri() ));
+
+	global $wp; 
+	$current_url = home_url(add_query_arg(array(),$wp->request));
+	$current_url_with_args = add_query_arg($_SERVER['QUERY_STRING'], '', home_url( $wp->request ));
+
+	wp_localize_script('settings', 'localized', 
+		array(
+			'themepath' => get_stylesheet_directory_uri(),
+			'current_url' => $current_url,
+			'current_url_with_args' => $current_url_with_args,
+		)
+	);
 
 }
 add_action( 'wp_enqueue_scripts', 'escaperoom_scripts' );
@@ -234,6 +245,39 @@ if(function_exists('dokan_get_template_part')) {
 require get_template_directory() . '/inc/search.php';
 require get_template_directory() . '/inc/class.escaperoom.php';
 require get_template_directory() . '/inc/ajax.php';
+
+
+
+add_action('pre_get_posts', 'filter_by_person_number');
+function filter_by_person_number($query) {
+	// if(is_admin()) {
+	// 	return;
+	// }
+
+	$meta_query = $query->get('meta_query');
+
+	if(isset($_GET['min_person'])) {
+		$meta_query[] = array(
+			'key' => '_wc_booking_min_persons_group',
+			'type' => 'numeric',
+			'value' => $_GET['min_person'],
+			'compare' => '>='
+		);
+		$query->set('meta_query',$meta_query);
+	};	
+
+	if(isset($_GET['max_person'])) {
+		$meta_query[] = array(
+			'key' => '_wc_booking_max_persons_group',
+			'type' => 'numeric',
+			'value' => $_GET['max_person'],
+			'compare' => '<='
+		);
+		$query->set('meta_query',$meta_query);
+	};
+
+}
+
 
 
 

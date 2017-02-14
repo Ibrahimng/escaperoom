@@ -189,18 +189,15 @@ $('.feature_vidoes').slick({
 
     // persons by quantity filter 
 
-    function loadFilterByPerson(data) {
-    	data.action = 'filterbyperson';
-    	$.ajax({
-    		url: woocommerce_params.ajax_url,
-			data: data,
-			success:function(response) {
-				
-			},
-
-    	});
-    }
-
+    	// http://stackoverflow.com/questions/8902390/constructing-a-url-with-parameters-using-jquery
+	    var buildUrl = function(key1, key2, value1, value2) {
+		    var sep = (localized.current_url_with_args.indexOf('?') > -1) ? '&' : '?';
+		    if(localized.current_url_with_args.indexOf('min_person') > -1) {
+		    	return localized.current_url + sep + key1 + '=' + value1 + '&' + key2 + '=' + value2;
+		    } else {
+		    	return localized.current_url_with_args + sep + key1 + '=' + value1 + '&' + key2 + '=' + value2;
+		    }
+		}
 
 	    $( "#person-filter" ).slider({
 	    	range: true,
@@ -211,8 +208,9 @@ $('.feature_vidoes').slick({
                 $( "#quantity" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
             },
             change: function(event, ui) {
-            	var data = { 'min' : ui.values[ 0 ], 'max' : ui.values[ 1 ] };
-            	loadFilterByPerson(data);
+            	var current_url = buildUrl('min_person', 'max_person', ui.values[ 0 ], ui.values[ 1 ]);
+            	window.location.replace(current_url);
+            	console.log(current_url);
 		    }
 	    });
 
