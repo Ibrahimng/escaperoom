@@ -50,7 +50,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		<span class="pro_price"><?php echo get_woocommerce_currency_symbol(); echo $product->get_price(); ?>
 			<span class="pro_day">
 				<span class="hide_list">/</span> 
-				<?php //echo $product->get_duration_unit();?>
+				<?php echo $product->get_duration_unit();?>
 			</span>
 		</span>
 
