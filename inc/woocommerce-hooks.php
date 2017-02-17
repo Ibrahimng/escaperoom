@@ -190,9 +190,35 @@ function escaperoom_curosel_single_product_fun(){	?>
 	</div>
 <?php } 
 
+// single escaperoom social share
 
+function social_share($id) {
 
+	$html = '<div id="share_buttons">
+			    <ul class="list-inline">
+			    	<li>
+			    		<!-- Facebook -->
+					    <a href="http://www.facebook.com/sharer.php?u='. get_the_permalink($id).'&amp;text='. get_the_title($id).'" target="_blank">
+					        <span class="fa fa-facebook-official"></span>Share
+					    </a>
+			    	</li>
+			    	<li>
+			    		<!-- Twitter -->
+					    <a href="https://twitter.com/share?url='. get_the_permalink($id).'&amp;text='. get_the_title($id).'" target="_blank">
+					        <span class="fa fa-twitter"></span>Share
+					    </a>
+			    	</li>
+			    	<li>
+			    		<!-- Email -->
+						<a href="mailto:?Subject='. get_the_title($id).'&amp;Body='. get_the_title($id).'&amp; '. get_the_permalink($id).'">
+					        <span class="fa fa-envelope-o"></span>Email
+					    </a>
+			    	</li>
+			    </ul>
+			</div>';
 
+	return $html;
+} 
 
 
 

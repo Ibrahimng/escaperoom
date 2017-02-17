@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 			do_action( 'woocommerce_single_product_summary' );
 		?>
-
+	<?php echo social_share(get_the_ID()); ?>
 	</div><!-- .summary -->
 
 	<?php
