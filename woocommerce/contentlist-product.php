@@ -24,6 +24,7 @@
 											<h5><?php echo esc_html( $store_info['store_name'] ); ?></h5>
 											</a>
 										</div>
+										<a class="list_pro_btn" href="<?php the_permalink(); ?>">Book Now!</a>
 										<div class="list_price_section hidden-md listmobile">
 											<span class="list_price">
 											<?php echo get_woocommerce_currency_symbol(); 

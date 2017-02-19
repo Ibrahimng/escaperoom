@@ -55,20 +55,19 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		</span>
 
 		<div class="product_info">
-		<a href="<?php the_permalink(); ?>">
-			<span class="pro_title">
-			<?php 
-				echo substr($product->get_title(), 0, 28);
-				if (strlen($product->get_title()) > 28) echo "&nbsp;.....";
-			?>
+			<a href="<?php the_permalink(); ?>">
+				<span class="pro_title">
+				<?php 
+					echo substr($product->get_title(), 0, 28);
+					if (strlen($product->get_title()) > 28) echo "&nbsp;.....";
+				?>
+				</span>
+			</a>
+			<span class="author_info">
+				<a href="<?php echo dokan_get_store_url( $author->ID );?>"><?php echo get_avatar( $author->ID, 50 ); ?>
+				<h5><?php echo esc_html( $store_info['store_name'] ); ?></h5></a>
+				<a class="grid_pro_btn" href="<?php the_permalink(); ?>">Book Now!</a>
 			</span>
-		</a>
-		
-		<span class="author_info">
-			
-			<a href="<?php echo dokan_get_store_url( $author->ID );?>"><?php echo get_avatar( $author->ID, 50 ); ?>
-			<h5><?php echo esc_html( $store_info['store_name'] ); ?></h5></a>
-		</span>
 		</div>
 	</div>
 
