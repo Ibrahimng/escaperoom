@@ -1042,7 +1042,7 @@ a.grid_pro_btn {
     position: absolute;
     right: 25px;
     bottom: 39px;
-    background: #f05025;
+    background: #fc913b;
     padding: 2px 7px;
     color: #fff;
     border-radius: 2px;
@@ -1051,7 +1051,7 @@ a.list_pro_btn {
     position: absolute;
     right: 0;
     bottom: 0px;
-    background: #f05025;
+    background: #fc913b;
     padding: 5px 11px;
     color: #fff;
     border-radius: 2px;
@@ -1330,6 +1330,7 @@ span.list_duction {
 }
 
 /* widget serach */
+
 .woocommerce-product-search label.screen-reader-text {
     display: none;
 }
@@ -1367,6 +1368,7 @@ form.woocommerce-product-search input[type="submit"]:hover {
     background: #337ab7 !important;
 }
 /* category select option */
+
 .woocommerce .widget_product_categories select.dropdown_product_cat {
     width: 100%;
     background: transparent;
@@ -1381,7 +1383,26 @@ form.woocommerce-product-search input[type="submit"]:hover {
     font-size: 18px;
 }
 
+/* best seller dokan */
 
+.dokan-best-seller-widget ul.dokan-best-sellers {
+    list-style: none;
+}
+.dokan-best-seller-widget ul.dokan-best-sellers li {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dokan-best-seller-widget ul.dokan-best-sellers li a {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.dokan-best-seller-widget ul.dokan-best-sellers li i {
+    color: #fc913b;
+    padding-right: 3px;
+}
 
 /* 404 page style */
 .section-title {
@@ -1552,34 +1573,20 @@ ul.escaperoom_pro_tab span {
 #product_map {
     height: 400px !important;
     width: 100% !important;
-    //display: none;
     }
-/*.maps_layout .custom_product {
-    display: none;
-}*/
-/*.maps_hidde {
-    display: none;
-}
-
-.maps_show {
-    display: block !important;
-}*/
-/*
-.grid_layout div#product_map, .list_layout div#product_map, .maps_layout .custom_product {
-    display: none;
-} */
 .pagination {
     text-align: center;
     margin: 0 auto;
     width: 100%;
 }
+
 /* google maps info */
+
 .gm-style-iw {
     width: 250px !important;
     top: 15px !important;
     left: 0 !important;
     background-color: #fff;
-    //box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
     border: 1px solid rgba(72, 181, 233, 0.6);
     border-radius: 2px 2px 0 0;
     overflow-x: hidden!important;
@@ -1888,4 +1895,19 @@ input[type="range"]:focus + .rangeSlider .rangeSlider__handle {
     height: 4px;
     background: #2c3e50;
     border-radius: 2px;
+}
+
+/* dokan store page */
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info {
+    padding: 0 40px;
+}
+.dokan-pagination-container {
+    margin: 30px 0px;
+}
+input.dokan-btn.dokan-btn-theme.dokan-btn-lg.btn-block {
+    width: 140px;
+}
+input.dokan-btn.dokan-btn-theme.dokan-btn-lg.btn-block:hover {
+    background: #337ab7;
+    border-color:#337ab7;
 }
