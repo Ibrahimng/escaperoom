@@ -221,11 +221,18 @@ $('.feature_vidoes').slick({
             change: function(event, ui) {
             	var current_url = buildUrl('min_person', 'max_person', ui.values[ 0 ], ui.values[ 1 ]);
             	window.location.replace(current_url);
-            	console.log(current_url);
 		    }
 	    });
 
 	     $( "#quantity" ).val( $( "#person-filter" ).slider( "values", 0 ) +
         " - " + $( "#person-filter" ).slider( "values", 1 ) );
+
+
+	     // filter by location
+	     $('#filterbylocation').change(function(){
+	     	var cat = $(this).find('option:selected').val();
+	     	var url = localized.current_url + '?location_id'  + '=' + cat;
+	     	window.location.replace(url);
+	     });
 
 }(jQuery));

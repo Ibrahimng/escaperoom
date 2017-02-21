@@ -1,5 +1,4 @@
 <?php
-  // echo "The collation of your database has been successfully changed!";
 /**
  * escaperoom functions and definitions
  *
@@ -259,28 +258,35 @@ function filter_by_person_number($query = false ) {
 
 	if(isset($_GET['min_person'])) {
 
-		$meta_query[] = array(
-			'meta_query' => array(
-	        'relation' => 'AND',
-	        array(
-	            'key' => '_wc_booking_min_persons_group',
-	            'value' => $_GET['min_person'],
-	            'compare' => '>='
-	        ),
-	        array(
-	            'key' => '_wc_booking_max_persons_group',
-	            'value' => $_GET['max_person'],
-	            'compare' => '<='
-	        )
-	    ));
+		// $meta_query[] = array(
+		// 	'meta_query' => array(
+	 //        'relation' => 'AND',
+	 //        array(
+	 //            'key' => '_wc_booking_min_persons_group',
+	 //            'value' => $_GET['min_person'],
+	 //            'compare' => '>='
+	 //        ),
+	 //        array(
+	 //            'key' => '_wc_booking_max_persons_group',
+	 //            'value' => $_GET['max_person'],
+	 //            'compare' => '<='
+	 //        )
+	 //    ));
 
 
 		// $meta_query[] = array(
-		// 	'meta_key' => '_wc_booking_min_persons_group',
-		// 	'meta_type' => 'numeric',
-		// 	'meta_value' => $_GET['min_person'],
-		// 	'meta_compare' => '>='
+		// 	'key' => '_wc_booking_min_persons_group',
+		// 	'type' => 'numeric',
+		// 	'value' => $_GET['min_person'],
+		// 	'compare' => '>='
 		// );
+
+		$meta_query[] = array(
+			'key' => '_wc_booking_max_persons_group',
+			'type' => 'numeric',
+			'value' => $_GET['max_person'],
+			'compare' => '<='
+		);
 	}
 
 	// if(isset($_GET['max_person'])) {
@@ -290,10 +296,20 @@ function filter_by_person_number($query = false ) {
 	// 		'meta_value' => $_GET['max_person'],
 	// 		'meta_compare' => '<='
 	// 	);
-	// };
+	// };	
 
+	if(isset($_GET['location_id'])) {
+	    $taxquery = array(
+	        array(
+	            'taxonomy' => 'esr_locations',
+	            'field' => 'id',
+	            'terms' => array( $_GET['location_id'] ),
+	            'operator'=> 'IN'
+	        )
+	    );
+	    $query->set( 'tax_query', $taxquery );
+	};
 	$query->set('meta_query', array( $meta_query ));
-
 	return;
 
 }

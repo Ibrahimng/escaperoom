@@ -36,23 +36,9 @@ class Escaperoom_locations_widgets extends WP_Widget
 		
 		?>
 
-
-		<ul id="expList" class="product-categories">
-
-     		<?php 
-	            global $esr;
-	            $locations = $esr->getLocationIDs();
-	            foreach ($locations as $k => $v) : 
-	        ?>
-
-            <li>
-                <a href="<?php echo get_term_link($v); ?>"><?php echo $esr->get_location_name($v); ?></a>
-            </li>
-
-                <?php endforeach;   ?>
-                
-            </ul>
-
+		<?php 
+		$id = $_GET['location_id'];
+		wp_dropdown_categories( "taxonomy=esr_locations&show_option_none=Select Location&id=filterbylocation&selected=$id"); ?>
 		<?php 
 
 		echo $args['after_widget'];

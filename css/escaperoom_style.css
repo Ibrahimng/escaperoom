@@ -1383,6 +1383,20 @@ form.woocommerce-product-search input[type="submit"]:hover {
     font-size: 18px;
 }
 
+/* filter by location select option */
+.widget_escaperoom_locations_widgets select#filterbylocation {
+    width: 100%;
+    background: transparent;
+    color: #000;
+    font-size: 18px;
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    outline: 0;
+}
+.widget_escaperoom_locations_widgets select#filterbylocation option{
+    color: #000 !important;
+    font-size: 18px;
+}
 /* best seller dokan */
 
 .dokan-best-seller-widget ul.dokan-best-sellers {
@@ -1768,26 +1782,32 @@ ul.product-categories{
     padding: 8px 10px;
     border-top: 1px solid #EEEEEE;
 }
-
+.product_meta {
+    margin-bottom: 10px;
+}
 /* store page social media */
-div#share_buttons ul li {
+#share_buttons ul {
+    margin-left: 0;
+}
+#share_buttons ul li {
     text-align: center;
     background: #ddd;
-    padding: 10px 8px;
     font-size: 15px;
-    font-weight: bold;
     margin-bottom: 5px;
 }
-div#share_buttons ul li a span {
+#share_buttons ul li a {
+    cursor: pointer;
+}
+#share_buttons ul li a span {
     padding-right: 7px;
 }
-div#share_buttons ul li:hover {
+#share_buttons ul li:hover {
     background: #dd3b0f;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
-div#share_buttons ul li:hover a {
+#share_buttons ul li:hover a {
     color: #fff;
     text-decoration: none;
 }
