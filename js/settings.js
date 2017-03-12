@@ -179,9 +179,9 @@ $('.feature_vidoes').slick({
 
     }
 
-     $('a[href="#map"').bind('click', function() {
-                initMap();
-            });
+	$('a[href="#map"').bind('click', function() {
+		initMap();
+	});
 
 
     // google.maps.event.addDomListener('#loadmap', 'click', initMap);
